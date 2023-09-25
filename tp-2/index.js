@@ -5,7 +5,6 @@ class PrimaryActiveBtn extends HTMLElement {
        
         shadow.innerHTML = `
             <style>
-            /* Add component-specific CSS here */
             :host {
                 display: inline-flex;
               }
