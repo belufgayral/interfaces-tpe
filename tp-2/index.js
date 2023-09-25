@@ -1,10 +1,8 @@
 class PrimaryActiveBtn extends HTMLElement {
     constructor() {
         super();
-        // Add initialization code here
         const shadow = this.attachShadow({ mode: 'open' });
-        // Add Shadow DOM content and styling here
-        // Define HTML content
+       
         shadow.innerHTML = `
             <style>
             /* Add component-specific CSS here */
