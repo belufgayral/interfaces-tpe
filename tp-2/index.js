@@ -13,12 +13,24 @@ class PrimaryActiveBtn extends HTMLElement {
         // Apply custom styles to the button element
         button.style.backgroundColor = '#478D76';
         button.style.color = 'white';
-        button.style.padding = '10px 20px';
+        button.style.padding = '0';
         button.style.border = 'none';
-        button.style.cursor = 'pointer';
+
         // Add a click event listener
         button.addEventListener('click', () => {
             alert('Button clicked!');
+        });
+
+        // Add a mouseenter event listener to apply styles on hover
+        button.addEventListener('mouseenter', () => {
+            button.style.backgroundColor = '#2980b9';
+            // Add any other hover styles here
+        });
+
+        // Add a mouseleave event listener to reset styles on mouseleave
+        button.addEventListener('mouseleave', () => {
+            button.style.backgroundColor = '#478D76';
+            // Reset any other hover styles here
         });
     }
 

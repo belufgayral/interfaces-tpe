@@ -1,3 +1,5 @@
+/* tailwind mode classes */
+
 .flex-row {
     display: flex;
     flex-direction: row;
@@ -15,6 +17,12 @@
 .items-center {
     align-items: center;
 }
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+/* specific for components */
 
 .button-primary {
     padding: 10px 24px;
