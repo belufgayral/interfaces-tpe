@@ -8,10 +8,24 @@
     flex-direction: column;
 }
 
-.justify-center	{
+.justify-center {
     justify-content: center;
 }
 
 .items-center {
     align-items: center;
+}
+
+.button-primary {
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 13px;
+    background: var(--Secundario-L1, #478D76);
+    cursor: pointer;
+}
+
+.button-primary:hover {
+    background-color: #2980b9;
 }
