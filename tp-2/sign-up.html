@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrarse</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login flex-row items-center justify-center">
+    <form class="flex-col justify-space-evenly items-center">
+        <img class="logo" src="css/images/logo/Logo.png" alt="Logo">
+        <div class="flex-row">
+            <button class="social-network">
+                <img src="css/images/utils/Google icon.png" alt="Google icon">
+                <span>Sign in with Google</span>
+            </button>
+            <button class="social-network">
+                <img src="css/images/utils/Facebook icon.png" alt="Facebook icon">
+                <span>Sign in with Facebook</span>
+            </button>
+        </div>
+        <div class="divider flex-row items-center justify-center">
+            <hr>
+            <p>o</p>
+            <hr>
+        </div>
+        <div class="form-container form flex-col">
+            <input type="text" name="Nombre y apellido" placeholder="Nombre y apellido">
+            <div class="form flex-row form-row">
+                <input class="row-a" type="text" name="Nickname" placeholder="Nickname">
+                <input class="row-b" type="text" name="Edad" placeholder="Edad">
+            </div>
+            <input type="text" name="Email" placeholder="Correo electrónico">
+            <input type="password" name="Contraseña" placeholder="Contraseña">
+            <input type="password" name="Repetir contraseña" placeholder="Repetir contraseña">
+        </div>
+        <img src="css/images/utils/Captcha.png" alt="Recaptcha">
+        <div>
+            <button class="primary"><p>Registrarse</p></button>
+        </div>
+        <div class="flex-row option-login">
+            <p>¿Ya tienes una cuenta?</p>
+            <a class="btn-lista">Inicia sesión</a>
+        </div>
+    </form>
+</body>
+
+</html>

@@ -1,16 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parte 2</title>
-    <link rel="stylesheet" type="text/css" href="./index.css">
-    
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="flex-row justify-center	items-center">
-        <primary-active-btn class="button-primary"><span class="uppercase">jugar</span></primary-active-btn>
-    </div>
-    <script type="text/javascript" src="./index.js"></script>
+
+<body class="home flex-col">
+    <header class="flex-row items-center justify-space-between">
+        <div class="logo">
+            <img src="css/images/logo/Logo.png" alt="Logo">
+        </div>
+        <div class="header-utils flex-row items-center justify-center">
+            <img src="css/images/utils/Cart.png" alt="Cart">
+            <img src="css/images/utils/Profile pic.png" alt="Profile pic">
+        </div>
+    </header>
+
+    <main class="flex-col">
+        <figure>
+            <img src="css/images/background/background-weekly-top.png" alt="Weekly top game">
+            <div>
+                <h1>Título del juego</h1>
+                <button class="primary">Jugar</button>
+                <button class="secondary">Más información</button>
+            </div>
+        </figure>
+    </main>
+
+    <footer class="flex-col justify-space-between">
+        <div class="flex-row justify-space-evenly">
+            <div class="flex-col footer-col">
+                <h3>Sobre nosotros</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Contáctanos</a>
+                    <a class="btn-lista">Sobre nosotros</a>
+                    <a class="btn-lista">Equipo</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Ayuda</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">FAQ</a>
+                    <a class="btn-lista">Soporte</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Únete</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Regístrate</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Más</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Apps similares</a>
+                    <a class="btn-lista">Chart images</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Categorías</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Acción</a>
+                    <a class="btn-lista">Aventuras</a>
+                    <a class="btn-lista">Terror</a>
+                    <a class="btn-lista">Estrategia</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Redes sociales</h3>
+                <nav class="flex-row items-center footer-row">
+                    <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
+                    <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
+                    <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
+                </nav>
+            </div>
+        </div>
+        <div class="flex-row justify-center items-end">
+            <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
+        </div>
+    </footer>
 </body>
+
 </html>
