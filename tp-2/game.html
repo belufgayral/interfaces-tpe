@@ -19,17 +19,19 @@
         </div>
     </header>
 
-    <main class="flex-row justify-center">
+    <main class="flex-col items-center">
+        <div class="breadcrumbs">
+            <ul class="flex-row items-center">
+            <a class="btn-lista">Mis juegos</a>
+            <img src="css/images/utils/arrow.svg" alt="Arrow">
+            <a class="btn-lista">Estrategia</a>
+            <img src="css/images/utils/arrow.svg" alt="Arrow">
+            <a class="btn-lista">Samurai Senso</a>
+        </ul>
+        </div>
+        <div class="flex-row justify-center main-container">
         <div class="flex-col col-1">
-            <div class="container breadcrumbs flex-row items-center">
-                <a class="btn-lista">Mis juegos</a>
-                <img src="css/images/utils/arrow.svg" alt="Arrow">
-                <a class="btn-lista">Estrategia</a>
-                <img src="css/images/utils/arrow.svg" alt="Arrow">
-                <a class="btn-lista">Samurai Senso</a>
-            </div>
-
-            <section>
+            <section class="game-container">
                 <img src="css/images/games/strategy-samurai-senso.svg" alt="Samurai Senso">
             </section>
 
@@ -51,10 +53,20 @@
                     <li><span>Plataforma:</span> browser (desktop)</li>
                 </ul>
                 <hr>
-                <button class="primary">
+                <div class="flex-row items-center share-container">
+                <button class="primary share-button">
                     <img src="css/images/utils/share-icon.svg" alt="Share icon">
                     Compartir
                 </button>
+                <ul class="flex-row justify-center items-center share-options">
+                    <img src="css/images/social-networks/whatsapp.svg" alt="" srcset="">
+                    <img src="css/images/social-networks/instagram.svg" alt="" srcset="">
+                    <img src="css/images/social-networks/twitter.svg" alt="" srcset="">
+                    <img src="css/images/social-networks/facebook.svg" alt="" srcset="">
+                    <img src="css/images/social-networks/telegram.svg" alt="" srcset="">
+                    <img src="css/images/social-networks/email.svg" alt="" srcset="">
+                </ul>
+            </div>
                 <div class="flex-row justify-space-between">
                     <div class="flex-row items-center favorites">
                         <p>¿Te gustó este juego? Agrégalo a tus favoritos</p>
@@ -93,7 +105,7 @@
                             <img src="css/images/utils/Profile pic.png" alt="Profile pic">
                         </div>
                         <div class="flex-col col-2">
-                            <a class="btn-lista">User name</a>
+                            <a class="btn-lista username">User name</a>
                             <p>Lalala</p>
                         </div>
                     </div>
@@ -115,7 +127,7 @@
                             <img src="css/images/utils/Profile pic.png" alt="Profile pic">
                         </div>
                         <div class="flex-col col-2">
-                            <a class="btn-lista">User name</a>
+                            <a class="btn-lista username">User name</a>
                             <p>Lalala</p>
                         </div>
                     </div>
@@ -137,7 +149,7 @@
                             <img src="css/images/utils/Profile pic.png" alt="Profile pic">
                         </div>
                         <div class="flex-col col-2">
-                            <a class="btn-lista">User name</a>
+                            <a class="btn-lista username">User name</a>
                             <p>Lalala</p>
                         </div>
                     </div>
@@ -171,6 +183,7 @@
                 <p>Card</p>
             </section>
         </div>
+    </div>
     </main>
 
     <footer class="flex-col justify-space-between">
@@ -215,9 +228,9 @@
             <div class="flex-col footer-col">
                 <h3>Redes sociales</h3>
                 <nav class="flex-row items-center footer-row">
-                    <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
-                    <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
-                    <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
+                    <img src="css/images/social-networks/instagram.svg" alt="Logo Instagram">
+                    <img src="css/images/social-networks/twitter.svg" alt="Logo Twitter">
+                    <img src="css/images/social-networks/facebook.svg" alt="Logo Facebook">
                 </nav>
             </div>
         </div>
@@ -225,6 +238,8 @@
             <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
         </div>
     </footer>
+    
+    <script type="text/javascript" src="share-options.js"></script>
 </body>
 
 </html>
