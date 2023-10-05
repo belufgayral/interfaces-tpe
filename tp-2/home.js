@@ -74,6 +74,8 @@ function renderGameCards(genre) {
     genreGames.forEach(game => {
         const card = document.createElement('div');
         card.classList.add('cardGame'); // You can define a "cardGame" class in your CSS for styling
+        const cardTitle = document.createElement('div');
+        cardTitle.classList.add('cardGameTitle');
 
         // Create and populate the card content
         const title = document.createElement('h3');
@@ -88,9 +90,11 @@ function renderGameCards(genre) {
         img.alt = game.title;
 
         // Append content to the card
-        card.appendChild(title);
-        card.appendChild(price);
+        //card.appendChild(price);
         card.appendChild(img);
+        card.appendChild(cardTitle);
+
+        cardTitle.appendChild(title);
 
         // Append the card to the container
         container.appendChild(card);

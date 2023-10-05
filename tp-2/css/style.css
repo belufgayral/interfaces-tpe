@@ -286,5 +286,17 @@ figure>div {
     width: 200px;
     height: 121px;
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.40);
-    /* background: url(<path-to-image>), lightgray -78.697px 2.859px / 130.422% 121.739% no-repeat; */
+    border-radius: 0px 0px 0px 23px;
+    background: url(<path-to-image>), lightgray -78.697px 2.859px / 130.422% 121.739% no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.cardGameTitle {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: linear-gradient(270deg, rgba(0, 57, 38, 0.85) 56.77%, rgba(0, 57, 38, 0.00) 100%);
 }
