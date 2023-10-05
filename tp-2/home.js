@@ -4,6 +4,7 @@ const gamesCardData = [
     {
         id: 1,
         title: 'Metal Gear Solid V',
+        titleForImg: 'metalgearsolid5',
         genre: 'Aventura',
         price: '300',
         img: '',
@@ -11,6 +12,7 @@ const gamesCardData = [
     {
         id: 2,
         title: 'Silent Hill 2',
+        titleForImg: 'silenthill2',
         genre: 'Terror',
         price: '50',
         img: '',
@@ -18,6 +20,7 @@ const gamesCardData = [
     {
         id: 3,
         title: 'Death Stranding',
+        titleForImg: 'deathstranding',
         genre: 'Aventura',
         price: '869',
         img: '',
@@ -25,6 +28,7 @@ const gamesCardData = [
     {
         id: 4,
         title: 'Rise of Tomb Raider',
+        titleForImg: 'riseofthetombraider',
         genre: 'Aventura',
         price: '320',
         img: '',
@@ -32,6 +36,7 @@ const gamesCardData = [
     {
         id: 5,
         title: 'Age of Empires II',
+        titleForImg: 'ageofempires2',
         genre: 'Estrategia',
         price: '79',
         img: '',
@@ -39,6 +44,7 @@ const gamesCardData = [
     {
         id: 6,
         title: 'Bioshock',
+        titleForImg: 'bioshock',
         genre: 'Accion',
         price: '119',
         img: '',
@@ -78,7 +84,7 @@ function renderGameCards(genre) {
 
         // Create the image element
         const img = document.createElement('img');
-        img.src = '../tp-2/css/images/cards/cat.png'; // Update the path to your image
+        img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`; // Update the path to your image
         img.alt = game.title;
 
         // Append content to the card
