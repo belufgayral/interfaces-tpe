@@ -225,22 +225,22 @@ form {
     margin: 4em 0em;
 }
 
-form > div {
+form>div {
     margin: 1em 0em;
 }
 
-form > .divider {
+form>.divider {
     width: 22rem;
     gap: 1rem;
 }
 
-.divider > hr {
+.divider>hr {
     width: 9.6875rem;
     height: 0rem;
     border-color: var(--color-secondary-l3);
 }
 
-div.form > input {
+div.form>input {
     background-color: var(--color-primary-s1);
     border: 1px solid var(--color-secondary-l3);
     border-radius: 0.75em;
@@ -249,15 +249,15 @@ div.form > input {
     padding: 0em 0.7em;
 }
 
-div.form > input:focus {
+div.form>input:focus {
     outline: 1px solid var(--color-secondary-l3);
 }
 
-.form-row > .row-a {
+.form-row>.row-a {
     width: 70%;
 }
 
-.form-row > .row-b {
+.form-row>.row-b {
     width: 30%;
 }
 
@@ -271,13 +271,20 @@ main {
     width: 100%;
 }
 
-main > figure {
+main>figure {
     width: 100%;
     position: relative;
 }
 
-figure > div {
+figure>div {
     position: absolute;
     top: 70%;
     left: 70%;
+}
+
+.cardGame {
+    width: 200px;
+    height: 121px;
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.40);
+    /* background: url(<path-to-image>), lightgray -78.697px 2.859px / 130.422% 121.739% no-repeat; */
 }
