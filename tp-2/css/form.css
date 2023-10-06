@@ -1,0 +1,35 @@
+form {
+    width: 28.75rem;
+    height: 45rem;
+    background-color: var(--color-primary-s2);
+    border-radius: 0.88rem;
+    padding: 1.5em 0em;
+    margin: 4em 0em;
+}
+
+form>div {
+    margin: 1em 0em;
+}
+
+form>.divider {
+    width: 22rem;
+    gap: 1rem;
+}
+
+.divider>hr {
+    width: 9.6875rem;
+    height: 0rem;
+    border-color: var(--color-secondary-l3);
+}
+
+.form-row>.row-a {
+    width: 70%;
+}
+
+.form-row>.row-b {
+    width: 30%;
+}
+
+form .option-login {
+    gap: 0.5em;
+}

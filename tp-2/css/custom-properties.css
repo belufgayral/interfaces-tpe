@@ -1,0 +1,27 @@
+:root {
+    --font1: 'Roboto Condensed', sans-serif;
+    --font2: 'Roboto', sans-serif;
+
+    --color-primary: rgb(65, 48, 117);
+    --color-primary-l1: rgb(98, 81, 146);
+    --color-primary-l2: rgb(136, 123, 175);
+    --color-primary-l3: rgb(170, 158, 205);
+    --color-primary-s1: rgb(39, 23, 88);
+    --color-primary-s2: rgb(20, 7, 58);
+    --color-primary-s3: rgb(18, 9, 46);
+
+    --color-secondary: #267158;
+    --color-secondary-l1: #478D76;
+    --color-secondary-l2: #71AA97;
+    --color-secondary-l3: #8CC5B2;
+    --color-secondary-s1: #0E553E;
+    --color-secondary-s2: #003926;
+    --color-secondary-s3: #002A1C;
+
+    --color-white: #F2F1F8;
+    --color-black: #18171B;
+
+    --color-accept: #59D274;
+    --color-warning: #EA8952;
+    --color-delete: #AB2525;
+}
