@@ -6,7 +6,8 @@ const gamesCardData = [
         title: 'Metal Gear Solid V',
         titleForImg: 'metalgearsolid5',
         genre: 'Aventura',
-        price: '300',
+        paid: false,
+        price: 'free',
         img: '',
     },
     {
@@ -14,6 +15,7 @@ const gamesCardData = [
         title: 'Silent Hill 2',
         titleForImg: 'silenthill2',
         genre: 'Terror',
+        paid: true,
         price: '50',
         img: '',
     },
@@ -22,6 +24,7 @@ const gamesCardData = [
         title: 'Death Stranding',
         titleForImg: 'deathstranding',
         genre: 'Aventura',
+        paid: true,
         price: '869',
         img: '',
     },
@@ -30,7 +33,8 @@ const gamesCardData = [
         title: 'Rise of Tomb Raider',
         titleForImg: 'riseofthetombraider',
         genre: 'Aventura',
-        price: '320',
+        paid: false,
+        price: 'free',
         img: '',
     },
     {
@@ -38,6 +42,7 @@ const gamesCardData = [
         title: 'Age of Empires II',
         titleForImg: 'ageofempires2',
         genre: 'Estrategia',
+        paid: true,
         price: '79',
         img: '',
     },
@@ -46,6 +51,7 @@ const gamesCardData = [
         title: 'Bioshock',
         titleForImg: 'bioshock',
         genre: 'Accion',
+        paid: true,
         price: '119',
         img: '',
     },
@@ -76,6 +82,10 @@ function renderGameCards(genre) {
         card.classList.add('cardGame'); // You can define a "cardGame" class in your CSS for styling
         const cardTitle = document.createElement('div');
         cardTitle.classList.add('cardGameTitle');
+        const cardFavIcon = document.createElement('div');
+        cardFavIcon.classList.add('cardFavIcon');
+        const cardToPayIcon = document.createElement('div');
+        cardToPayIcon.classList.add('toPayIcon');
 
         // Create and populate the card content
         const title = document.createElement('h3');
@@ -89,12 +99,25 @@ function renderGameCards(genre) {
         img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`; // Update the path to your image
         img.alt = game.title;
 
+        //here we create the fav icon and other icons
+        const favIcon = document.createElement('img')
+        favIcon.src = '../tp-2/css/images/icons/fav.svg'
+        favIcon.alt = 'fav-icon-heart'
+
+        const toPayIcon = document.createElement('img')
+        toPayIcon.src = '../tp-2/css/images/icons/toPay.svg'
+        toPayIcon.alt = 'to-pay-icon'
+
         // Append content to the card
         //card.appendChild(price);
         card.appendChild(img);
         card.appendChild(cardTitle);
+        card.appendChild(cardFavIcon)
+        game.paid && card.appendChild(cardToPayIcon)
 
         cardTitle.appendChild(title);
+        cardFavIcon.appendChild(favIcon)
+        game.paid && cardToPayIcon.appendChild(toPayIcon)
 
         // Append the card to the container
         container.appendChild(card);
