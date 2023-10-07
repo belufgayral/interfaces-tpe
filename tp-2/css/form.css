@@ -1,6 +1,5 @@
 form {
     width: 28.75rem;
-    height: 45rem;
     background-color: var(--color-primary-s2);
     border-radius: 0.88rem;
     padding: 1.5em 0em;
@@ -32,4 +31,83 @@ form>.divider {
 
 form .option-login {
     gap: 0.5em;
+}
+
+.captchaContainer {
+    width: 13rem;
+    height: 4.5rem;
+    padding: 0rem 1.4rem;
+    background-color: var(--color-white);
+    border: 1px solid #d4d4d4;
+}
+
+.captchaContainer .row-1 {
+    width: 70%;
+}
+
+.captchaLabel {
+    color: var(--color-black);
+    justify-self: center;
+}
+
+.captchaBox {
+    width: 24px;
+    height: 24px;
+    outline: none;
+    border: 2px solid #b9b9b9;
+    border-radius: 2px;
+}
+
+.captchaWrapper {
+    margin: 0rem 0rem 0rem 0.5rem;
+}
+
+.boxHover {
+    background-color: #fff;
+    transition: border 0.3s;
+}
+
+.boxHover:hover {
+    cursor: pointer;
+    border: 2px solid var(--color-secondary-l3);
+}
+
+.display-none {
+    display: none;
+}
+
+.captchaTick g g {
+    justify-self: start;
+    fill: var(--color-accept);
+}
+
+.captcha-animation {
+    animation: 
+    disappears 1s 0s 1,
+    appears 1s 1s 1,
+    disappears 1s 3s 1 forwards
+}
+
+.rotation-animation {
+    transition: all 3s ease-out;
+    transform: rotate(1620deg);
+}
+
+.tick-animation {
+    animation:
+    appears 1s 1
+}
+
+.circle {
+    border-top: 2px solid var(--color-secondary-l3);
+    border-right-color: transparent;
+    border-bottom: 2px solid var(--color-secondary-l3);
+    border-left-color: transparent;
+    border-radius: 12px;
+    background-color: var(--color-white);
+}
+
+.recaptcha {
+    width: auto;
+    height: 70%;
 }
