@@ -4,6 +4,7 @@ form {
     border-radius: 0.88rem;
     padding: 1.5em 0em;
     margin: 4em 0em;
+    animation: appears 1s 1;
 }
 
 form>div {
