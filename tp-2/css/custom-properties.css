@@ -10,18 +10,18 @@
     --color-primary-s2: rgb(20, 7, 58);
     --color-primary-s3: rgb(18, 9, 46);
 
-    --color-secondary: #267158;
-    --color-secondary-l1: #478D76;
-    --color-secondary-l2: #71AA97;
-    --color-secondary-l3: #8CC5B2;
-    --color-secondary-s1: #0E553E;
-    --color-secondary-s2: #003926;
-    --color-secondary-s3: #002A1C;
+    --color-secondary: rgb(38, 113, 88);
+    --color-secondary-l1: rgb(71, 141, 118);
+    --color-secondary-l2: rgb(113, 170, 151);
+    --color-secondary-l3: rgb(140, 197, 178);
+    --color-secondary-s1: rgb(14, 85, 62);
+    --color-secondary-s2: rgb(0, 57, 38);
+    --color-secondary-s3: rgb(0, 42, 28);
 
-    --color-white: #F2F1F8;
-    --color-black: #18171B;
+    --color-white: rgb(242, 241, 248);
+    --color-black: rgb(24, 23, 27);
 
-    --color-accept: #59D274;
-    --color-warning: #EA8952;
-    --color-delete: #AB2525;
+    --color-accept: rgb(89, 210, 116);
+    --color-warning: rgb(234, 137, 82);
+    --color-delete: rgb(171, 37, 37);
 }
