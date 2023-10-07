@@ -1,10 +1,15 @@
-let captchaBox = document.querySelector(".captchaBox");
-let captchaWrapper = document.querySelector(".captchaWrapper");
-let captchaTick = document.querySelector(".captchaTick");
+const captchaBox = document.querySelector(".captchaBox");
+const captchaWrapper = document.querySelector(".captchaWrapper");
+const captchaTick = document.querySelector(".captchaTick");
+const captchaContainer = document.querySelector(".captchaContainer");
+
+let fueClickeado = false;
 
 captchaBox.addEventListener("click", changeState);
 
 function changeState() {
+    fueClickeado = true;
+
     captchaBox.classList.add("captcha-animation");
 
     setTimeout(() => {
@@ -20,3 +25,12 @@ function changeState() {
         captchaTick.classList.add("tick-animation");
     }, 3500);
 }
+
+function captchaError() {
+    captchaContainer.classList.add("captcha-error");
+    setTimeout(() => {
+        captchaContainer.classList.remove("captcha-error");
+    }, 1000);
+}
+
+export { fueClickeado, captchaError };

@@ -44,6 +44,7 @@ form .option-login {
     padding: 0rem 1.4rem;
     background-color: var(--color-white);
     border: 1px solid #d4d4d4;
+    transition: all 0.5s ease-in-out;
 }
 
 .captchaContainer .row-1 {
@@ -111,6 +112,12 @@ form .option-login {
 .recaptcha {
     width: auto;
     height: 70%;
+}
+
+.captcha-error {
+    background-color: rgb(242, 204, 204);
+    border: 1px solid rgb(180, 86, 86);
+    animation: shake 0.7s 1;
 }
 
 .popup-background {
