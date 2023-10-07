@@ -5,6 +5,7 @@ const gamesCardData = [
         id: 1,
         title: 'Metal Gear Solid V',
         titleForImg: 'metalgearsolid5',
+        forYou: false,
         genre: 'Aventura',
         paid: false,
         price: 'free',
@@ -14,6 +15,7 @@ const gamesCardData = [
         id: 2,
         title: 'Silent Hill 2',
         titleForImg: 'silenthill2',
+        forYou: false,
         genre: 'Terror',
         paid: true,
         price: '50',
@@ -23,6 +25,7 @@ const gamesCardData = [
         id: 3,
         title: 'Death Stranding',
         titleForImg: 'deathstranding',
+        forYou: false,
         genre: 'Aventura',
         paid: true,
         price: '869',
@@ -32,6 +35,7 @@ const gamesCardData = [
         id: 4,
         title: 'Rise of Tomb Raider',
         titleForImg: 'riseofthetombraider',
+        forYou: false,
         genre: 'Aventura',
         paid: false,
         price: 'free',
@@ -41,6 +45,7 @@ const gamesCardData = [
         id: 5,
         title: 'Age of Empires II',
         titleForImg: 'ageofempires2',
+        forYou: false,
         genre: 'Estrategia',
         paid: true,
         price: '79',
@@ -48,11 +53,42 @@ const gamesCardData = [
     },
     {
         id: 6,
+        title: 'Samurai Senso',
+        titleForImg: 'samuraisenso',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 7,
+        title: 'Persona 5',
+        titleForImg: 'persona5',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '440',
+        img: '',
+    },
+    {
+        id: 8,
         title: 'Bioshock',
         titleForImg: 'bioshock',
+        forYou: false,
         genre: 'Accion',
         paid: false,
         price: 'free',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Genshin Impact',
+        titleForImg: 'genshinimpact',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: true,
+        price: '129',
         img: '',
     },
 ]
@@ -66,7 +102,13 @@ function renderGameCards(genre) {
     }
 
     // Filter the games by genre
-    const genreGames = gamesCardData.filter(game => game.genre === genre);
+    let genreGames;
+    if (genre !== 'parati') {
+        genreGames = gamesCardData.filter(game => game.genre === genre);
+    } else {
+        genreGames = gamesCardData.filter(game => game.forYou)
+    }
+    
 
     if (genreGames.length === 0) {
         console.warn(`No games found for the genre "${genre}".`);
@@ -130,3 +172,4 @@ renderGameCards('Aventura');
 renderGameCards('Accion');
 renderGameCards('Terror');
 renderGameCards('Estrategia');
+renderGameCards('parati');
