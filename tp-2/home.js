@@ -51,8 +51,8 @@ const gamesCardData = [
         title: 'Bioshock',
         titleForImg: 'bioshock',
         genre: 'Accion',
-        paid: true,
-        price: '119',
+        paid: false,
+        price: 'free',
         img: '',
     },
 ]
@@ -127,3 +127,6 @@ function renderGameCards(genre) {
 
 // Call the function to render the adventure genre
 renderGameCards('Aventura');
+renderGameCards('Accion');
+renderGameCards('Terror');
+renderGameCards('Estrategia');
