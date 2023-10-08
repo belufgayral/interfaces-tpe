@@ -89,6 +89,276 @@ const gamesCardData = [
         price: '129',
         img: '',
     },
+    {
+        id: 1,
+        title: 'Metal Gear Solid V',
+        titleForImg: 'metalgearsolid5',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 2,
+        title: 'Silent Hill 2',
+        titleForImg: 'silenthill2',
+        forYou: false,
+        genre: 'Terror',
+        paid: true,
+        price: '50',
+        img: '',
+    },
+    {
+        id: 3,
+        title: 'Death Stranding',
+        titleForImg: 'deathstranding',
+        forYou: false,
+        genre: 'Aventura',
+        paid: true,
+        price: '869',
+        img: '',
+    },
+    {
+        id: 4,
+        title: 'Rise of Tomb Raider',
+        titleForImg: 'riseofthetombraider',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 5,
+        title: 'Age of Empires II',
+        titleForImg: 'ageofempires2',
+        forYou: false,
+        genre: 'Estrategia',
+        paid: true,
+        price: '79',
+        img: '',
+    },
+    {
+        id: 6,
+        title: 'Samurai Senso',
+        titleForImg: 'samuraisenso',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 7,
+        title: 'Persona 5',
+        titleForImg: 'persona5',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '440',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Bioshock',
+        titleForImg: 'bioshock',
+        forYou: false,
+        genre: 'Accion',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Genshin Impact',
+        titleForImg: 'genshinimpact',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: true,
+        price: '129',
+        img: '',
+    },
+    {
+        id: 1,
+        title: 'Metal Gear Solid V',
+        titleForImg: 'metalgearsolid5',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 2,
+        title: 'Silent Hill 2',
+        titleForImg: 'silenthill2',
+        forYou: false,
+        genre: 'Terror',
+        paid: true,
+        price: '50',
+        img: '',
+    },
+    {
+        id: 3,
+        title: 'Death Stranding',
+        titleForImg: 'deathstranding',
+        forYou: false,
+        genre: 'Aventura',
+        paid: true,
+        price: '869',
+        img: '',
+    },
+    {
+        id: 4,
+        title: 'Rise of Tomb Raider',
+        titleForImg: 'riseofthetombraider',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 5,
+        title: 'Age of Empires II',
+        titleForImg: 'ageofempires2',
+        forYou: false,
+        genre: 'Estrategia',
+        paid: true,
+        price: '79',
+        img: '',
+    },
+    {
+        id: 6,
+        title: 'Samurai Senso',
+        titleForImg: 'samuraisenso',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 7,
+        title: 'Persona 5',
+        titleForImg: 'persona5',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '440',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Bioshock',
+        titleForImg: 'bioshock',
+        forYou: false,
+        genre: 'Accion',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Genshin Impact',
+        titleForImg: 'genshinimpact',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: true,
+        price: '129',
+        img: '',
+    },
+    {
+        id: 1,
+        title: 'Metal Gear Solid V',
+        titleForImg: 'metalgearsolid5',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 2,
+        title: 'Silent Hill 2',
+        titleForImg: 'silenthill2',
+        forYou: false,
+        genre: 'Terror',
+        paid: true,
+        price: '50',
+        img: '',
+    },
+    {
+        id: 3,
+        title: 'Death Stranding',
+        titleForImg: 'deathstranding',
+        forYou: false,
+        genre: 'Aventura',
+        paid: true,
+        price: '869',
+        img: '',
+    },
+    {
+        id: 4,
+        title: 'Rise of Tomb Raider',
+        titleForImg: 'riseofthetombraider',
+        forYou: false,
+        genre: 'Aventura',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 5,
+        title: 'Age of Empires II',
+        titleForImg: 'ageofempires2',
+        forYou: false,
+        genre: 'Estrategia',
+        paid: true,
+        price: '79',
+        img: '',
+    },
+    {
+        id: 6,
+        title: 'Samurai Senso',
+        titleForImg: 'samuraisenso',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 7,
+        title: 'Persona 5',
+        titleForImg: 'persona5',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '440',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Bioshock',
+        titleForImg: 'bioshock',
+        forYou: false,
+        genre: 'Accion',
+        paid: false,
+        price: 'free',
+        img: '',
+    },
+    {
+        id: 8,
+        title: 'Genshin Impact',
+        titleForImg: 'genshinimpact',
+        forYou: true,
+        genre: 'Estrategia',
+        paid: true,
+        price: '129',
+        img: '',
+    },
 ]
 
 
@@ -106,7 +376,7 @@ function renderGameCards(genre) {
     } else {
         genreGames = gamesCardData.filter(game => game.forYou)
     }
-    
+
 
     if (genreGames.length === 0) {
         console.warn(`No se hallaron juegos para el siguiente genero: "${genre}".`);
@@ -129,14 +399,19 @@ function renderGameCards(genre) {
 
         // creamos contenido y precio, esto va a ser contenido para la card
         const title = document.createElement('h3');
+        title.classList.add('cardTitle')
         title.textContent = game.title;
 
         const price = document.createElement('p');
         price.textContent = `Price: $${game.price}`;
 
+        const carritoDiv = document.createElement('div')
+        carritoDiv.classList.add('carritoDiv')
+        carritoDiv.textContent = 'Agregar al carrito'
+
         // creamos el img elem
         const img = document.createElement('img');
-        img.classList.add('cardBgImg')
+        genre !== 'parati' ? img.classList.add('cardBgImg') : img.classList.add('cardForYouBgImg')
         img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`;
         img.alt = game.title;
 
@@ -153,6 +428,7 @@ function renderGameCards(genre) {
         //card.appendChild(price);
         card.appendChild(img);
         card.appendChild(cardTitle);
+        card.appendChild(carritoDiv)
         card.appendChild(cardFavIcon)
         game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
         //appends mas especificos
@@ -166,9 +442,42 @@ function renderGameCards(genre) {
 
 }
 
+
+
 // llamamos la funcion para renderizar segun el parametro pasado, esto se puede convertir en un loop mas adelante
 renderGameCards('Aventura');
 renderGameCards('Accion');
 renderGameCards('Terror');
 renderGameCards('Estrategia');
 renderGameCards('parati');
+
+
+let currentIndex = 0;
+
+function navigateCarousel(direction) {
+    const container = document.getElementById('aventura');
+    const images = container.querySelectorAll('.cardGame');
+    console.log(images)
+
+
+    const slideWidth = images[0].clientWidth;
+
+    if (direction === 'prev') {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+    } else if (direction === 'next') {
+        currentIndex = (currentIndex + 1) % images.length;
+    }
+
+    const offset = -currentIndex * slideWidth;
+    container.style.transform = `translateX(${offset}px)`;
+}
+
+const prevButton = document.getElementById('button-left');
+prevButton.addEventListener('click', () => {
+    navigateCarousel('prev');
+});
+
+const nextButton = document.getElementById('button-right');
+nextButton.addEventListener('click', () => {
+    navigateCarousel('next');
+});
