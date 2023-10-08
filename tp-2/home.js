@@ -136,6 +136,7 @@ function renderGameCards(genre) {
 
         // creamos el img elem
         const img = document.createElement('img');
+        img.classList.add('cardBgImg')
         img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`;
         img.alt = game.title;
 
