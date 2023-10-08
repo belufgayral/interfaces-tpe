@@ -1,5 +1,3 @@
-/* import { gamesCardData } from './mockedData' */
-
 const gamesCardData = [
     {
         id: 1,
@@ -95,13 +93,13 @@ const gamesCardData = [
 
 
 function renderGameCards(genre) {
-    const container = document.getElementById(genre.toLowerCase()); // Assuming genre names are in lowercase
+    const container = document.getElementById(genre.toLowerCase());
     if (!container) {
-        console.error(`Container with id="${genre.toLowerCase()}" not found.`);
+        console.error(`Container con id="${genre.toLowerCase()}" no ha sido hallado.`);
         return;
     }
 
-    // Filter the games by genre
+    // filtramos los juegos de manera condicional por genero o por forYou
     let genreGames;
     if (genre !== 'parati') {
         genreGames = gamesCardData.filter(game => game.genre === genre);
@@ -111,17 +109,17 @@ function renderGameCards(genre) {
     
 
     if (genreGames.length === 0) {
-        console.warn(`No games found for the genre "${genre}".`);
+        console.warn(`No se hallaron juegos para el siguiente genero: "${genre}".`);
         return;
     }
 
-    // Clear the container
+    // limpiamos el container
     container.innerHTML = '';
 
-    // Loop through the filtered games and create card elements
+    // iteramos los juegos filtrados por genero para generar el layout de la card y su contenido de manera dinamica
     genreGames.forEach(game => {
         const card = document.createElement('div');
-        card.classList.add('cardGame'); // You can define a "cardGame" class in your CSS for styling
+        card.classList.add('cardGame'); // definimos "cardGame" como clase para nuestro css
         const cardTitle = document.createElement('div');
         cardTitle.classList.add('cardGameTitle');
         const cardFavIcon = document.createElement('div');
@@ -129,19 +127,19 @@ function renderGameCards(genre) {
         const cardToPayIcon = document.createElement('div');
         cardToPayIcon.classList.add('toPayIcon');
 
-        // Create and populate the card content
+        // creamos contenido y precio, esto va a ser contenido para la card
         const title = document.createElement('h3');
         title.textContent = game.title;
 
         const price = document.createElement('p');
         price.textContent = `Price: $${game.price}`;
 
-        // Create the image element
+        // creamos el img elem
         const img = document.createElement('img');
-        img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`; // Update the path to your image
+        img.src = `../tp-2/css/images/cards/${game.titleForImg}.png`;
         img.alt = game.title;
 
-        //here we create the fav icon and other icons
+        //aca creamos el icon fav y otros iconos que necesitemos
         const favIcon = document.createElement('img')
         favIcon.src = '../tp-2/css/images/icons/fav.svg'
         favIcon.alt = 'fav-icon-heart'
@@ -150,24 +148,24 @@ function renderGameCards(genre) {
         toPayIcon.src = '../tp-2/css/images/icons/toPay.svg'
         toPayIcon.alt = 'to-pay-icon'
 
-        // Append content to the card
+        // hacemos el append al contenido de la card
         //card.appendChild(price);
         card.appendChild(img);
         card.appendChild(cardTitle);
         card.appendChild(cardFavIcon)
-        game.paid && card.appendChild(cardToPayIcon)
-
+        game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
+        //appends mas especificos
         cardTitle.appendChild(title);
         cardFavIcon.appendChild(favIcon)
         game.paid && cardToPayIcon.appendChild(toPayIcon)
 
-        // Append the card to the container
+        // el append al container
         container.appendChild(card);
     });
 
 }
 
-// Call the function to render the adventure genre
+// llamamos la funcion para renderizar segun el parametro pasado, esto se puede convertir en un loop mas adelante
 renderGameCards('Aventura');
 renderGameCards('Accion');
 renderGameCards('Terror');
