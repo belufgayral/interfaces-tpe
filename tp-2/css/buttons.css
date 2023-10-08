@@ -1,0 +1,66 @@
+button.primary, button.secondary, .btn-lista, button.social-network, .footer-col .footer-row > img, .description .share-container .share-options > img {
+    cursor: pointer;
+}
+
+button.primary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: var(--color-secondary-l1);
+    outline: none;
+    border: none;
+    border-radius: 0.8125rem;
+    color: var(--color-white);
+    text-transform: uppercase;
+}
+
+button.secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    padding: 1rem 1.5rem;
+    background-color: transparent;
+    border-radius: 0.8125rem;
+    border: 2px solid var(--color-secondary-l2);
+    outline: none;
+    color: var(--color-secondary-l2);
+}
+
+.btn-lista {
+    font-family: var(--font2);
+    color: var(--color-white);
+    font-weight: 100;
+    transition: color, transform 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-lista:hover {
+    color: var(--color-secondary-l3);
+    transform: scale(1.05);
+}
+
+button.social-network {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    outline: none;
+    border: none;
+    border-radius: 3.13rem;
+    height: 3.3125rem;
+    padding: 0.9375rem 1.25rem 0.875rem 1.25rem;
+    gap: 0.5rem;
+    margin: auto 0.5rem auto 0.5rem;
+}
+
+.footer-col .footer-row > img, .description .share-container .share-options > img {
+    transition: transform 0.3s ease-in;
+}
+
+.footer-col .footer-row > img:hover, .description .share-container .share-options > img:hover {
+    transform: scale(1.1);
+}
