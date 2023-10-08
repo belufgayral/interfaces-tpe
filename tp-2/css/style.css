@@ -91,6 +91,10 @@ body.game {
     background-color: var(--color-black);
 }
 
+.game main {
+    padding-top: 6.125rem;
+}
+
 /* HEADER */
 
 header {
