@@ -108,14 +108,45 @@ header {
 }
 
 .header-utils {
-    width: 7rem;
-    gap: 1.5rem;
-    margin-right: 1rem;
+    width: 7.5rem;
+    gap: 1rem;
+    margin-right: 3rem;
+}
+
+.header-utils > div {
+    width: 100%;
+}
+
+#profile-pic {
+    right: 0;
+    z-index: 1;
+}
+
+.translate-left-animation {
+    animation: translate-left 1s 1 forwards, opacity 1s 1;
+}
+
+.translate-right-animation {
+    animation: translate-right 1s 1, opacity-out 1s 1;
+}
+
+.no-rotate {
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s;
 }
 
 .header-utils>img {
     width: 2rem;
     height: 2rem;
+}
+
+.header-utils svg {
+    fill: var(--color-secondary-l3);
 }
 
 .menu-desplegable {
@@ -131,6 +162,7 @@ header {
     box-shadow: -3px 3px 7px 0px rgba(0, 0, 0, 0.29);
     gap: 0.69rem;
     z-index: 1;
+    animation: opacity 0.2s 1 ease-in-out;
 }
 
 .menu-desplegable .btn-lista {

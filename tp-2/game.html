@@ -10,17 +10,23 @@
 
 <body class="game">
     <div class="popup-background display-none"></div>
-    
+
     <header class="flex-row items-center justify-space-between">
         <div class="logo">
             <img src="css/images/logo/Logo.png" alt="Logo">
         </div>
-        <div class="header-utils flex-row items-center justify-center">
-            <img src="css/images/utils/Cart.png" alt="Cart">
-            <img src="css/images/utils/Profile pic.png" alt="Profile pic">
+        <div class="header-utils flex-row items-center justify-space-between">
+            <a id="cart"><img src="css/images/utils/Cart.png" alt="Cart"></a>
+            <div class="flex-row items-center justify-end">
+                <svg id="arrow" class="display-none no-rotate" height="30" viewBox="0 0 48 48" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" />
+                    <path d="M0-.75h48v48h-48z" fill="none" />
+                </svg>
+                <a id="profile-pic"><img src="css/images/utils/Profile pic.png" alt="Profile pic"></a>
+            </div>
         </div>
     </header>
-    <nav class="menu-desplegable flex-col">
+    <nav class="menu-desplegable flex-col display-none">
         <a class="btn-lista">Mi perfil</a>
         <a class="btn-lista">Editar perfil</a>
         <a class="btn-lista">Configuraciones</a>
@@ -283,6 +289,7 @@
 
     <script type="text/javascript" src="share-options.js"></script>
     <script type="text/javascript" src="heart-animation.js"></script>
+    <script type="text/javascript" src="menu-desplegable.js"></script>
 </body>
 
 </html>
