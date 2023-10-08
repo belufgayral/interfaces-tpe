@@ -1,4 +1,4 @@
-button.primary, button.secondary, .btn-lista, button.social-network, .footer-col .footer-row > img, .description .share-container .share-options > img {
+button.primary, button.secondary, a, .btn-lista, button.social-network, .footer-col .footer-row > img, .description .share-container .share-options > img {
     cursor: pointer;
 }
 

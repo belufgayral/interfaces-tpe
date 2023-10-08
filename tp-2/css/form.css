@@ -18,8 +18,6 @@ form>.divider {
 
 .divider>hr {
     width: 9.6875rem;
-    height: 0rem;
-    border-color: var(--color-secondary-l3);
 }
 
 .form-login {

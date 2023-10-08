@@ -65,6 +65,16 @@ textarea:focus {
     outline: 1px solid var(--color-secondary-l3);
 }
 
+/* DIVISORES HR */
+
+hr {
+    height: 0rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: var(--color-secondary-l3);
+    align-self: center;
+}
+
 /* BODY */
 
 body.home {
@@ -81,11 +91,18 @@ body.game {
     background-color: var(--color-black);
 }
 
+.game main {
+    padding-top: 6.125rem;
+}
+
 /* HEADER */
 
 header {
+    position: fixed;
+    width: 100%;
     background-color: var(--color-primary-s1);
     height: 6.125rem;
+    z-index: 1;
 }
 
 .logo {
@@ -95,14 +112,74 @@ header {
 }
 
 .header-utils {
-    width: 7rem;
+    width: 7.5rem;
     gap: 1rem;
-    margin-right: 1rem;
+    margin-right: 3rem;
+}
+
+.header-utils > div {
+    width: 100%;
+}
+
+#profile-pic {
+    right: 0;
+    z-index: 1;
+}
+
+.translate-left-animation {
+    animation: translate-left 1s 1 forwards, opacity 1s 1;
+}
+
+.translate-right-animation {
+    animation: translate-right 1s 1, opacity-out 1s 1;
+}
+
+.no-rotate {
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s;
 }
 
 .header-utils>img {
     width: 2rem;
     height: 2rem;
+}
+
+.header-utils svg {
+    fill: var(--color-secondary-l3);
+}
+
+.menu-desplegable {
+    position: fixed;
+    justify-content: flex-start;
+    height: 22rem;
+    top: 6.125rem;
+    right: 0;
+    width: fit-content;
+    background-color: var(--color-primary-l2);
+    border-radius: 0rem 0rem 0rem 1.25rem;
+    padding: 1rem 2rem;
+    box-shadow: -3px 3px 7px 0px rgba(0, 0, 0, 0.29);
+    gap: 0.69rem;
+    z-index: 1;
+    animation: opacity 0.2s 1 ease-in-out;
+}
+
+.menu-desplegable .btn-lista {
+    font-size: larger;
+}
+
+.menu-desplegable hr {
+    width: 100%;
+    margin: auto;
+}
+
+.log-off {
+    margin-top: auto;
 }
 
 /* FOOTER */
