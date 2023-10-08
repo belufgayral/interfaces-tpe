@@ -457,9 +457,6 @@ let currentIndex = 0;
 function navigateCarousel(direction) {
     const container = document.getElementById('aventura');
     const images = container.querySelectorAll('.cardGame');
-    console.log(images)
-
-
     const slideWidth = images[0].clientWidth;
 
     if (direction === 'prev') {
@@ -469,7 +466,15 @@ function navigateCarousel(direction) {
     }
 
     const offset = -currentIndex * slideWidth;
+
+    // Apply a CSS transition for smooth animation
+    container.style.transition = 'transform 0.5s ease-in-out';
     container.style.transform = `translateX(${offset}px)`;
+
+    // Remove the transition after the animation completes
+    setTimeout(() => {
+        container.style.transition = 'none';
+    }, 500); // 500ms matches the transition duration
 }
 
 const prevButton = document.getElementById('button-left');
