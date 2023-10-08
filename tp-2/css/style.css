@@ -75,6 +75,33 @@ hr {
     align-self: center;
 }
 
+/* BLACK BACKGROUND FOR ANIMATIONS */
+
+.popup-background {
+    /*HAY QUE CAMBIARLE EL NOMBRE*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 23, 27, 0.7);
+    animation: opacity 1s 1;
+}
+
+/* Z-INDEX */
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.z-index-3 {
+    z-index: 3;
+}
+
 /* BODY */
 
 body.home {
@@ -91,6 +118,7 @@ body.game {
     background-color: var(--color-black);
 }
 
+.home main,
 .game main {
     padding-top: 6.125rem;
 }
@@ -117,7 +145,7 @@ header {
     margin-right: 3rem;
 }
 
-.header-utils > div {
+.header-utils>div {
     width: 100%;
 }
 
@@ -199,7 +227,7 @@ footer {
     gap: 0.9375rem;
 }
 
-/* FORM REGISTRO & LOGIN */
+/* FORM REGISTRO & LOGIN
 
 form {
     width: 28.75rem;
@@ -248,9 +276,111 @@ div.form > input:focus {
 
 form .option-login {
     gap: 0.5em;
-}
+} */
 
 /* HOME */
+
+.home .popup-background {
+    background-color: rgba(24, 23, 27, 0.95);
+    animation:
+        opacity 0.3s 1;
+}
+
+.porcentaje {
+    position: fixed;
+    top: 0px;
+    bottom: 90px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    z-index: 4;
+    animation:
+        opacity 0.3s 1,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.porcentaje h1 {
+    font-size: 80px;
+}
+
+.loader {
+    position: fixed;
+    top: 0px;
+    bottom: 90px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: linear-gradient(var(--color-primary-l2), var(--color-secondary-l2), var(--color-acento));
+    animation:
+        opacity 0.3s 1,
+        rotate-360 1.2s linear infinite,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.loader span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(var(--color-primary-l2), var(--color-secondary-l2), var(--color-acento));
+}
+
+.loader span:nth-child(1) {
+    filter: blur(5px);
+}
+
+.loader span:nth-child(2) {
+    filter: blur(10px);
+}
+
+.loader span:nth-child(3) {
+    filter: blur(25px);
+}
+
+.loader span:nth-child(4) {
+    filter: blur(50px);
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    border: solid white 5px;
+    border-radius: 50%;
+}
+
+.loading-bar {
+    position: fixed;
+    top: 325px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    z-index: 4;
+    animation:
+        opacity 0.3s 1,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.loading-bar .color {
+    border-width: 2px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 9px 1px rgba(140, 197, 178, 0.5);
+    animation: progress 5s linear 1 forwards;
+}
 
 main {
     width: 100%;
@@ -273,7 +403,8 @@ figure>div {
     padding: 10px;
 }
 
-.cardGame, .forYouCardGame {
+.cardGame,
+.forYouCardGame {
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.40);
     border-radius: 0px 0px 0px 23px;
     background: url(<path-to-image>), rgba(0, 57, 38, 0.85) -78.697px 2.859px / 130.422% 121.739% no-repeat;
@@ -284,9 +415,7 @@ figure>div {
     position: relative;
 }
 
-.forYouCardGame {
-    
-}
+.forYouCardGame {}
 
 .cardGameTitle {
     display: flex;

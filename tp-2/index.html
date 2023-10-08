@@ -9,7 +9,23 @@
 </head>
 
 <body class="home flex-col">
-    <header class="flex-row items-center justify-space-between">
+
+    <div id="background-loading" class="popup-background z-index-2"></div>
+
+    <div class="porcentaje">
+        <h1>0%</h1>
+    </div>
+    <div class="loader z-index-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-bar">
+        <hr id="loading-bar" class="color">
+    </div>
+
+    <header id="header-home" class="flex-row items-center justify-space-between display-none">
         <div class="logo">
             <img src="css/images/logo/Logo.png" alt="Logo">
         </div>
@@ -19,7 +35,7 @@
         </div>
     </header>
 
-    <main class="flex-col">
+    <main id="main-home" class="flex-col display-none">
         <figure>
             <img src="css/images/background/background-weekly-top.png" alt="Weekly top game">
             <div>
@@ -28,46 +44,46 @@
                 <button class="secondary">Más información</button>
             </div>
         </figure>
+
+        <div class="flex-col pl-6"> <!-- container -->
+            <div>
+                <div>
+                    <h1 class="">Para ti</h1>
+                </div>
+                <div id="parati" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <div>
+                    <h2 class="">Aventura</h2>
+                </div>
+                <div id="aventura" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Acción</h2>
+                <div id="accion" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Terror</h2>
+                <div id="terror" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Estrategia</h2>
+                <div id="estrategia" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
+            </div>
+        </div>
     </main>
 
-    <div class="flex-col pl-6"> <!-- container -->
-        <div>
-            <div>
-                <h1 class="">Para ti</h2>
-            </div>
-            <div id="parati" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
-
-            </div>
-        </div>
-        <div>
-            <div>
-                <h2 class="">Aventura</h2>
-            </div>
-            <div id="aventura" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
-
-            </div>
-        </div>
-        <div>
-            <h2 class="">Acción</h2>
-            <div id="accion" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
-
-            </div>
-        </div>
-        <div>
-            <h2 class="">Terror</h2>
-            <div id="terror" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
-
-            </div>
-        </div>
-        <div>
-            <h2 class="">Estrategia</h2>
-            <div id="estrategia" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
-
-            </div>
-        </div>
-    </div>
-
-    <footer class="flex-col justify-space-between">
+    <footer id="footer-home" class="flex-col justify-space-between display-none">
         <div class="flex-row justify-spa">
             <div class="flex-col footer-col">
                 <h3>Sobre nosotros</h3>
@@ -119,7 +135,9 @@
             <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
         </div>
     </footer>
-    <script type="module" src="home.js"></script>
+
+    <script type="module" src="loading-home.js"></script>
+    <!-- <script type="module" src="home.js"></script> -->
 </body>
 
 </html>
