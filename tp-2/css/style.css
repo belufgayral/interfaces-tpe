@@ -637,8 +637,8 @@ button.carrito {
 
     figure>div {
         position: absolute;
-        top: 25%;
-        left: 60%;
+        top: 35%;
+        left: 70%;
     }
 
     h1 {
@@ -738,8 +738,8 @@ button.carrito {
     
     .toPlayIconImg {
         position: absolute;
-        top: 25px;
-        right: 50px;
+        top: 30%;
+        right: 40%;
         cursor: pointer;
         width: 1.6rem;
     }
