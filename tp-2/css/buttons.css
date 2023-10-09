@@ -15,6 +15,11 @@ button.primary {
     border-radius: 0.8125rem;
     color: var(--color-white);
     text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+}
+
+button.primary:hover {
+    background: var(--color-secondary-l2);
 }
 
 button.secondary {
@@ -28,6 +33,13 @@ button.secondary {
     border: 2px solid var(--color-secondary-l2);
     outline: none;
     color: var(--color-secondary-l2);
+    transition: all 0.3s ease-in-out;
+}
+
+button.secondary:hover {
+    border-color: var(--color-secondary-l3);
+    color: var(--color-secondary-l3);
+    background-color: rgba(38, 113, 88, 0.2);
 }
 
 .secondaryMobile {
@@ -59,6 +71,11 @@ button.social-network {
     padding: 0.9375rem 1.25rem 0.875rem 1.25rem;
     gap: 0.5rem;
     margin: auto 0.5rem auto 0.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+button.social-network:hover {
+    background-color: rgb(214, 213, 222);
 }
 
 .footer-col .footer-row > img, .description .share-container .share-options > img {
