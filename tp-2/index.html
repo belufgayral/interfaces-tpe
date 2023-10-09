@@ -9,15 +9,35 @@
 </head>
 
 <body class="home flex-col">
+    <div class="popup-background display-none"></div>
+
     <header class="flex-row items-center justify-space-between">
         <div class="logo">
             <img src="css/images/logo/Logo.png" alt="Logo">
         </div>
-        <div class="header-utils flex-row items-center justify-center">
-            <img src="css/images/utils/Cart.png" alt="Cart">
-            <img src="css/images/utils/Profile pic.png" alt="Profile pic">
+        <div class="header-utils flex-row items-center justify-space-between">
+            <a id="cart"><img src="css/images/utils/Cart.png" alt="Cart"></a>
+            <div class="flex-row items-center justify-end">
+                <svg id="arrow" class="display-none no-rotate" height="30" viewBox="0 0 48 48" width="30" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" />
+                    <path d="M0-.75h48v48h-48z" fill="none" />
+                </svg>
+                <a id="profile-pic"><img src="css/images/utils/Profile pic.png" alt="Profile pic"></a>
+            </div>
         </div>
     </header>
+    <nav class="menu-desplegable flex-col display-none">
+        <a class="btn-lista">Mi perfil</a>
+        <a class="btn-lista">Editar perfil</a>
+        <a class="btn-lista">Configuraciones</a>
+        <a class="btn-lista">Reviews</a>
+        <a class="btn-lista">Biblioteca</a>
+        <a class="btn-lista">Favoritos</a>
+        <a class="btn-lista">Idioma</a>
+        <a class="btn-lista">Historial</a>
+        <hr>
+        <a class="btn-lista log-off">Cerrar sesión</a>
+    </nav>
 
     <main class="flex-col w-full">
         <figure class="w-full">
@@ -79,8 +99,8 @@
         </div>
     </div>
 
-    <footer class="flex-col justify-space-between">
-        <div class="flex-row justify-space-between px-4">
+    <footer class="flex-col flexMob-col justify-space-between">
+        <div class="flex-row flexMob-col justify-space-between px-4">
             <div class="flex-col footer-col">
                 <h3>Sobre nosotros</h3>
                 <nav class="flex-col">
