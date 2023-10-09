@@ -430,6 +430,7 @@ function renderGameCards(genre) {
         const playIcon = document.createElement('img')
         playIcon.src = '../tp-2/css/images/icons/play.svg'
         playIcon.alt = 'play-icon'
+        playIcon.classList.add('toPlayIconImg')
 
         // hacemos el append al contenido de la card
         //card.appendChild(price);

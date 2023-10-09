@@ -647,6 +647,12 @@ button.carrito {
     left: -6px;
 }
 
+.toPlayIconImg {
+    position: absolute;
+    top: 35px;
+    right: 80px;
+}
+
 div[class^="button"] {
     z-index: 10;
     width: 5%;
