@@ -427,6 +427,10 @@ function renderGameCards(genre) {
         toPayIcon.src = '../tp-2/css/images/icons/toPay.svg'
         toPayIcon.alt = 'to-pay-icon'
 
+        const playIcon = document.createElement('img')
+        playIcon.src = '../tp-2/css/images/icons/play.svg'
+        playIcon.alt = 'play-icon'
+
         // hacemos el append al contenido de la card
         //card.appendChild(price);
         card.appendChild(img);
@@ -439,6 +443,19 @@ function renderGameCards(genre) {
         cardTitle.appendChild(title);
         cardFavIcon.appendChild(favIcon)
         game.paid && cardToPayIcon.appendChild(toPayIcon)
+
+        // Add event listener for hover (mouseenter)
+        card.addEventListener('mouseenter', () => {
+            card.appendChild(playIcon);
+        });
+
+        // Add event listener for mouse leave (mouseleave)
+        card.addEventListener('mouseleave', () => {
+            // Check if the playIcon is a child of the card before removing it
+            if (card.contains(playIcon)) {
+                card.removeChild(playIcon);
+            }
+        });
 
         // el append al container
         container.appendChild(card);
