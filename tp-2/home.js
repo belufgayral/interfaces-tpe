@@ -448,6 +448,11 @@ function renderGameCards(genre) {
         // para el hover (mouseenter)
         card.addEventListener('mouseenter', () => {
             card.appendChild(playIcon);
+            playIcon.addEventListener('click', () => {
+                if (game.title === 'Samurai Senso') {
+                    window.location.href = 'game.html'; // Replace with your actual URL
+                }
+            })
         });
 
         // para cuando dejamos el hover (mouseleave)
