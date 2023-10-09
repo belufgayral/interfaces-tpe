@@ -432,7 +432,7 @@ function renderGameCards(genre) {
         card.appendChild(img);
         card.appendChild(cardTitle);
         card.appendChild(carritoDiv)
-        carritoDiv.appendChild(carritoButton)
+        game.paid && carritoDiv.appendChild(carritoButton)
         card.appendChild(cardFavIcon)
         game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
         //appends mas especificos
