@@ -540,30 +540,6 @@ button.carrito {
     left: 5px;
 }
 
-div[class^="button"] {
-    z-index: 10;
-    width: 5%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-
-    span {
-        font-size: 1.5em;
-        font-weight: bold;
-        color: #fff;
-        background: rgba(#111, .6);
-        border-radius: 50%;
-        padding: 8px 18px;
-        transition: transform .5s;
-
-        &:hover {
-            transform: scale(0.9);
-        }
-    }
-}
-
 #button-left,
 #button-right {
     /* Reset all default styles for the button */
@@ -645,13 +621,13 @@ div[class^="button"] {
     }
 
     .cardBgImg {
-        width: 114px;
-        height: 79px;
+        width: 7.1rem;
+        height: auto;
     }
 
     .cardForYouBgImg {
-        width: 124.25px;
-        height: 75.15px;
+        width: 7.7rem;
+        height: auto;
     }
 
     main>figure {
@@ -722,6 +698,32 @@ div[class^="button"] {
         color: var(--color-secondary-l2);
     }
 
+    div.carrito-div {
+        width: 80%;
+        margin: auto;
+        border-radius: 0rem 0rem 0rem 0.8125rem;
+        display: inline-flex;
+        justify-items: center;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    div.carrito-div:hover {
+        width: 100%;
+        background-color: var(--color-secondary-s3);
+    }
+    
+    button.carrito {
+        width: 100%;
+        font-size: 16px;
+        border-width: 2px 0px 0px 0px;
+        border-radius: 0px;
+        transition: all 0.5s ease-in-out;
+    }
+    
+    .shake-animation {
+        animation: shake-deg 0.3s 1;
+    }
+
     .cardFavIcon {
         position: absolute;
         top: 6px;
@@ -752,30 +754,6 @@ div[class^="button"] {
         position: absolute;
         bottom: 4px;
         left: 5px;
-    }
-    
-    div[class^="button"] {
-        z-index: 10;
-        width: 5%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-    
-        span {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #fff;
-            background: rgba(#111, .6);
-            border-radius: 50%;
-            padding: 8px 18px;
-            transition: transform .5s;
-    
-            &:hover {
-                transform: scale(0.9);
-            }
-        }
     }
     
     #button-left,
