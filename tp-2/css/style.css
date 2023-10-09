@@ -502,25 +502,25 @@ form .option-login {
         font-weight: 700;
         text-transform: uppercase;
     }
-    
+
     h2 {
         font-size: 13px;
         font-weight: 400;
         font-variant: all-small-caps;
     }
-    
+
     h3 {
         font-size: 11px;
         font-weight: 400;
         font-variant: all-small-caps;
     }
-    
+
     p {
         text-align: justify;
         font-size: 7px;
         font-weight: 300;
     }
-    
+
 
     button.primary {
         display: inline-flex;
@@ -577,7 +577,8 @@ form .option-login {
     transition: all 0.3s ease-in-out;
 }
 
-.cardGame:hover, .forYouCardGame:hover {
+.cardGame:hover,
+.forYouCardGame:hover {
     transform: scale(105%);
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.80);
     transition: all 0.3s ease-in-out;
@@ -651,6 +652,7 @@ button.carrito {
     position: absolute;
     top: 35px;
     right: 80px;
+    cursor: pointer;
 }
 
 div[class^="button"] {
@@ -675,6 +677,24 @@ div[class^="button"] {
             transform: scale(0.9);
         }
     }
+}
+
+#button-left, #button-right {
+    /* Reset all default styles for the button */
+    background: none;
+    border: none;
+    color: inherit;
+    font: inherit;
+    padding: 0.4rem;
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    margin: 0;
+    cursor: pointer;
+    text-align: left;
+    /* Add more styles as needed */
+    font-size: x-large;
+    background-color: #E3C458;
+    border-radius: 100%;
 }
 
 @media (max-width: 768px) {

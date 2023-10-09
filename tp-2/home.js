@@ -445,15 +445,14 @@ function renderGameCards(genre) {
         cardFavIcon.appendChild(favIcon)
         game.paid && cardToPayIcon.appendChild(toPayIcon)
 
-        // Add event listener for hover (mouseenter)
+        // para el hover (mouseenter)
         card.addEventListener('mouseenter', () => {
             card.appendChild(playIcon);
         });
 
-        // Add event listener for mouse leave (mouseleave)
+        // para cuando dejamos el hover (mouseleave)
         card.addEventListener('mouseleave', () => {
-            // Check if the playIcon is a child of the card before removing it
-            if (card.contains(playIcon)) {
+            if (card.contains(playIcon)) { // comprobamos que el play icon este appendado antes de quitarlo
                 card.removeChild(playIcon);
             }
         });
