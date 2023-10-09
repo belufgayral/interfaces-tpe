@@ -65,6 +65,43 @@ textarea:focus {
     outline: 1px solid var(--color-secondary-l3);
 }
 
+/* DIVISORES HR */
+
+hr {
+    height: 0rem;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: var(--color-secondary-l3);
+    align-self: center;
+}
+
+/* BLACK BACKGROUND FOR ANIMATIONS */
+
+.popup-background {
+    /*HAY QUE CAMBIARLE EL NOMBRE*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(24, 23, 27, 0.7);
+    animation: opacity 1s 1;
+}
+
+/* Z-INDEX */
+
+.z-index-1 {
+    z-index: 1;
+}
+
+.z-index-2 {
+    z-index: 2;
+}
+
+.z-index-3 {
+    z-index: 3;
+}
+
 /* BODY */
 
 body.home {
@@ -81,11 +118,19 @@ body.game {
     background-color: var(--color-black);
 }
 
+.home main,
+.game main {
+    padding-top: 6.125rem;
+}
+
 /* HEADER */
 
 header {
+    position: fixed;
+    width: 100%;
     background-color: var(--color-primary-s1);
     height: 6.125rem;
+    z-index: 1;
 }
 
 .logo {
@@ -95,14 +140,74 @@ header {
 }
 
 .header-utils {
-    width: 7rem;
+    width: 7.5rem;
     gap: 1rem;
-    margin-right: 1rem;
+    margin-right: 3rem;
+}
+
+.header-utils>div {
+    width: 100%;
+}
+
+#profile-pic {
+    right: 0;
+    z-index: 1;
+}
+
+.translate-left-animation {
+    animation: translate-left 1s 1 forwards, opacity 1s 1;
+}
+
+.translate-right-animation {
+    animation: translate-right 1s 1, opacity-out 1s 1;
+}
+
+.no-rotate {
+    transform: rotate(0deg);
+    transition: transform 0.5s;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s;
 }
 
 .header-utils>img {
     width: 2rem;
     height: 2rem;
+}
+
+.header-utils svg {
+    fill: var(--color-secondary-l3);
+}
+
+.menu-desplegable {
+    position: fixed;
+    justify-content: flex-start;
+    height: 22rem;
+    top: 6.125rem;
+    right: 0;
+    width: fit-content;
+    background-color: var(--color-primary-l2);
+    border-radius: 0rem 0rem 0rem 1.25rem;
+    padding: 1rem 2rem;
+    box-shadow: -3px 3px 7px 0px rgba(0, 0, 0, 0.29);
+    gap: 0.69rem;
+    z-index: 1;
+    animation: opacity 0.2s 1 ease-in-out;
+}
+
+.menu-desplegable .btn-lista {
+    font-size: larger;
+}
+
+.menu-desplegable hr {
+    width: 100%;
+    margin: auto;
+}
+
+.log-off {
+    margin-top: auto;
 }
 
 /* FOOTER */
@@ -132,7 +237,7 @@ footer {
 }
 
 
-/* FORM REGISTRO & LOGIN */
+/* FORM REGISTRO & LOGIN
 
 form {
     width: 28.75rem;
@@ -181,10 +286,112 @@ div.form>input:focus {
 
 form .option-login {
     gap: 0.5em;
-}
+} */
 
 @media (min-width: 768px) {
     /* HOME */
+
+.home .popup-background {
+    background-color: rgba(24, 23, 27, 0.95);
+    animation:
+        opacity 0.3s 1;
+}
+
+.porcentaje {
+    position: fixed;
+    top: 0px;
+    bottom: 90px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    z-index: 4;
+    animation:
+        opacity 0.3s 1,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.porcentaje h1 {
+    font-size: 80px;
+}
+
+.loader {
+    position: fixed;
+    top: 0px;
+    bottom: 90px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: linear-gradient(var(--color-primary-l2), var(--color-secondary-l2), var(--color-acento));
+    animation:
+        opacity 0.3s 1,
+        rotate-360 1.2s linear infinite,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.loader span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(var(--color-primary-l2), var(--color-secondary-l2), var(--color-acento));
+}
+
+.loader span:nth-child(1) {
+    filter: blur(5px);
+}
+
+.loader span:nth-child(2) {
+    filter: blur(10px);
+}
+
+.loader span:nth-child(3) {
+    filter: blur(25px);
+}
+
+.loader span:nth-child(4) {
+    filter: blur(50px);
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    /* background: rgba(0, 0, 0, 0.5); */
+    border: solid white 5px;
+    border-radius: 50%;
+}
+
+.loading-bar {
+    position: fixed;
+    top: 325px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    display: inline-flex;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    z-index: 4;
+    animation:
+        opacity 0.3s 1,
+        opacity-out 0.3s 4.8s 1 forwards;
+}
+
+.loading-bar .color {
+    border-width: 2px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 9px 1px rgba(140, 197, 178, 0.5);
+    animation: progress 5s linear 1 forwards;
+}
 
     main {
         width: 100%;
@@ -211,6 +418,8 @@ form .option-login {
     /* Add a transition for smooth animation */
 }
 
+.cardGame,
+.forYouCardGame {
 .cardGame,
 .forYouCardGame {
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.40);

@@ -445,11 +445,11 @@ function renderGameCards(genre) {
 
 
 // llamamos la funcion para renderizar segun el parametro pasado, esto se puede convertir en un loop mas adelante
-renderGameCards('Aventura');
-renderGameCards('Accion');
-renderGameCards('Terror');
-renderGameCards('Estrategia');
-renderGameCards('parati');
+// renderGameCards('Aventura');
+// renderGameCards('Accion');
+// renderGameCards('Terror');
+// renderGameCards('Estrategia');
+// renderGameCards('parati');
 
 
 let currentIndex = 0;
@@ -486,3 +486,5 @@ const nextButton = document.getElementById('button-right');
 nextButton.addEventListener('click', () => {
     navigateCarousel('next');
 });
+
+export { renderGameCards };

@@ -18,8 +18,6 @@ form>.divider {
 
 .divider>hr {
     width: 9.6875rem;
-    height: 0rem;
-    border-color: var(--color-secondary-l3);
 }
 
 .form-login {
@@ -118,16 +116,6 @@ form .option-login {
     background-color: rgb(242, 204, 204);
     border: 1px solid rgb(180, 86, 86);
     animation: shake 0.7s 1;
-}
-
-.popup-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(24, 23, 27, 0.7);
-    animation: opacity 1s 1;
 }
 
 .registration-popup {

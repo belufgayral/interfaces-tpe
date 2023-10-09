@@ -9,9 +9,23 @@
 </head>
 
 <body class="home flex-col">
-    <div class="popup-background display-none"></div>
 
-    <header class="flex-row items-center justify-space-between">
+    <div id="background-loading" class="popup-background z-index-2"></div>
+
+    <div class="porcentaje">
+        <h1>0%</h1>
+    </div>
+    <div class="loader z-index-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-bar">
+        <hr id="loading-bar" class="color">
+    </div>
+
+    <header id="header-home" class="flex-row items-center justify-space-between display-none">
         <div class="logo">
             <img src="css/images/logo/Logo.png" alt="Logo">
         </div>
@@ -39,7 +53,7 @@
         <a class="btn-lista log-off">Cerrar sesión</a>
     </nav>
 
-    <main class="flex-col w-full">
+    <main id="main-home" class="flex-col w-full display-none">
         <figure class="w-full">
             <img class="w-full" src="css/images/background/background-weekly-top.png" alt="Weekly top game">
             <div>
@@ -48,14 +62,13 @@
                 <button class="secondary">Más información</button>
             </div>
         </figure>
-    </main>
 
-    <div class="flex-col pl-6"> <!-- container -->
-        <div>
+        <div class="flex-col pl-6"> <!-- container -->
             <div>
-                <h1 class="">Para ti</h2>
-            </div>
-            <div id="parati" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
+                <div>
+                    <h1 class="">Para ti</h1>
+                </div>
+                <div id="parati" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
 
             </div>
         </div>
@@ -83,23 +96,24 @@
             <h2 class="">Acción</h2>
             <div id="accion" class="flex-row items-center gap-5 cards-container"> <!-- cards carousel -->
 
+                </div>
+            </div>
+            <div>
+                <h2 class="">Terror</h2>
+                <div id="terror" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Estrategia</h2>
+                <div id="estrategia" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
             </div>
         </div>
-        <div>
-            <h2 class="">Terror</h2>
-            <div id="terror" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
+    </main>
 
-            </div>
-        </div>
-        <div>
-            <h2 class="">Estrategia</h2>
-            <div id="estrategia" class="flex-row items-center gap-5 cards-container "> <!-- cards carousel -->
-
-            </div>
-        </div>
-    </div>
-
-    <footer class="flex-col flexMob-col justify-space-between">
+    <footer id="footer-home" class="flex-col flexMob-col justify-space-between display-none">
         <div class="flex-row flexMob-col justify-space-between px-4">
             <div class="flex-col footer-col">
                 <h3>Sobre nosotros</h3>
@@ -151,7 +165,9 @@
             <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
         </div>
     </footer>
-    <script type="module" src="home.js"></script>
+
+    <script type="module" src="loading-home.js"></script>
+    <!-- <script type="module" src="home.js"></script> -->
     <script type="text/javascript" src="menu-desplegable.js"></script>
 </body>
 
