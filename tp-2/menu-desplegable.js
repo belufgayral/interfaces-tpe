@@ -1,6 +1,6 @@
 const profilePic = document.querySelector("#profile-pic");
 const menuDesplegable = document.querySelector(".menu-desplegable");
-const background = document.querySelector(".popup-background");
+const background = document.querySelector("#background-menu");
 const arrow = document.querySelector("#arrow");
 const cart = document.querySelector("#cart");
 
