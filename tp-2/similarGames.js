@@ -101,14 +101,14 @@ function renderGameCards() {
         //card.appendChild(price);
         card.appendChild(img);
         card.appendChild(cardTitle);
-        card.appendChild(carritoDiv)
+        //card.appendChild(carritoDiv)
         game.paid && carritoDiv.appendChild(carritoButton)
         card.appendChild(cardFavIcon)
-        game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
+        //game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
         //appends mas especificos
         cardTitle.appendChild(title);
         cardFavIcon.appendChild(favIcon)
-        game.paid && cardToPayIcon.appendChild(toPayIcon)
+        //game.paid && cardToPayIcon.appendChild(toPayIcon)
 
         // para el hover (mouseenter)
         card.addEventListener('mouseenter', () => {
