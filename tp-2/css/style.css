@@ -614,3 +614,15 @@ div[class^="button"] {
         }
     }
 }
+
+@media (max-width: 768px) {
+    .cardBgImg {
+        width: 114px;
+        height: 79px;
+    }
+
+    .cardForYouBgImg {
+        width: 124.25px;
+        height: 75.15px;
+    }
+}
