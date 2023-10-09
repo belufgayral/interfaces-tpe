@@ -10,18 +10,6 @@
     flex-direction: column;
 }
 
-@media (max-width: 768px) {
-    .flexMob-row {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .flexMob-col {
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 /* x and y alignments */
 
 .justify-center {
@@ -291,4 +279,16 @@
 
 .w-full {
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .flexMob-row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .flexMob-col {
+        display: flex;
+        flex-direction: column;
+    }
 }
