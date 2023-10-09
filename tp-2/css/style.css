@@ -697,16 +697,24 @@ div[class^="button"] {
     border: none;
     color: inherit;
     font: inherit;
-    padding: 0.4rem;
+    padding: 0.2rem;
     padding-top: 0.15rem;
     padding-bottom: 0.15rem;
     margin: 0;
     cursor: pointer;
-    text-align: left;
-    /* Add more styles as needed */
-    font-size: x-large;
-    background-color: #E3C458;
-    border-radius: 100%;
+}
+
+#button-left {
+    transform: rotate(180deg);
+}
+
+#button-right {
+    padding-top: 0.60rem;
+}
+
+.arrow-img {
+    width: 1.7rem;
+    height: 1.7rem;
 }
 
 @media (max-width: 768px) {
