@@ -655,6 +655,17 @@ button.carrito {
     right: 80px;
     cursor: pointer;
 }
+.priceText {
+    color: var(--Blanco, #F2F1F8);
+    font-family: Roboto;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    position: absolute;
+    bottom: 58px;
+    left: 5px;
+}
 
 div[class^="button"] {
     z-index: 10;

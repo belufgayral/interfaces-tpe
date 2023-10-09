@@ -403,7 +403,8 @@ function renderGameCards(genre) {
         title.textContent = game.title;
 
         const price = document.createElement('p');
-        price.textContent = `Price: $${game.price}`;
+        price.classList.add('priceText')
+        price.textContent = `$${game.price}`;
 
         const carritoDiv = document.createElement('div');
         const carritoButton = document.createElement('button');
@@ -433,7 +434,6 @@ function renderGameCards(genre) {
         playIcon.classList.add('toPlayIconImg')
 
         // hacemos el append al contenido de la card
-        //card.appendChild(price);
         card.appendChild(img);
         card.appendChild(cardTitle);
         card.appendChild(carritoDiv)
@@ -455,12 +455,24 @@ function renderGameCards(genre) {
             })
         });
 
+        card.addEventListener('mouseenter', () => {
+            if (game.price !== 'free') {
+                card.appendChild(price);
+            }
+        })
+
         // para cuando dejamos el hover (mouseleave)
         card.addEventListener('mouseleave', () => {
             if (card.contains(playIcon)) { // comprobamos que el play icon este appendado antes de quitarlo
                 card.removeChild(playIcon);
             }
         });
+
+        card.addEventListener('mouseleave', () => {
+            if (card.contains(price)) {
+                card.removeChild(price);
+            }
+        })
 
         // el append al container
         container.appendChild(card);
