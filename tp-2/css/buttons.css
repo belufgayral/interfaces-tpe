@@ -30,6 +30,10 @@ button.secondary {
     color: var(--color-secondary-l2);
 }
 
+.secondaryMobile {
+    display: none;
+}
+
 .btn-lista {
     font-family: var(--font2);
     color: var(--color-white);

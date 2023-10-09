@@ -214,7 +214,7 @@ header {
     header {
         max-width: 360px;
         background-color: var(--color-primary-s1);
-        height: 6.125rem;
+        height: 4.125rem;
         z-index: 2;
     }
 
@@ -455,6 +455,76 @@ form .option-login {
         left: 70%;
     }
 
+}
+
+@media (max-width: 768px) {
+    main>figure {
+        width: 100%;
+        position: relative;
+    }
+
+    figure>div {
+        position: absolute;
+        top: 25%;
+        left: 60%;
+    }
+
+    h1 {
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+    
+    h2 {
+        font-size: 13px;
+        font-weight: 400;
+        font-variant: all-small-caps;
+    }
+    
+    h3 {
+        font-size: 11px;
+        font-weight: 400;
+        font-variant: all-small-caps;
+    }
+    
+    p {
+        text-align: justify;
+        font-size: 7px;
+        font-weight: 300;
+    }
+    
+
+    button.primary {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        gap: 0.5rem;
+        padding: 0.5rem 0.75rem;
+        background: var(--color-secondary-l1);
+        outline: none;
+        border: none;
+        border-radius: 0.8125rem;
+        color: var(--color-white);
+        text-transform: uppercase;
+    }
+
+    button.secondary {
+        display: none;
+    }
+
+    button.secondaryMobile {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: fit-content;
+        padding: 0.2rem 0.5rem;
+        background-color: transparent;
+        border-radius: 0.8125rem;
+        border: 2px solid var(--color-secondary-l2);
+        outline: none;
+        color: var(--color-secondary-l2);
+    }
 }
 
 /* HOME cards */
