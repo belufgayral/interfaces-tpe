@@ -405,9 +405,12 @@ function renderGameCards(genre) {
         const price = document.createElement('p');
         price.textContent = `Price: $${game.price}`;
 
-        const carritoDiv = document.createElement('div')
-        carritoDiv.classList.add('carritoDiv')
-        carritoDiv.textContent = 'Agregar al carrito'
+        const carritoDiv = document.createElement('div');
+        const carritoButton = document.createElement('button');
+        carritoDiv.classList.add('carrito-div')
+        carritoButton.classList.add('carrito')
+        carritoButton.classList.add('secondary')
+        carritoButton.textContent = 'Agregar al carrito'
 
         // creamos el img elem
         const img = document.createElement('img');
@@ -429,6 +432,7 @@ function renderGameCards(genre) {
         card.appendChild(img);
         card.appendChild(cardTitle);
         card.appendChild(carritoDiv)
+        carritoDiv.appendChild(carritoButton)
         card.appendChild(cardFavIcon)
         game.paid && card.appendChild(cardToPayIcon) //solo si el juego es pago (booleano)
         //appends mas especificos

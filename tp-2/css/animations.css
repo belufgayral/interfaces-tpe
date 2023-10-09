@@ -170,3 +170,25 @@
     width: 100%;
   }
 }
+
+@keyframes shake-deg {
+  0%,
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: rotate(3deg);
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: rotate(-3deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}

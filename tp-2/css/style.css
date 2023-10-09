@@ -455,6 +455,34 @@ form .option-login {
         left: 70%;
     }
 
+    .play-weekly {
+        transition: all 0.5s linear;
+    }
+
+    .play-weekly:hover {
+        background-color: var(--color-secondary-s3);
+        scale: 1.1;
+    }
+
+    .play-weekly::after {
+        content: '';
+        background: var(--color-secondary-l1);
+        width: 0;
+        height: 100%;
+        position: absolute;
+        inset: 0;
+        border-radius: 0.8125rem;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition: all 0.5s ease;
+        visibility: hidden;
+    }
+
+    .play-weekly:hover::after {
+        width: 100%;
+        visibility: visible;
+        transform: translateX(0);
+    }
 }
 
 @media (max-width: 768px) {
@@ -539,13 +567,20 @@ form .option-login {
 .cardGame,
 .forYouCardGame {
     box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.40);
-    border-radius: 0px 0px 0px 23px;
+    border-radius: 0rem 0rem 0rem 0.8125rem;
     background: url(<path-to-image>), rgba(0, 57, 38, 0.85) -78.697px 2.859px / 130.422% 121.739% no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.cardGame:hover, .forYouCardGame:hover {
+    transform: scale(105%);
+    box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.80);
+    transition: all 0.3s ease-in-out;
 }
 
 .cardBgImg {
@@ -570,13 +605,34 @@ form .option-login {
 }
 
 .cardTitle {
-    padding-right: 6px;
+    padding-right: 0.5rem;
+    margin-bottom: 0.3rem;
 }
 
-.carritoDiv {
+div.carrito-div {
+    width: 80%;
+    margin: auto;
+    border-radius: 0rem 0rem 0rem 0.8125rem;
+    display: inline-flex;
+    justify-items: center;
+    transition: all 0.5s ease-in-out;
+}
+
+div.carrito-div:hover {
     width: 100%;
-    text-align: center;
-    background-color: aliceblue;
+    background-color: var(--color-secondary-s3);
+}
+
+button.carrito {
+    width: 100%;
+    font-size: 16px;
+    border-width: 2px 0px 0px 0px;
+    border-radius: 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+.shake-animation {
+    animation: shake-deg 0.3s 1;
 }
 
 .cardFavIcon {
