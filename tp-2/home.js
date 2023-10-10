@@ -341,6 +341,7 @@ function renderGameCards(genre) {
 
         //aca creamos el icon fav y otros iconos que necesitemos
         const favIcon = document.createElement('img')
+        favIcon.id = 'heart'
         favIcon.src = '../tp-2/css/images/icons/fav.svg'
         favIcon.alt = 'fav-icon-heart'
 
