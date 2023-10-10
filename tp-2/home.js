@@ -8,6 +8,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ const gamesCardData = [
         paid: true,
         price: '50',
         img: '',
+        inCart: false
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ const gamesCardData = [
         paid: true,
         price: '869',
         img: '',
+        inCart: false
     },
     {
         id: 4,
@@ -38,6 +41,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 5,
@@ -48,6 +52,7 @@ const gamesCardData = [
         paid: true,
         price: '79',
         img: '',
+        inCart: false
     },
     {
         id: 6,
@@ -58,6 +63,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 7,
@@ -68,6 +74,7 @@ const gamesCardData = [
         paid: true,
         price: '440',
         img: '',
+        inCart: false
     },
     {
         id: 8,
@@ -78,6 +85,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 9,
@@ -88,6 +96,7 @@ const gamesCardData = [
         paid: true,
         price: '129',
         img: '',
+        inCart: false
     },
     {
         id: 10,
@@ -98,6 +107,7 @@ const gamesCardData = [
         paid: true,
         price: '699',
         img: '',
+        inCart: false
     },
     {
         id: 11,
@@ -108,6 +118,7 @@ const gamesCardData = [
         paid: true,
         price: '99',
         img: '',
+        inCart: false
     },
     {
         id: 12,
@@ -118,6 +129,7 @@ const gamesCardData = [
         paid: true,
         price: '529',
         img: '',
+        inCart: false
     },
     {
         id: 13,
@@ -128,6 +140,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 14,
@@ -138,6 +151,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 15,
@@ -148,6 +162,7 @@ const gamesCardData = [
         paid: true,
         price: '1200',
         img: '',
+        inCart: false
     },
     {
         id: 16,
@@ -158,6 +173,7 @@ const gamesCardData = [
         paid: true,
         price: '999',
         img: '',
+        inCart: false
     },
     {
         id: 17,
@@ -168,6 +184,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 18,
@@ -178,6 +195,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 19,
@@ -188,6 +206,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 20,
@@ -198,6 +217,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 21,
@@ -208,6 +228,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 22,
@@ -218,6 +239,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 23,
@@ -228,6 +250,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 24,
@@ -238,6 +261,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 25,
@@ -248,6 +272,7 @@ const gamesCardData = [
         paid: false,
         price: 'free',
         img: '',
+        inCart: false
     },
     {
         id: 26,
@@ -258,6 +283,7 @@ const gamesCardData = [
         paid: true,
         price: '459',
         img: '',
+        inCart: false
     },
     {
         id: 27,
@@ -268,6 +294,7 @@ const gamesCardData = [
         paid: true,
         price: '79',
         img: '',
+        inCart: false
     },
     {
         id: 28,
@@ -278,6 +305,7 @@ const gamesCardData = [
         paid: true,
         price: '389',
         img: '',
+        inCart: false
     },
 ]
 
@@ -305,6 +333,23 @@ function renderGameCards(genre) {
 
     // limpiamos el container
     container.innerHTML = '';
+
+    function changeCart(event, game) {
+        if (event.target.classList.contains("carrito")) {
+            if (!(game.inCart)) {
+                event.target.textContent = '¡Agregado al carrito!';
+            } else {
+                event.target.textContent = 'Agregar al carrito';
+            }
+            game.inCart = !(game.inCart)
+            event.target.classList.add("shake-animation");
+    
+            setTimeout(() => {
+                event.target.classList.remove("shake-animation");
+            }, 350);
+        }
+            
+    }
 
     // iteramos los juegos filtrados por genero para generar el layout de la card y su contenido de manera dinamica
     genreGames.forEach(game => {
@@ -375,6 +420,10 @@ function renderGameCards(genre) {
                 }
             })
         });
+
+        carritoButton.addEventListener('click', () => {
+            changeCart(event, game)
+        })
 
         card.addEventListener('mouseenter', () => {
             if (game.price !== 'free') {
