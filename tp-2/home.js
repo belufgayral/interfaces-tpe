@@ -365,7 +365,7 @@ function renderGameCards(genre) {
         // creamos contenido y precio, esto va a ser contenido para la card
         const title = document.createElement('h3');
         title.classList.add('cardTitle')
-        title.textContent = game.title;
+        title.textContent = game.title.length > 15 && game.paid ? game.title.slice(0, 15) + '...' : game.title
 
         const price = document.createElement('p');
         price.classList.add('priceText')
