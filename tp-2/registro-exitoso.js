@@ -29,7 +29,7 @@ function changeToHome() {
         }, 3300);
 
         setTimeout(() => {
-            window.location.href = "home.html";
+            window.location.href = "./home.html";
         }, 4500);
     } else {
         console.log("entró al else");
