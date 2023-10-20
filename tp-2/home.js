@@ -343,12 +343,12 @@ function renderGameCards(genre) {
             }
             game.inCart = !(game.inCart)
             event.target.classList.add("shake-animation");
-    
+
             setTimeout(() => {
                 event.target.classList.remove("shake-animation");
             }, 350);
         }
-            
+
     }
 
     // iteramos los juegos filtrados por genero para generar el layout de la card y su contenido de manera dinamica
@@ -450,34 +450,41 @@ function renderGameCards(genre) {
 
 }
 
-
-
-// llamamos la funcion para renderizar segun el parametro pasado, esto se puede convertir en un loop mas adelante
-// renderGameCards('Aventura');
-// renderGameCards('Accion');
-// renderGameCards('Terror');
-// renderGameCards('Estrategia');
-// renderGameCards('parati');
-
-
 let currentIndex = 0;
 
 function navigateCarousel(direction) {
+    const prevBtn = document.getElementById('button-left');
+    const nextBtn = document.getElementById('button-right');
     const container = document.getElementById('aventura');
     const images = container.querySelectorAll('.cardGame');
     const slideWidth = images[0].clientWidth;
 
-    if (direction === 'prev') {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-    } else if (direction === 'next') {
-        currentIndex = (currentIndex + 1) % images.length;
+    switch (direction) {
+        case 'prev':
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            break;
+        case 'next':
+            currentIndex = (currentIndex + 1) % images.length;
+            break;
+        default:
+            break;
     }
 
     const offset = -currentIndex * slideWidth;
+    console.log('offset: ', offset)
 
     // Apply a CSS transition for smooth animation
     container.style.transition = 'transform 0.5s ease-in-out';
     container.style.transform = `translateX(${offset}px)`;
+
+    if (offset === (slideWidth * (images.length - 1)) * (-1)) { //cuando nos desplazamos hasta la ultima card
+        nextBtn.disabled = true
+    } else if (offset === 0) { //cuando estamos en la primera card
+        prevBtn.disabled = true
+    } else {
+        if (direction === 'prev') nextBtn.disabled = false
+        if (direction === 'next') prevBtn.disabled = false
+    }
 
     // Remove the transition after the animation completes
     setTimeout(() => {
@@ -494,5 +501,7 @@ const nextButton = document.getElementById('button-right');
 nextButton.addEventListener('click', () => {
     navigateCarousel('next');
 });
+
+
 
 export { renderGameCards };

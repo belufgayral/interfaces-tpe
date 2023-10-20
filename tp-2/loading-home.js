@@ -11,6 +11,8 @@ const footer = document.querySelector("#footer-home");
 
 let valor = 0;
 
+const genreCategories = ['Aventura', 'Accion', 'Terror', 'Estrategia', 'parati']
+
 function cargarPagina() {
   aumentarPorcentaje();
 
@@ -23,11 +25,9 @@ function cargarPagina() {
     header.classList.remove("display-none");
     main.classList.remove("display-none");
     footer.classList.remove("display-none");
-    renderGameCards('Aventura');
-    renderGameCards('Accion');
-    renderGameCards('Terror');
-    renderGameCards('Estrategia');
-    renderGameCards('parati');
+    for (let index = 0; index < genreCategories.length; index++) {
+      renderGameCards(genreCategories[index]);
+    }
   }, 5500);
 }
 
