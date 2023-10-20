@@ -107,6 +107,8 @@ hr {
 body.home {
     width: 100%;
     min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     background-color: var(--color-primary);
 }
 
@@ -447,9 +449,14 @@ figure div div {
 
 .cards-container {
     padding: 1rem 1rem 1rem 0rem;
+    /* overflow-x: scroll; */
     transition: transform 0.5s ease-in-out;
     /* Add a transition for smooth animation */
 }
+
+/* .cards-container::-webkit-scrollbar{
+    display: none;
+  } */
 
 .for-you-container {
     margin-bottom: 1rem;
