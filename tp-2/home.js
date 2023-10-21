@@ -450,31 +450,42 @@ function renderGameCards(genre) {
 
 }
 
-let currentIndex = 0;
 
-function navigateCarousel(direction) {
+
+const genreCategories = [{ genre: 'aventura', currentIndex: 0 },
+{ genre: 'accion', currentIndex: 0 },
+{ genre: 'terror', currentIndex: 0 },
+{ genre: 'estrategia', currentIndex: 0 },
+{ genre: 'parati', currentIndex: 0 }]
+
+function navigateCarousel(direction, genre) {
     const prevBtn = document.getElementById('button-left');
     const nextBtn = document.getElementById('button-right');
-    const container = document.getElementById('aventura');
+    const container = document.getElementById(genre);
     const images = container.querySelectorAll('.cardGame');
     const slideWidth = images[0].clientWidth;
+    const carrouselWidth = images.clientWidth
+    /* console.log(images)
+    console.log('carrouselWidth: ', carrouselWidth) */
+
+    let categoryObject = genreCategories.find((obj) => obj.genre === genre)
 
     switch (direction) {
         case 'prev':
-            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            categoryObject.currentIndex = (categoryObject.currentIndex - 1 + images.length) % images.length;
             break;
         case 'next':
-            currentIndex = (currentIndex + 1) % images.length;
+            categoryObject.currentIndex = (categoryObject.currentIndex + 1) % images.length;
             break;
         default:
             break;
     }
 
-    const offset = -currentIndex * slideWidth;
+    const offset = -categoryObject.currentIndex * slideWidth
     console.log('offset: ', offset)
 
     // Apply a CSS transition for smooth animation
-    container.style.transition = 'transform 0.5s ease-in-out';
+    container.style.transition = 'transform 0.2s ease-in-out';
     container.style.transform = `translateX(${offset}px)`;
 
     if (offset === (slideWidth * (images.length - 1)) * (-1)) { //cuando nos desplazamos hasta la ultima card
@@ -489,17 +500,17 @@ function navigateCarousel(direction) {
     // Remove the transition after the animation completes
     setTimeout(() => {
         container.style.transition = 'none';
-    }, 500); // 500ms matches the transition duration
+    }, 200); // 500ms matches the transition duration
 }
 
 const prevButton = document.getElementById('button-left');
 prevButton.addEventListener('click', () => {
-    navigateCarousel('prev');
+    navigateCarousel('prev', 'aventura');
 });
 
 const nextButton = document.getElementById('button-right');
 nextButton.addEventListener('click', () => {
-    navigateCarousel('next');
+    navigateCarousel('next', 'aventura');
 });
 
 
