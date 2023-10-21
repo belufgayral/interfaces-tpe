@@ -9,12 +9,15 @@ const header = document.querySelector("#header-home");
 const main = document.querySelector("#main-home");
 const footer = document.querySelector("#footer-home");
 
+const prevBtn = document.getElementById('button-left');
+
 let valor = 0;
 
 const genreCategories = ['Aventura', 'Accion', 'Terror', 'Estrategia', 'parati']
 
 function cargarPagina() {
   aumentarPorcentaje();
+  
 
   setTimeout(() => {
     background.classList.add("display-none");
@@ -25,10 +28,11 @@ function cargarPagina() {
     header.classList.remove("display-none");
     main.classList.remove("display-none");
     footer.classList.remove("display-none");
+    prevBtn.disabled = true;
     for (let index = 0; index < genreCategories.length; index++) {
       renderGameCards(genreCategories[index]);
     }
-  }, 5500);
+  }, 100);
 }
 
 function aumentarPorcentaje() {

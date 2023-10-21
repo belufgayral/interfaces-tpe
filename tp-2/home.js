@@ -307,6 +307,17 @@ const gamesCardData = [
         img: '',
         inCart: false
     },
+    {
+        id: 29,
+        title: 'The Last of Us',
+        titleForImg: 'tlou',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '389',
+        img: '',
+        inCart: false
+    }
 ]
 
 
@@ -472,23 +483,25 @@ function navigateCarousel(direction, genre) {
 
     switch (direction) {
         case 'prev':
-            categoryObject.currentIndex = (categoryObject.currentIndex - 1 + images.length) % images.length;
+            categoryObject.currentIndex = ((categoryObject.currentIndex - 1 + images.length) % images.length);
+            console.log(categoryObject.currentIndex);
             break;
         case 'next':
-            categoryObject.currentIndex = (categoryObject.currentIndex + 1) % images.length;
+            categoryObject.currentIndex = ((categoryObject.currentIndex + 1) % images.length);
+            console.log(categoryObject.currentIndex);
             break;
         default:
             break;
     }
 
-    const offset = -categoryObject.currentIndex * slideWidth
+    const offset = (-categoryObject.currentIndex * slideWidth) - (categoryObject.currentIndex * 30);
     console.log('offset: ', offset)
 
     // Apply a CSS transition for smooth animation
     container.style.transition = 'transform 0.2s ease-in-out';
     container.style.transform = `translateX(${offset}px)`;
 
-    if (offset === (slideWidth * (images.length - 1)) * (-1)) { //cuando nos desplazamos hasta la ultima card
+    if (offset === ((slideWidth * (images.length - 6)) * (-1)) - (categoryObject.currentIndex * 30)) { //cuando nos desplazamos hasta la ultima card
         nextBtn.disabled = true
     } else if (offset === 0) { //cuando estamos en la primera card
         prevBtn.disabled = true

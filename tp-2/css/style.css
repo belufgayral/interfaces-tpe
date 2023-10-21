@@ -447,6 +447,7 @@ figure div div {
 
 .cards-container {
     padding: 1rem 1rem 1rem 0rem;
+    gap: 25px;
     transition: transform 0.5s ease-in-out;
     /* Add a transition for smooth animation */
 }
@@ -466,6 +467,7 @@ figure div div {
     align-items: flex-end;
     position: relative;
     transition: all 0.3s ease-in-out;
+    /* margin-right: 25px; */
 }
 
 .cardGame:hover,
