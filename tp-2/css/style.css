@@ -213,23 +213,6 @@ header {
     margin-top: auto;
 }
 
-/* FOOTER */
-
-footer {
-    background-color: var(--color-primary-s1);
-    height: 12.8125rem;
-    margin-top: 3rem;
-}
-
-.footer-col {
-    padding-top: 1.75rem;
-    gap: 0.75rem;
-}
-
-.footer-row {
-    gap: 0.9375rem;
-}
-
 /* FORM REGISTRO & LOGIN
 
 form {
@@ -598,6 +581,22 @@ button.carrito {
     height: 1.7rem;
 }
 
+/* FOOTER */
+
+footer {
+    background-color: var(--color-primary-s1);
+    height: 12.8125rem;
+    margin-top: 3rem;
+}
+
+.footer-col {
+    padding-top: 1.75rem;
+    gap: 0.75rem;
+}
+
+.footer-row {
+    gap: 0.9375rem;
+}
 
 
 
@@ -703,8 +702,25 @@ button.carrito {
         height: auto;
     }
 
+    figure div h1 {
+        font-size: 2rem;
+    }
+
+    .for-you-container .cards-container .cardGame .cardGameTitle h3 {
+        font-size: 1.6rem;
+    }
+
+    button.carrito {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .for-you-container .cards-container .cardGame .carrito-div button {
+        font-size: 1.1rem;
+    }
+
     .cardGameTitle h3 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     /* h1 {
@@ -738,7 +754,7 @@ button.carrito {
         align-items: center;
         width: fit-content;
         gap: 0.5rem; */
-        padding: 0.7rem 1rem;
+        padding: 0.5rem 1rem;
         /* background: var(--color-secondary-l1);
         outline: none;
         border: none;
@@ -748,10 +764,10 @@ button.carrito {
     }
 
     #main-home figure div div .secondary {
-        display: none;
+        /* display: none; */
     }
 
-    button.secondaryMobile {
+    /* button.secondaryMobile {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -762,15 +778,10 @@ button.carrito {
         border: 2px solid var(--color-secondary-l2);
         outline: none;
         color: var(--color-secondary-l2);
-    }
+    } */
 
     div.carrito-div {
         width: 100%;
-    }
-
-    button.carrito {
-        font-size: 0.8rem;
-        padding: 0.5rem;
     }
 
     /* div.carrito-div {
@@ -830,11 +841,15 @@ button.carrito {
         font-weight: 600;
         line-height: normal;
         position: absolute;
-        bottom: 38px;
+        bottom: 45px;
         left: 5px;
         background-color: var(--color-secondary-s2);
         text-align: center;
         width: 2.5rem;
+    }
+
+    .for-you-container .cards-container .cardGame .priceText {
+        bottom: 50px;
     }
 
     #button-left,
@@ -864,12 +879,40 @@ button.carrito {
         height: 1.1rem;
     }
 
-    footer {
-        /* background-color: var(--color-primary-s1); */
+    /* #footer-navs-mobile {
+        background-color: var(--color-primary-s1);
+        display: grid;
+        grid-template-areas: "nav-1 nav-2"
+                            "nav-3 nav-4"
+                            "nav-5 nav-6";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
         height: 100%;
         gap: 2rem;
         padding: 0rem 1rem 1rem 1rem;
     }
+    
+    .nav-1 {
+        grid-area: nav-1;
+    }
+    .nav-2 {
+        grid-area: nav-2;
+    }
+    .nav-3 {
+        grid-area: nav-3;
+    }
+    .nav-4 {
+        grid-area: nav-4;
+    }
+    .nav-5 {
+        grid-area: nav-5;
+    }
+    .nav-6 {
+        grid-area: nav-6;
+    }
+    .nav-7 {
+        grid-area: nav-7;
+    } */
 
     footer h3 {
         font-size: 1.6rem;
