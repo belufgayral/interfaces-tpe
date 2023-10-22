@@ -32,7 +32,7 @@ function cargarPagina() {
     for (let index = 0; index < genreCategories.length; index++) {
       renderGameCards(genreCategories[index]);
     }
-  }, 100);
+  }, 5500);
 }
 
 function aumentarPorcentaje() {
