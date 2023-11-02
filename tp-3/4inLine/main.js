@@ -60,7 +60,7 @@ const start = () => {
     game.initGame(); 
 }
 
-start();
+document.querySelector('#start').addEventListener('click', start);
 
 
 

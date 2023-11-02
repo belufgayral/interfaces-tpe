@@ -50,6 +50,32 @@ class Juego {
         this.players.player2.fillDisks(this.config.totalDisks);
         this.players.player2.displayPlayerInfo(this.ctx, 2);
     }
+
+    initSecondaryCanvas() {
+        //Creates a temporary canvas to move the disk
+        this.tempCanvas = document.createElement('canvas');
+        this.tempCanvas.width = this.config.width;
+        this.tempCanvas.height = this.config.height;
+        this.tempCanvas.classList.add('temporal-canvas');
+        this.tempCtx = this.tempCanvas.getContext('2d');
+
+        const moveDisk = (e) => this.moveDisk(e);
+
+        this.tempCanvas.addEventListener('mousemove', moveDisk);
+        this.tempCanvas.addEventListener('mouseup', async (e) => { await this.dropDisk(e, moveDisk) });
+        this.tempCanvas.addEventListener('mouseleave', () => { this.cancelMove() });
+    }
+
+    moveDisk(e) {
+        let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left;
+        let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top;
+        let disk = this.currentPlayer.getDisk();
+        if (disk.getPosition().x !== x || disk.getPosition().y !== y) {
+            this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
+            disk.move(x, y);
+            disk.draw(this.tempCtx);
+        }
+    }
 }
 
 export default Juego

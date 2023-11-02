@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./4inLine.css">
     <title>4 en linea</title>
 </head>
 <body>
@@ -18,6 +19,23 @@
 				<span><input type="radio" value="7x8" name="size"> 7x8</span>
 			</form>
 		</div>
+		<div class="d-flex justify-around player-config">
+
+            <div class="d-flex-col justify-center align-center">
+                <span>Player 1 name:</span>
+                <input type="text" id="player1-name" value="Player 1">
+                <span>Player 1 color:</span>
+                <input type="color" id="player1-color" value="#ff0000">
+            </div>
+
+            <div class="d-flex-col justify-center align-center">
+                <span>Player 2 name:</span>
+                <input type="text" id="player2-name" value="Player 2">
+                <span>Player 2 color:</span>
+                <input type="color" id="player2-color" value="#0000ff">
+            </div>
+        </div>
+		<button id="start" class="main-color primary-btn">Start!</button>
 	</div>
 	
     <div class="container">
