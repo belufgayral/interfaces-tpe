@@ -21,7 +21,7 @@ const setConfig = (e) => {
     config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
-        tileSize: parseInt(slider.value), //recibe el valor ingresado en el input de board size
+        boardSize: parseInt(slider.value), //recibe el valor ingresado en el input de board size
         rows: parseInt(radio.value.slice(0, 1)), //guarda las fila haciendo un slice del primer valor del 5x6 p ejem
         cols: parseInt(radio.value.slice(-1)), //lo mismo que arriba pero con las columnas
         players: [

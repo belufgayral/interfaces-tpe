@@ -1,10 +1,10 @@
 import Pila from "./Pila.js";
 
 class Tablero {
-    constructor(x, y, pilaSize, rows, cols) {
+    constructor(x, y, pilaTamanio, rows, cols) {
         this.x = x;
         this.y = y;
-        this.pilaSize = pilaSize;
+        this.pilaTamanio = pilaTamanio;
         this.rows = rows;
         this.cols = cols;
         this.tiles = [];
@@ -15,7 +15,7 @@ class Tablero {
         for (let i = 0; i < this.rows; i++) {
             this[i] = [];
             for (let j = 0; j < this.cols; j++) {
-                this[i][j] = new Pila(this.x + j * this.pilaSize, this.y + i * this.pilaSize, this.pilaSize, null);
+                this[i][j] = new Pila(this.x + j * this.pilaTamanio, this.y + i * this.pilaTamanio, this.pilaTamanio, null);
             }
         }
     }

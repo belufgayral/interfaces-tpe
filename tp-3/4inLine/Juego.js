@@ -10,8 +10,8 @@ class Juego {
         this.config = config;
 
         this.players = {
-            player1: new Jugador(1, config.players[0].name, config.players[0].color, config.players[0].character, config.players[0].img, config.totalDisks, new Disco(0, 0, config.tileSize / 3, config.players[0].color)),
-            player2: new Jugador(2, config.players[1].name, config.players[1].color, config.players[1].character, config.players[1].img, config.totalDisks, new Disco(0, 0, config.tileSize / 3, config.players[1].color))
+            player1: new Jugador(1, config.players[0].name, config.players[0].color, config.players[0].character, config.players[0].img, config.totalDisks, new Disco(0, 0, config.boardSize / 3, config.players[0].color)),
+            player2: new Jugador(2, config.players[1].name, config.players[1].color, config.players[1].character, config.players[1].img, config.totalDisks, new Disco(0, 0, config.boardSize / 3, config.players[1].color))
         };
 
         this.board = null;
@@ -24,25 +24,27 @@ class Juego {
     }
 
     initGame() {
-        this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.tileSize,
-            this.config.height / 2 - this.config.rows / 2 * this.config.tileSize,
-            this.config.tileSize,
-            this.config.rows,
-        this.config.cols);
+        //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
+        this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.boardSize, //X
+            this.config.height / 2 - this.config.rows / 2 * this.config.boardSize, //Y
+            this.config.boardSize, //tamanio del tablero ingresado en el input range
+            this.config.rows, //filas del input radio ckeckeado
+        this.config.cols); //columnas del input radio checkeado
 
         this.initScreen();
         console.log('init game')
     }
 
     initScreen() {
-        //Clears previous board if it exists
+        //Limpio el tablero preexistente en caso de haber uno
         console.log(this.ctx)
         this.ctx.clearRect(0, 0, this.config.width, this.config.height);
         this.ctx.canvas.parentElement.querySelector('.player-info.p1')?.remove();
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
         this.ctx.canvas.parentElement.querySelector('.winner')?.remove();
         //Draws new board
-        this.board.draw(this.ctx);
+        this.board.draw(this.ctx); //llamo al metodo de la clase Tablero
+        
         this.players.player1.fillDisks(this.config.totalDisks);
         this.players.player1.displayPlayerInfo(this.ctx, 1);
         this.players.player2.fillDisks(this.config.totalDisks);
