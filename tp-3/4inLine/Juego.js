@@ -23,8 +23,6 @@ class Juego {
         
     }
 
-   
-
     initGame() {
         this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.tileSize,
             this.config.height / 2 - this.config.rows / 2 * this.config.tileSize,
