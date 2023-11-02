@@ -21,8 +21,21 @@ const setConfig = (e) => {
         tileSize: parseInt(slider.value),
         rows: parseInt(radio.value.slice(0, 1)),
         cols: parseInt(radio.value.slice(-1)),
-        players: [],
-        totalDisks: 10,
+        players: [
+            {
+                name: 'Hideyoshi',
+                color: '#FFAA12',
+                character: "H",
+                img: "./4inLine/imgs/Hideyoshi.jpg"	
+            },
+            {
+                name: 'Ghost',
+                color: '#CF6A55',
+                character: "T",
+                img: "./4inLine/imgs/ghostOfTsushima.jpg"
+            }
+        ],
+        totalDisks: 4,
         winNumber: 4,
         speed: 10
     };

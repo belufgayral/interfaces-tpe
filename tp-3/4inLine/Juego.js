@@ -1,4 +1,6 @@
 import Tablero from "./Tablero.js";
+import Jugador from "./Jugador.js";
+import Disco from "./Disco.js";
 
 class Juego {
     constructor(ctx, config) {
@@ -6,6 +8,11 @@ class Juego {
         this.auxCanvas = null;
         this.auxCtx = null;
         this.config = config;
+
+        this.players = {
+            player1: new Jugador(1, config.players[0].name, config.players[0].color, config.players[0].character, config.players[0].img, config.totalDisks, new Disco(0, 0, config.tileSize / 3, config.players[0].color)),
+            player2: new Jugador(2, config.players[1].name, config.players[1].color, config.players[1].character, config.players[1].img, config.totalDisks, new Disco(0, 0, config.tileSize / 3, config.players[1].color))
+        };
 
         this.board = null;
         this.winNumber = config.winNumber;
@@ -37,8 +44,11 @@ class Juego {
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
         this.ctx.canvas.parentElement.querySelector('.winner')?.remove();
         //Draws new board
-
         this.board.draw(this.ctx);
+        this.players.player1.fillDisks(this.config.totalDisks);
+        this.players.player1.displayPlayerInfo(this.ctx, 1);
+        this.players.player2.fillDisks(this.config.totalDisks);
+        this.players.player2.displayPlayerInfo(this.ctx, 2);
     }
 }
 
