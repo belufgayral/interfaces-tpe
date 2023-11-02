@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 en linea</title>
+</head>
+<body>
+	<div class="config">
+		<span>Board size (pixels of each tile): <input class="ml-5" type="range" min="1" max="100" value="90"></span>
+
+		<div class="d-flex justify-center align-center">
+			<span>Board sizes (amount of tiles):</span>
+			<form class="ml-5">
+				<span><input type="radio" value="4x5" name="size"> 4x5</span>
+				<span><input type="radio" value="5x6" name="size"> 5x6</span>
+				<span><input type="radio" value="6x7" name="size" checked> 6x7</span>
+				<span><input type="radio" value="7x8" name="size"> 7x8</span>
+			</form>
+		</div>
+	</div>
+	
+    <div class="container">
+		<canvas class="canvas" id="canvas" width="800" height="600"></canvas>
+	</div>
+	<script type="module" src="./4inLine/main.js"></script>
+</body>
+</html>
