@@ -23,26 +23,26 @@ class Hoyo {
         // Create an Image object and set its source to the background image URL
         ctx.fillStyle = "rgba(255, 255, 255, 0.1)"; //setea el color alrededor del hoyo, no del hoyo instanciado
         ctx.fillRect(this.x, this.y, this.size, this.size);
-        ctx.save();
+        ctx.save(); //guarda el estado del contexto dibujado
         this.generateHole(ctx);
         ctx.clearRect(this.x, this.y, this.size, this.size);
-        ctx.restore();
+        ctx.restore(); //esto restaura el estado guardado
         //ctx.drawImage(this.image, this.x, this.y, 50, 50) 
     }
 
-    generateHole(ctx) {
+    generateHole(ctx) { //esto arma el hoyo con su forma circular
         ctx.beginPath();
         ctx.arc(this.x + this.size / 2, this.y + this.size / 2, this.size / 3, 0, 2 * Math.PI);
-        ctx.closePath();
-        ctx.clip();
+        ctx.closePath(); //el metodo path es para dibujar formas, empezarlas y cerrarlas, en este caso dibujamos un circulo
+        ctx.clip(); //el metodo clip recorta una parte de n tamanio del ctx original, y para el futuro cualquier drawing queda circunscrito a esta parte recortada
     }
 
-    async putDisk(ctx, disk, speed) {
+    async putDisk(ctx, disk, speed) { //cuando pongo el disco en la columna a caer
         this.disk = disk;
         await this.animateFall(ctx, disk, speed, false)
     }
 
-    async animateFall(ctx, disk, speed, full) {
+    async animateFall(ctx, disk, speed, full) { //esto ejecuta la secuencia asincrona de caida del disco en la columna
         ctx.save();
         let dy = 0;
         let i = 0;

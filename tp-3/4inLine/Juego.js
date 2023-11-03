@@ -46,8 +46,8 @@ class Juego {
         //Draws new board
         this.board.draw(this.ctx, this.config.width, this.config.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
 
-        this.players.player1.fillDisks(this.config.totalDisks);
-        this.players.player1.displayPlayerInfo(this.ctx, 1);
+        this.players.player1.fillDisks(this.config.totalDisks); //setea el n de discos para el jugador 1
+        this.players.player1.displayPlayerInfo(this.ctx, 1); //muestra la info del jugador 1
         this.players.player2.fillDisks(this.config.totalDisks);
         this.players.player2.displayPlayerInfo(this.ctx, 2);
     }

@@ -7,7 +7,7 @@ class Jugador {
         this.color = color;
         this.score = 0;
         this.totalDisks = totalDisks;
-        this.disk = disk;
+        this.disk = disk; //aca recibira un objeto del tipo Disco
         this.subctx = null;
     }
 
@@ -62,8 +62,8 @@ class Jugador {
             <canvas></canvas>
         `;
         canvas.parentElement.appendChild(div);
-        this.subctx = div.querySelector('canvas').getContext('2d');
-        this.subctx.canvas.width = 2 * this.disk.radius;
+        this.subctx = div.querySelector('canvas').getContext('2d'); //esto en teoria crea un sub ctx hijo
+        this.subctx.canvas.width = 2 * this.disk.radius; //usa el radio del objeto Disco para determinar el ancho del este subcanvas
         this.updateDiskPile();
     }
 
@@ -72,16 +72,16 @@ class Jugador {
         this.subctx.canvas.height = height;
         this.subctx.clearRect(0, 0, 2 * this.disk.radius, height);
         this.subctx.strokeStyle = this.color;
-        this.subctx.lineWidth = 8;
-        for (let i = 0; i < this.totalDisks; i++) {
+        this.subctx.lineWidth = 12;
+        for (let i = 0; i < this.totalDisks; i++) { //este primer bucle dibuja lo que serian los discos de la pila
             this.subctx.beginPath();
-            this.subctx.moveTo(0, 8 * i+4);
-            this.subctx.lineTo(2 * this.disk.radius, 8 * i+4);
+            this.subctx.moveTo(0, 8 * i+4); //mueve el comienzo del path a un punto especifico de inicio sin dibujar nada, recibe x e y
+            this.subctx.lineTo(2 * this.disk.radius, 8 * i+4); //hace una linea desde el ultimo punto del path a un nuevo punto, recibe x e y
             this.subctx.stroke();
         }
         this.subctx.strokeStyle = 'white';
-        this.subctx.lineWidth = 1;
-        for (let i = 0; i < this.totalDisks; i++) {
+        this.subctx.lineWidth = 2;
+        for (let i = 0; i < this.totalDisks; i++) { //este segundo bucle dibuja las lineas separadoras entre los discos de la pila
             this.subctx.beginPath();
             this.subctx.moveTo(0, 1+8 * i);
             this.subctx.lineTo(2 * this.disk.radius, 1+8 * i);
