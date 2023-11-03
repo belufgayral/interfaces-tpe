@@ -26,7 +26,7 @@ class Juego {
     initGame() {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
-        
+
         this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.boardSize, //X
             this.config.height / 2 - this.config.rows / 2 * this.config.boardSize, //Y
             this.config.boardSize, //tamanio del tablero ingresado en el input range
@@ -44,7 +44,7 @@ class Juego {
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
         this.ctx.canvas.parentElement.querySelector('.winner')?.remove();
         //Draws new board
-        this.board.draw(this.ctx); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param
+        this.board.draw(this.ctx, this.config.width, this.config.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
 
         this.players.player1.fillDisks(this.config.totalDisks);
         this.players.player1.displayPlayerInfo(this.ctx, 1);

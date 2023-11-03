@@ -21,7 +21,7 @@ class Hoyo {
 
     draw(ctx) {
         // Create an Image object and set its source to the background image URL
-        ctx.fillStyle = "rgba(153, 150, 102, 0.5)"; //setea el color alrededor del hoyo, no del hoyo instanciado
+        ctx.fillStyle = "rgba(255, 255, 255, 0.1)"; //setea el color alrededor del hoyo, no del hoyo instanciado
         ctx.fillRect(this.x, this.y, this.size, this.size);
         ctx.save();
         this.generateHole(ctx);

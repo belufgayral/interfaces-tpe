@@ -21,12 +21,12 @@ class Tablero {
         }
     }
 
-    draw(ctx) {
+    draw(ctx, w, h) {
         const backgroundImage = new Image();
         backgroundImage.src = './4inLine/imgs/strategy-samurai-senso.svg';
 
         function myDrawImageMethod(img) {
-            ctx.drawImage(img, 0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight)
+            ctx.drawImage(img, 0, 0, w, h) //uso el ancho y alto pasado por params para setear el tamanio del bg image y que se ajuste al canvas
         }
 
         backgroundImage.onload = async function () {
