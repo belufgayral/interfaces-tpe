@@ -20,18 +20,19 @@ class Hoyo {
     }
 
     draw(ctx) {
-        ctx.fillStyle = "#000000";
+        // Create an Image object and set its source to the background image URL
+        ctx.fillStyle = "rgba(153, 150, 102, 0.5)"; //setea el color alrededor del hoyo, no del hoyo instanciado
         ctx.fillRect(this.x, this.y, this.size, this.size);
         ctx.save();
         this.generateHole(ctx);
         ctx.clearRect(this.x, this.y, this.size, this.size);
         ctx.restore();
-        //ctx.drawImage(this.image, this.x, this.y, 50, 50);
+        //ctx.drawImage(this.image, this.x, this.y, 50, 50) 
     }
 
     generateHole(ctx) {
         ctx.beginPath();
-        ctx.arc(this.x + this.size / 2, this.y + this.size / 2, this.size/3, 0, 2 * Math.PI);
+        ctx.arc(this.x + this.size / 2, this.y + this.size / 2, this.size / 3, 0, 2 * Math.PI);
         ctx.closePath();
         ctx.clip();
     }

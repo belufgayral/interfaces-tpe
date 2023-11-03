@@ -47,19 +47,7 @@ const setConfig = (e) => {
 const start = () => {
     setConfig();
     game = new Juego(ctx, config);
-    // Create an Image object and set its source to the background image URL
-    /* const backgroundImage = new Image();
-    backgroundImage.src = './4inLine/imgs/strategy-samurai-senso.svg';
-
-    function myDrawImageMethod(img) {
-        ctx.drawImage(img, 0, 0, canvasWidth, canvasHeight)
-    }
-
-    backgroundImage.onload = async function() {
-        await myDrawImageMethod(this);
-        console.log('bg img onload')
-        game.initGame(); 
-    }  */ 
+    
     game.initGame(); 
 }
 
