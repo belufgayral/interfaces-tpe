@@ -1,4 +1,4 @@
-class Pila {
+class Hoyo {
     constructor(x, y, size, img) {
         this.x = x;
         this.y = y;
@@ -64,4 +64,4 @@ class Pila {
     }
 }
 
-export default Pila;
+export default Hoyo;
