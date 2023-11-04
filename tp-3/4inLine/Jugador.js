@@ -89,7 +89,7 @@ class Jugador {
         }
     }
 
-    getPileCanvas(){
+    getSubCtxCanvas(){
         return this.subctx.canvas;
     }
 }
