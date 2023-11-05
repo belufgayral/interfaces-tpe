@@ -7,7 +7,7 @@ class Disco {
     }
 
     makeCopy(){
-        return new Disk(0, 0, this.radius, this.color); //copia la instancia creada
+        return new Disco(0, 0, this.radius, this.color); //copia la instancia creada
     }
 
     move(x, y) {
@@ -30,7 +30,9 @@ class Disco {
     draw(ctx) {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI); //construye el circulo con su radio
+        console.log('color del disco: ', this.color)
         ctx.fillStyle = this.color;
+        console.log('color del disco: ', ctx.fillStyle)
         ctx.fill();
         ctx.closePath();
     }

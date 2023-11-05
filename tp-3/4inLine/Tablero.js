@@ -45,6 +45,27 @@ class Tablero {
             }
         }, 190)
     }
+
+    async putDisk(ctx, disk, speed, col) {
+        if(col == null) return [false, null, null];
+        let tiles = this.getEmptyTiles(col);
+        if (tiles == null) return [false, null, null];
+        for (let i = 0; i < tiles.length - 1; i++) {
+            await tiles[i].animateFall(ctx, disk, speed, true);
+        }
+        await tiles[tiles.length - 1].putDisk(ctx, disk, speed, false);
+        return [true, tiles.length - 1, col];
+    }
+
+    getEmptyTiles(col) {
+        let tiles = [];
+        for (let i = 0; i < this.rows; i++) {
+            if (this[i][col].getDisk() == null) {
+                tiles.push(this[i][col]);
+            }
+        }
+        return tiles.length != 0 ? tiles : null;
+    }
 }
 
 export default Tablero;

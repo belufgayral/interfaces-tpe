@@ -92,15 +92,17 @@ class Juego {
     }
 
     moveDisk(e) {
-        console.log('mousemove')
-        let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left;
-        let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top;
+        /* console.log('mousemove') */
+        let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
+        let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
         let disk = this.currentPlayer.getDisk();
-        if (disk.getPosition().x !== x || disk.getPosition().y !== y) {
-            this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
+        console.log('x: ', x)
+        console.log('y: ', y)
+        //if (disk.getPosition().x !== x || disk.getPosition().y !== y) {
+            this.tempCtx.clearRect(0, 0, this.config.width, this.config.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
             disk.move(x, y);
             disk.draw(this.tempCtx);
-        }
+        //}
     }
 
     async dropDisk(e, moveDiskFunction) {
