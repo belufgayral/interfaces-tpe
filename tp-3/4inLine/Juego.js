@@ -15,6 +15,7 @@ class Juego {
         };
 
         this.board = null;
+        this.currentPlayer = this.players.player1;
         this.winNumber = config.winNumber;
         this.speed = config.speed;
         this.pile1 = null;
@@ -102,7 +103,7 @@ class Juego {
         }
     }
 
-    /* async dropDisk(e, moveDiskFunction) {
+    async dropDisk(e, moveDiskFunction) {
         this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
         this.tempCanvas.removeEventListener('mousemove', moveDiskFunction);
         this.tempCanvas.classList.add('dying');
@@ -123,7 +124,23 @@ class Juego {
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
         this.tempCanvas.addEventListener('mousemove', moveDiskFunction);
         this.tempCanvas.classList.remove('dying');
-    } */
+    }
+
+    cancelMove() {
+        this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
+        this.currentPlayer.restoreDisk();
+        this.currentPlayer.updateDiskPile();
+        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
+    }
+
+    getColumn() {
+        let x = this.currentPlayer.getDisk().getPosition().x;
+        let col = Math.floor((x - this.board.x) / this.config.tileSize);
+        if (col >= 0 && col < this.config.cols) {
+            return col;
+        }
+        return null;
+    }
 
     switchTurns() {
         this.currentPlayer = this.currentPlayer === this.players.player1 ? this.players.player2 : this.players.player1;
