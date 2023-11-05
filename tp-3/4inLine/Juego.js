@@ -92,27 +92,27 @@ class Juego {
     }
 
     moveDisk(e) {
-        /* console.log('mousemove') */
+        console.log('mousemove')
         let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
         let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
         let disk = this.currentPlayer.getDisk();
-        console.log('x: ', x)
-        console.log('y: ', y)
-        //if (disk.getPosition().x !== x || disk.getPosition().y !== y) {
+       
+        //if (disk.getPosition().x !== x || disk.getPosition().y !== y) { //esto en teoria es para que no trabaje demas, porque si el disco no cambia de posicion no deberia entrar al if
             this.tempCtx.clearRect(0, 0, this.config.width, this.config.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
-            disk.move(x, y);
-            disk.draw(this.tempCtx);
+            disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
+            disk.draw(this.tempCtx); //debemos volver a dibujarlo
         //}
     }
 
-    async dropDisk(e, moveDiskFunction) {
+    async dropDisk(e, moveDiskFunction) { //se activa cuando soltamos el boton primario del click
         this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
         this.tempCanvas.removeEventListener('mousemove', moveDiskFunction);
         this.tempCanvas.classList.add('dying');
 
         let col = this.getColumn();
 
-        let [success, row, column] = await this.board.putDisk(this.ctx, this.currentPlayer.disk.makeCopy(), this.config.tileSize / this.config.speed, col);
+        let [success, row, column] = await this.board.putDisk(this.ctx, this.currentPlayer.disk.makeCopy(), 
+        this.config.tileSize / this.config.speed, col);
 
         if (success) {
             this.checkWin(row, column);
@@ -135,7 +135,7 @@ class Juego {
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
     }
 
-    getColumn() {
+    getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
         let x = this.currentPlayer.getDisk().getPosition().x;
         let col = Math.floor((x - this.board.x) / this.config.tileSize);
         if (col >= 0 && col < this.config.cols) {
@@ -146,6 +146,103 @@ class Juego {
 
     switchTurns() {
         this.currentPlayer = this.currentPlayer === this.players.player1 ? this.players.player2 : this.players.player1;
+    }
+
+    //chequeos de condiciones de resultados posibles
+
+    checkWin(row, col) {
+        let disk = this.board[row][col].getDisk();
+        if (this.checkHorizontal(row, col, disk) || this.checkVertical(row, col, disk) || this.checkDiagonal(row, col, disk)) {
+            this.currentPlayer.incrementScore();
+            this.showWinnerScreen();
+        }
+    }
+
+    showWinnerScreen() {
+        let winner = document.createElement('div');
+        winner.classList.add('winner');
+        winner.innerHTML = `
+            <div>
+                <h1>${this.currentPlayer.getName()} wins!</h1>
+                <button class="primary-btn">Play again</button>
+            </div>
+        `;
+        winner.height = this.config.height;
+        winner.width = this.config.width;
+        winner.querySelector('button').addEventListener('click', () => {
+            this.initGame();
+            this.currentPlayer = this.players.player1;
+        });
+        this.ctx.canvas.parentElement.appendChild(winner);
+    }
+
+    checkHorizontal(row, col, disk) {
+        let count = 1;
+        let i = col - 1;
+        while (i >= 0 && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i--;
+            if (count >= this.winNumber) return true;
+        }
+        i = col + 1;
+        while (i < this.config.cols && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i++;
+            if (count >= this.winNumber) return true;
+        }
+    }
+
+    checkVertical(row, col, disk) {
+        let count = 1;
+        let i = row - 1;
+        while (i >= 0 && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i--;
+            if (count >= this.winNumber) return true;
+        }
+        i = row + 1;
+        while (i < this.config.rows && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i++;
+            if (count >= this.winNumber) return true;
+        }
+    }
+
+    checkDiagonal(row, col, disk) {
+        let count = 1;
+        let i = row - 1;
+        let j = col - 1;
+        while (i >= 0 && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i--;
+            j--;
+            if (count >= this.winNumber) return true;
+        }
+        i = row + 1;
+        j = col + 1;
+        while (i < this.config.rows && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i++;
+            j++;
+            if (count >= this.winNumber) return true;
+        }
+        count = 1;
+        i = row - 1;
+        j = col + 1;
+        while (i >= 0 && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i--;
+            j++;
+            if (count >= this.winNumber) return true;
+        }
+        i = row + 1;
+        j = col - 1;
+        while (i < this.config.rows && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+            count++;
+            i++;
+            j--;
+            if (count >= this.winNumber) return true;
+        }
     }
 }
 

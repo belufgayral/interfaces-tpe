@@ -46,12 +46,12 @@ class Tablero {
         }, 190)
     }
 
-    async putDisk(ctx, disk, speed, col) {
-        if(col == null) return [false, null, null];
+    async putDisk(ctx, disk, speed, col) { //esto retorna [success, fila, columna]
+        if(col == null) return [false, null, null]; //si la columna no existe, no retornamos nada
         let tiles = this.getEmptyTiles(col);
-        if (tiles == null) return [false, null, null];
-        for (let i = 0; i < tiles.length - 1; i++) {
-            await tiles[i].animateFall(ctx, disk, speed, true);
+        if (tiles == null) return [false, null, null]; //si la columna no tiene ninguna fila vacia no retornamos nada
+        for (let i = 0; i < tiles.length - 1; i++) { //si tiles tiene hoyos vacios...
+            await tiles[i].animateFall(ctx, disk, speed, true); //animamos la caida del disco en cada hoyo vacio
         }
         await tiles[tiles.length - 1].putDisk(ctx, disk, speed, false);
         return [true, tiles.length - 1, col];
@@ -59,12 +59,13 @@ class Tablero {
 
     getEmptyTiles(col) {
         let tiles = [];
-        for (let i = 0; i < this.rows; i++) {
-            if (this[i][col].getDisk() == null) {
-                tiles.push(this[i][col]);
+        for (let i = 0; i < this.rows; i++) { //recorremos filas
+            //recordemos que this[i][col] es una instancia de Hoyo
+            if (this[i][col].getDisk() == null) { //si en el hoyo (de la fila) que estamos de la columna en la que soltamos el disco no tiene disco
+                tiles.push(this[i][col]); //mandamos el Objeto Hoyo de esta fila al arreglo tiles
             }
         }
-        return tiles.length != 0 ? tiles : null;
+        return tiles.length != 0 ? tiles : null; //si tiles tiene al menos un espacio vacio devolvemos el arreglo
     }
 }
 
