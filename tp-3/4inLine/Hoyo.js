@@ -43,6 +43,7 @@ class Hoyo {
     } */
 
     async animateFall(ctx, disk, speed, full) { //esto ejecuta la secuencia asincrona de caida del disco en la columna
+        console.log('animando caida')
         ctx.save();
         let dy = 0;
         let i = 0;

@@ -110,9 +110,9 @@ class Juego {
         this.tempCanvas.classList.add('dying');
 
         let col = this.getColumn();
-
+        console.log('drop disk')
         let [success, row, column] = await this.board.putDisk(this.ctx, this.currentPlayer.disk.makeCopy(), 
-        this.config.tileSize / this.config.speed, col);
+        this.config.boardSize / this.config.speed, col);
 
         if (success) {
             this.checkWin(row, column);
@@ -137,7 +137,7 @@ class Juego {
 
     getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
         let x = this.currentPlayer.getDisk().getPosition().x;
-        let col = Math.floor((x - this.board.x) / this.config.tileSize);
+        let col = Math.floor((x - this.board.x) / this.config.boardSize);
         if (col >= 0 && col < this.config.cols) {
             return col;
         }
