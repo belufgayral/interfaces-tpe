@@ -16,8 +16,13 @@ let canvasWidth = canvas.width
 let canvasHeight = canvas.height
 
 const setConfig = (e) => {
+    let alert = document.querySelector('#alert-msg');
     let select = document.querySelector('#board-size');
-
+    if (p1Color.value === p2Color.value) {
+        alert.innerHTML = 'Players must pick different colors!'
+        return
+    }
+    alert.innerHTML = ''
     config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
