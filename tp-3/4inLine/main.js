@@ -43,7 +43,7 @@ const setConfig = (e) => {
                 img: "./4inLine/imgs/ghostOfTsushima.jpg"
             }
         ],
-        totalDisks: 4, //seteo los discos que tendra cada uno en su pila
+        totalDisks: 8, //seteo los discos que tendra cada uno en su pila
         winNumber: 4, //condicion de victoria
         speed: 10
     };
