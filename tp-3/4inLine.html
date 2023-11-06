@@ -32,14 +32,30 @@
                 <span>Player 1 name:</span>
                 <input type="text" id="player1-name" value="Player 1">
                 <span>Player 1 color:</span>
-                <input type="color" id="player1-color" value="#ff0000">
+				<form>
+					<label for="player1-color">P1 select your color:</label><br>
+					<select id="player1-color" name="player1-color">
+					  <option value="#ff0000">Red</option>
+					  <option value="#0000ff">Blue</option>
+					  <option value="#00ff00">Green</option>
+					  <option value="#000000">Black</option>
+					</select>
+				  </form>
             </div>
 
             <div class="d-flex-col justify-center align-center">
                 <span>Player 2 name:</span>
                 <input type="text" id="player2-name" value="Player 2">
                 <span>Player 2 color:</span>
-                <input type="color" id="player2-color" value="#0000ff">
+				<form>
+					<label for="player2-color">P2 select your color:</label><br>
+					<select id="player2-color" name="player2-color">
+					  <option value="#ff0000">Red</option>
+					  <option value="#0000ff">Blue</option>
+					  <option value="#00ff00">Green</option>
+					  <option value="#000000">Black</option>
+					</select>
+				  </form>
             </div>
         </div>
 		<button id="start" class="main-color primary-btn">Start!</button>
