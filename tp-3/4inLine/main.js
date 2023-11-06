@@ -7,7 +7,6 @@ const ctx = canvas.getContext('2d');
 let config;
 let game;
 
-const slider = document.querySelector('input[type=range]'); //guarda el board size
 const p1Name = document.querySelector('#player1-name');
 const p2Name = document.querySelector('#player2-name');
 const p1Color = document.querySelector('#player1-color');
@@ -17,13 +16,14 @@ let canvasWidth = canvas.width
 let canvasHeight = canvas.height
 
 const setConfig = (e) => {
-    let radio = document.querySelector('input[type=radio]:checked');
+    let select = document.querySelector('#board-size');
+
     config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
-        boardSize: parseInt(slider.value), //recibe el valor ingresado en el input de board size
-        rows: parseInt(radio.value.slice(0, 1)), //guarda las fila haciendo un slice del primer valor del 5x6 p ejem
-        cols: parseInt(radio.value.slice(-1)), //lo mismo que arriba pero con las columnas
+        boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 60 : (parseInt(select.value.slice(0, 1)) === 5 ? 75 : 90), //recibe el valor ingresado en el input de board size
+        rows: parseInt(select.value.slice(0, 1)), //guarda las fila haciendo un slice del primer valor del 5x6 p ejem
+        cols: parseInt(select.value.slice(-1)), //lo mismo que arriba pero con las columnas
         players: [
             {
                 name: p1Name.value,

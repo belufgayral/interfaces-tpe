@@ -8,16 +8,23 @@
 </head>
 <body>
 	<div class="config">
-		<span>Board size (pixels of each tile): <input class="ml-5" type="range" min="1" max="100" value="90"></span>
+		<!-- <span>Board size (pixels of each tile): <input class="ml-5" type="range" min="1" max="100" value="90"></span> -->
 
 		<div class="d-flex justify-center align-center">
-			<span>Board sizes (amount of tiles):</span>
-			<form class="ml-5">
+			<!-- <span>Board sizes (amount of tiles):</span> -->
+			<!-- <form class="ml-5">
 				<span><input type="radio" value="4x5" name="size"> 4x5</span>
 				<span><input type="radio" value="5x6" name="size"> 5x6</span>
 				<span><input type="radio" value="6x7" name="size" checked> 6x7</span>
-				<span><input type="radio" value="7x8" name="size"> 7x8</span>
-			</form>
+			</form> -->
+			<form>
+				<label for="board-size">Select your board size:</label><br>
+				<select id="board-size" name="board-size">
+				  <option value="4x5">4x5</option>
+				  <option value="5x6">5x6</option>
+				  <option value="6x7">6x7</option>
+				</select>
+			  </form>
 		</div>
 		<div class="d-flex justify-around player-config">
 
