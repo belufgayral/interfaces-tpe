@@ -37,10 +37,10 @@ class Hoyo {
         ctx.clip(); //el metodo clip recorta una parte de n tamanio del ctx original, y para el futuro cualquier drawing queda circunscrito a esta parte recortada
     }
 
-   /*  async putDisk(ctx, disk, speed) { //cuando pongo el disco en la columna a caer // creo que no se llama nunca
+    async putDisk(ctx, disk, speed) { //cuando pongo el disco en la columna a caer
         this.disk = disk;
         await this.animateFall(ctx, disk, speed, false)
-    } */
+    }
 
     async animateFall(ctx, disk, speed, full) { //esto ejecuta la secuencia asincrona de caida del disco en la columna
         console.log('animando caida')
