@@ -16,6 +16,8 @@ const p2Color = document.querySelector('#player2-color');
 let canvasWidth = canvas.width
 let canvasHeight = canvas.height
 
+const maxGamePlayers = 2;
+
 const setConfig = (e) => {
     let alert = document.querySelector('#alert-msg');
     let select = document.querySelector('#board-size');
@@ -47,7 +49,7 @@ const setConfig = (e) => {
         totalDisks: 8, //seteo los discos que tendra cada uno en su pila
         winNumber: 4, //condicion de victoria
         speed: 10,
-        maxJugadores: 2,
+        maxJugadores: maxGamePlayers,
     };
 };
 

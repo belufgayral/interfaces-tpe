@@ -170,11 +170,7 @@ class Juego {
         return null;
     }
 
-    /* switchTurns() {
-        this.jugadorEnTurno = this.jugadorEnTurno === this.players.player1 ? this.players.player2 : this.players.player1;
-    } */
-
-    //chequeos de condiciones de resultados posibles
+    //chequeos de condiciones de win conditions
 
     checkWin(row, col) {
         let disk = this.tableroJuego[row][col].getDisk();
