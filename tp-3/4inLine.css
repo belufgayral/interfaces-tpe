@@ -3,13 +3,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-} */
+}
 
 div button {
     padding: 10px;
 }
 
-/* .config {
+.config {
     background-color: var(--sec-l1);
     display: flex;
     flex-direction: column;
@@ -19,15 +19,15 @@ div button {
     width: 60%;
     margin: 5% 0;
     border: 5px solid rgb(204, 164, 32);
-} */
+}
 
-/* .config>* {
+.config>* {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin: 15px 0;
-} */
+}
 
 .config>*:not(button){
     width: 80%;
@@ -39,38 +39,44 @@ div button {
 
 .player-config input {
     color: var(--black);
-}
+} */
 
 .game-canvas {
     position: relative;
     user-select: none;
-    border-radius: 30px;
-    border: 5px solid var(--main-s2);
-    background-color: var(--sec-l2);
+    /* border-radius: 30px; */
+    /* border: 5px solid var(--main-s2);
+    background-color: var(--sec-l2); */
 }
 
-.game-canvas canvas:not(.temporal-canvas) {
+/* .game-canvas canvas:not(.temporal-canvas) {
     position: relative;
     z-index: 0;
-}
+} */
+
+/* .game-canvas canvas {
+    position: absolute;
+    margin-left: 110px;
+    top: 40px;
+} */
 
 .player-info {
     position: absolute;
-    top: 200px;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    top: 0px;
+    /* display: grid;
+    grid-template-rows: 1fr 1fr;  */
     border-radius: 20px;
-    height: 400px;
-    width: 150px;
+    height: 550px;
+    width: 100px;
     border: 2px solid var(--sec-s1);
     z-index: 1;
 }
 
-.player-info * {
+/* .player-info * {
     color: var(--black);
-}
+} */
 
-.player-info>div {
+.player-info div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,10 +85,10 @@ div button {
 
 .player-info .user-picture {
     margin: 15px 0;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     border-radius: 50%;
-    border: 5px solid var(--black);
+    /* border: 5px solid var(--black); */
 }
 
 .player-info .user-picture img {
@@ -93,18 +99,16 @@ div button {
 }
 
 .player-info canvas {
-    justify-self: center;
-    align-self:last baseline;
-    cursor: grab;
-    margin-bottom: 10px;
+    position: relative;
+    margin: 0px;
 }
 
 .player-info.p1 {
-    left: 50px;
+    left: 10px;
 }
 
 .player-info.p2 {
-    right: 50px;
+    right: 10px;
 }
 
 .temporal-canvas {

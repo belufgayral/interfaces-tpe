@@ -3,6 +3,7 @@ import Juego from '../4inLine/Juego.js'
 const canvas = document.querySelector('canvas');
 /**@type {CanvasRenderingContext2D} */
 const ctx = canvas.getContext('2d');
+const configWindow = document.querySelector('#config-window');
 
 let config;
 let game;
@@ -53,10 +54,12 @@ const start = () => {
     setConfig();
     game = new Juego(ctx, config);
     
+    configWindow.classList.add("display-none");
     game.initGame(); 
 }
 
 document.querySelector('#start').addEventListener('click', start);
+
 
 
 

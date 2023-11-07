@@ -50,7 +50,7 @@ class Jugador {
     displayPlayerInfo(ctx, playerNumber) {
         let canvas = ctx.canvas;
         let div = document.createElement('div');
-        div.classList.add('player-info', `p${playerNumber}`);
+        div.classList.add('player-info', `p${playerNumber}`, 'flex-col', 'items-center', 'justify-center', 'gap-5');
         div.innerHTML = `
             <div>
                 <h2>${this.score}</h2>

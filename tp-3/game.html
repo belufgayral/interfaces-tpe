@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuatro en línea</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" type="text/css" href="4inLine.css"> -->
+    <link rel="stylesheet" type="text/css" href="4inLine.css">
 </head>
 
 <body class="game">
@@ -58,7 +58,7 @@
                     <img src="css/images/games/strategy-samurai-senso.svg" alt="Samurai Senso">
                 </section> -->
                 <section class="game-container">
-                    <div class="config flex-col justify-center items-center gap-3">
+                    <div id="config-window" class="config flex-col justify-center items-center gap-3">
                         <form class="flex-col items-center">
                             <label for="board-size"><p>Select your board size:</p></label><br>
                             <select id="board-size" name="board-size">
@@ -99,8 +99,8 @@
                         <button id="start" class="main-color primary">Start!</button>
                     </div>
 
-                    <div class="game-canvas mb-5">
-                        <canvas width="750" height="500">
+                    <div class="game-canvas">
+                        <canvas width="700" height="500">
 
                         </canvas>
                     </div>
