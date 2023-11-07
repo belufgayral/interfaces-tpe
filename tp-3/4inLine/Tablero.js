@@ -23,7 +23,7 @@ class Tablero {
 
     draw(ctx, w, h) {
         const backgroundImage = new Image();
-        backgroundImage.src = './4inLine/imgs/strategy-samurai-senso.svg';
+        backgroundImage.src = './4inLine/imgs/bg-board.jpg';
 
         function myDrawImageMethod(img) {
             ctx.drawImage(img, 0, 0, w, h) //uso el ancho y alto pasado por params para setear el tamanio del bg image y que se ajuste al canvas
