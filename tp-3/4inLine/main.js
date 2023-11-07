@@ -27,7 +27,7 @@ const setConfig = (e) => {
     config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
-        boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 60 : (parseInt(select.value.slice(0, 1)) === 5 ? 75 : 90), //recibe el valor ingresado en el input de board size
+        boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 50 : (parseInt(select.value.slice(0, 1)) === 5 ? 55 : 65), //recibe el valor ingresado en el input de board size
         rows: parseInt(select.value.slice(0, 1)), //guarda las fila haciendo un slice del primer valor del 5x6 p ejem
         cols: parseInt(select.value.slice(-1)), //lo mismo que arriba pero con las columnas
         players: [

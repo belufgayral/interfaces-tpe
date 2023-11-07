@@ -5,9 +5,7 @@ import Disco from "./Disco.js";
 class Juego {
     constructor(ctx, config) {
         this.ctx = ctx
-        this.auxCanvas = null;
-        this.auxCtx = null;
-        this.config = config;
+        this.configuration = config;
 
         this.players = {
             player1: new Jugador(1, config.players[0].name, config.players[0].color, config.players[0].character, config.players[0].img, config.totalDisks, new Disco(0, 0, config.boardSize / 3, config.players[0].color)),
@@ -28,11 +26,11 @@ class Juego {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
 
-        this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.boardSize, //X
-            this.config.height / 2 - this.config.rows / 2 * this.config.boardSize, //Y
-            this.config.boardSize, //tamanio del tablero ingresado en el input range
-            this.config.rows, //filas del input radio ckeckeado
-        this.config.cols); //columnas del input radio checkeado
+        this.board = new Tablero(this.configuration.width / 2 - this.configuration.cols / 2 * this.configuration.boardSize, //X
+            this.configuration.height / 2 - this.configuration.rows / 2 * this.configuration.boardSize, //Y
+            this.configuration.boardSize, //tamanio del tablero ingresado en el input range
+            this.configuration.rows, //filas del input radio ckeckeado
+        this.configuration.cols); //columnas del input radio checkeado
 
         this.initScreen();
         this.initSecondaryCanvas(); //inicia el canvas secundario para los eventos de drag y drop de los discos
@@ -51,24 +49,24 @@ class Juego {
     initScreen() {
         //Limpio el tablero preexistente en caso de haber uno
         console.log('ctx: ', this.ctx)
-        this.ctx.clearRect(0, 0, this.config.width, this.config.height);
+        this.ctx.clearRect(0, 0, this.configuration.width, this.configuration.height);
         this.ctx.canvas.parentElement.querySelector('.player-info.p1')?.remove();
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
         this.ctx.canvas.parentElement.querySelector('.winner')?.remove();
         //Draws new board
-        this.board.draw(this.ctx, this.config.width, this.config.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
+        this.board.draw(this.ctx, this.configuration.width, this.configuration.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
 
-        this.players.player1.fillDisks(this.config.totalDisks); //setea el n de discos para el jugador 1
+        this.players.player1.fillDisks(this.configuration.totalDisks); //setea el n de discos para el jugador 1
         this.players.player1.displayPlayerInfo(this.ctx, 1); //muestra la info del jugador 1
-        this.players.player2.fillDisks(this.config.totalDisks);
+        this.players.player2.fillDisks(this.configuration.totalDisks);
         this.players.player2.displayPlayerInfo(this.ctx, 2);
     }
 
     initSecondaryCanvas() {
         //canvas temporal creado para mover el disco
         this.tempCanvas = document.createElement('canvas');
-        this.tempCanvas.width = this.config.width;
-        this.tempCanvas.height = this.config.height;
+        this.tempCanvas.width = this.configuration.width;
+        this.tempCanvas.height = this.configuration.height;
         this.tempCanvas.classList.add('temporal-canvas');
         this.tempCtx = this.tempCanvas.getContext('2d');
 
@@ -98,21 +96,21 @@ class Juego {
         let disk = this.currentPlayer.getDisk();
        
         //if (disk.getPosition().x !== x || disk.getPosition().y !== y) { //esto en teoria es para que no trabaje demas, porque si el disco no cambia de posicion no deberia entrar al if
-            this.tempCtx.clearRect(0, 0, this.config.width, this.config.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
+            this.tempCtx.clearRect(0, 0, this.configuration.width, this.configuration.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
             disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
             disk.draw(this.tempCtx); //debemos volver a dibujarlo
         //}
     }
 
     async dropDisk(e, moveDiskFunction) { //se activa cuando soltamos el boton primario del click
-        this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
+        this.tempCtx.clearRect(0, 0, this.configuration.width, this.configuration.height);
         this.tempCanvas.removeEventListener('mousemove', moveDiskFunction);
         this.tempCanvas.classList.add('dying');
 
         let col = this.getColumn();
         console.log('drop disk')
         let [success, row, column] = await this.board.putDisk(this.ctx, this.currentPlayer.disk.makeCopy(), 
-        this.config.boardSize / this.config.speed, col);
+        this.configuration.boardSize / this.configuration.speed, col);
 
         if (success) {
             this.checkWin(row, column);
@@ -129,7 +127,7 @@ class Juego {
     }
 
     cancelMove() {
-        this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
+        this.tempCtx.clearRect(0, 0, this.configuration.width, this.configuration.height);
         this.currentPlayer.restoreDisk();
         this.currentPlayer.updateDiskPile();
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
@@ -137,8 +135,8 @@ class Juego {
 
     getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
         let x = this.currentPlayer.getDisk().getPosition().x;
-        let col = Math.floor((x - this.board.x) / this.config.boardSize);
-        if (col >= 0 && col < this.config.cols) {
+        let col = Math.floor((x - this.board.x) / this.configuration.boardSize);
+        if (col >= 0 && col < this.configuration.cols) {
             return col;
         }
         return null;
@@ -167,8 +165,8 @@ class Juego {
                 <button class="primary-btn">Play again</button>
             </div>
         `;
-        winner.height = this.config.height;
-        winner.width = this.config.width;
+        winner.height = this.configuration.height;
+        winner.width = this.configuration.width;
         winner.querySelector('button').addEventListener('click', () => {
             this.initGame();
             this.currentPlayer = this.players.player1;
@@ -185,7 +183,7 @@ class Juego {
             if (count >= this.winNumber) return true;
         }
         i = col + 1;
-        while (i < this.config.cols && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuration.cols && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             if (count >= this.winNumber) return true;
@@ -201,7 +199,7 @@ class Juego {
             if (count >= this.winNumber) return true;
         }
         i = row + 1;
-        while (i < this.config.rows && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuration.rows && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             if (count >= this.winNumber) return true;
@@ -220,7 +218,7 @@ class Juego {
         }
         i = row + 1;
         j = col + 1;
-        while (i < this.config.rows && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuration.rows && j < this.configuration.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             j++;
@@ -229,7 +227,7 @@ class Juego {
         count = 1;
         i = row - 1;
         j = col + 1;
-        while (i >= 0 && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i >= 0 && j < this.configuration.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i--;
             j++;
@@ -237,7 +235,7 @@ class Juego {
         }
         i = row + 1;
         j = col - 1;
-        while (i < this.config.rows && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuration.rows && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             j--;
