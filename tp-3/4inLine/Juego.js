@@ -69,10 +69,10 @@ class Juego {
 
     listenersParaEventos() {
         const moveDisk = (e) => this.moveDisk(e);
-        
+
         this.tempCanvas.addEventListener('mousemove', moveDisk);  //se activa cuando muevo el disco de la pila a lo largo del canvas
         this.tempCanvas.addEventListener('mouseup', async (e) => { //se activa cuando suelto el disco en la columna elegida
-            await this.dropDisk(e, moveDisk)
+            await this.dropDisk(moveDisk)
         });
         this.tempCanvas.addEventListener('mouseleave', () => { //se activa si me salgo de los limites del canvas y cancela la accion
             this.cancelMove()
@@ -93,9 +93,19 @@ class Juego {
         this.jugadorEnTurno.consumeDisk(); //reduce el numero de discos de la pila en 1 --> totalDisks = totalDisks - 1
         this.jugadorEnTurno.updateDiskPile(); //actualiza el renderizado de los discos
         this.jugadorEnTurno.getDisk().move(0, 0); //resetea la posicion del Objeto Disco que posee el Objeto Jugador como atributo
-        
+
         //de ahora en mas el canvas temporal se encarga de los eventos hasta que termine
         this.ctx.canvas.parentElement.appendChild(this.tempCanvas);
+    }
+
+    situacionDeExito(resultado) {
+        this.checkWin(resultado.fila, resultado.colum);
+        this.switchTurns();
+    }
+
+    situacionDeFallo() {
+        this.jugadorEnTurno.restoreDisk();
+        this.jugadorEnTurno.updateDiskPile();
     }
 
     moveDisk(e) {
@@ -107,24 +117,17 @@ class Juego {
         this.jugadorEnTurno.getDisk().draw(this.tempCtx); //debemos volver a dibujarlo
     }
 
-    async dropDisk(e, moverDiscoCallback) { //se activa cuando soltamos el boton primario del click
+    async dropDisk(moverDiscoCallback) { //se activa cuando soltamos el boton primario del click
         this.barridolDeContextoCanvasTemporal()
         this.tempCanvas.removeEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.add('dying');
 
         const columna = this.getColumn();
-        
+
         const resultadosPonerDisco = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(),
             this.configuracion.boardSize / this.configuracion.speed, columna);
 
-        if (resultadosPonerDisco.exito) {
-            this.checkWin(resultadosPonerDisco.fila, resultadosPonerDisco.colum);
-            this.switchTurns();
-        }
-        else {
-            this.jugadorEnTurno.restoreDisk();
-            this.jugadorEnTurno.updateDiskPile();
-        }
+        resultadosPonerDisco.exito ? this.situacionDeExito(resultadosPonerDisco) : this.situacionDeFallo()
 
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
         this.tempCanvas.addEventListener('mousemove', moverDiscoCallback);
