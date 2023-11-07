@@ -1,0 +1,154 @@
+form {
+    width: 28.75rem;
+    background-color: rgba(20, 7, 58, 0.8);
+    border-radius: 0.88rem;
+    padding: 1.5em 0em;
+    margin: 4em 0em;
+    animation: appears 1s 1;
+}
+
+form>div {
+    margin: 1em 0em;
+}
+
+form>.divider {
+    width: 22rem;
+    gap: 1rem;
+}
+
+.divider>hr {
+    width: 9.6875rem;
+}
+
+.form-login {
+    width: 73%;
+}
+
+.form-row>.row-a {
+    width: 70%;
+}
+
+.form-row>.row-b {
+    width: 30%;
+}
+
+form .option-login {
+    gap: 0.3em;
+}
+
+.captchaContainer {
+    width: 13rem;
+    height: 4.5rem;
+    padding: 0rem 1.4rem;
+    background-color: var(--color-white);
+    border: 1px solid #d4d4d4;
+    transition: all 0.5s ease-in-out;
+}
+
+.captchaContainer .row-1 {
+    width: 70%;
+}
+
+.captchaLabel {
+    color: var(--color-black);
+    justify-self: center;
+}
+
+.captchaBox {
+    width: 24px;
+    height: 24px;
+    outline: none;
+    border: 2px solid #b9b9b9;
+    border-radius: 2px;
+}
+
+.captchaWrapper {
+    margin: 0rem 0rem 0rem 0.5rem;
+}
+
+.boxHover {
+    background-color: #fff;
+    transition: border 0.3s;
+}
+
+.boxHover:hover {
+    cursor: pointer;
+    border: 2px solid var(--color-secondary-l3);
+}
+
+.captchaTick g g {
+    justify-self: start;
+    fill: var(--color-accept);
+}
+
+.captcha-animation {
+    animation:
+        disappears 1s 0s 1,
+        appears 1s 1s 1,
+        disappears 1s 3s 1 forwards
+}
+
+.rotation-animation {
+    transition: all 3s ease-out;
+    transform: rotate(1620deg);
+}
+
+.tick-animation {
+    animation:
+        appears 1s 1
+}
+
+.circle {
+    border-top: 2px solid var(--color-secondary-l3);
+    border-right-color: transparent;
+    border-bottom: 2px solid var(--color-secondary-l3);
+    border-left-color: transparent;
+    border-radius: 12px;
+    background-color: var(--color-white);
+}
+
+.recaptcha {
+    width: auto;
+    height: 70%;
+}
+
+.captcha-error {
+    background-color: rgb(242, 204, 204);
+    border: 1px solid rgb(180, 86, 86);
+    animation: shake 0.7s 1;
+}
+
+.registration-popup {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    width: 10.5rem;
+    height: 5rem;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-s1);
+    border-radius: 10px;
+    padding: 2rem;
+    gap: 1rem;
+    animation: appears 1.5s 1;
+    z-index: 1;
+}
+
+.redirect-info {
+    align-self: start;
+    margin: 0rem 0rem 0rem 0.7rem;
+}
+
+.dot-animation {
+    animation:
+        bounce 1s 1
+}
+
+.display-none {
+    display: none;
+}

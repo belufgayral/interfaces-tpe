@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="home flex-col">
+
+    <div id="background-loading" class="popup-background z-index-2"></div>
+
+    <div class="porcentaje">
+        <h1>0%</h1>
+    </div>
+    <div class="loader z-index-3">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="loading-bar">
+        <hr id="loading-bar" class="color">
+    </div>
+
+    <div id="background-menu" class="popup-background display-none z-index-1"></div>
+
+    <header id="header-home" class="flex-row items-center justify-space-between display-none">
+        <div class="logo">
+            <a href="home.html"><img src="css/images/logo/logo.svg" alt="Logo"></a>
+        </div>
+        <div class="flex-row items-center justify-space-between header-utils">
+            <a id="cart"><img class="cart" src="css/images/utils/Cart.png" alt="Cart"></a>
+            <div class="flex-row items-center justify-end profileMob-container">
+                <svg id="arrow" class="display-none no-rotate" height="30" viewBox="0 0 48 48" width="30"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" />
+                    <path d="M0-.75h48v48h-48z" fill="none" />
+                </svg>
+                <a id="profile-pic"><img class="profile-pic" src="css/images/profile-pics/profile-pic.svg" width="42px"
+                        alt="Profile pic"></a>
+            </div>
+        </div>
+    </header>
+    <nav class="menu-desplegable flex-col display-none">
+        <a class="btn-lista">Mi perfil</a>
+        <a class="btn-lista">Editar perfil</a>
+        <a class="btn-lista">Configuraciones</a>
+        <a class="btn-lista">Reviews</a>
+        <a class="btn-lista">Biblioteca</a>
+        <a class="btn-lista">Favoritos</a>
+        <a class="btn-lista">Idioma</a>
+        <a class="btn-lista">Historial</a>
+        <hr>
+        <a class="btn-lista log-off">Cerrar sesión</a>
+    </nav>
+
+    <main id="main-home" class="flex-col w-full display-none">
+        <figure class="w-full">
+            <!-- <img class="w-full" src="css/images/background/background-weekly-top.png" alt="Weekly top game"> -->
+            <div class="flex-col items-end">
+                <h1>The Elder Scrolls V</h1>
+                <div class="flex-row">
+                    <button class="primary play-weekly">Jugar</button>
+                    <button class="secondary">Más información</button>
+                    <button class="secondaryMobile">Más</button>
+                </div>
+            </div>
+        </figure>
+
+        <div class="flex-col pl-6"> <!-- container -->
+            <div class="for-you-container">
+                <div>
+                    <h1 class="">Para ti</h1>
+                </div>
+                <div id="parati" class="flex-row items-start gap-5 cards-container"> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <div class="flex-row gap-4 items-center">
+                    <h2 class="">Aventura</h2>
+                    <div class="flex-row gap-2 items-center">
+                        <div class="btn-left">
+                            <button id="button-left">
+                                <img class="arrow-img" src="css/images/icons/arrow.svg" alt="arrow-icon"></img></button>
+                        </div>
+                        <div class="btn-right">
+                            <button id="button-right"><img class="arrow-img" src="css/images/icons/arrow.svg"
+                                    alt="arrow-icon"></img></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row">
+
+                    <div id="aventura" class="flex-row items-start gap-5 cards-container"> <!-- cards carousel -->
+
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <h2 class="">Acción</h2>
+                <div id="accion" class="flex-row items-start gap-5 cards-container"> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Terror</h2>
+                <div id="terror" class="flex-row items-start gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
+            </div>
+            <div>
+                <h2 class="">Estrategia</h2>
+                <div id="estrategia" class="flex-row items-start gap-5 cards-container "> <!-- cards carousel -->
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer-home" class="flex-col justify-space-between display-none">
+        <div class="flex-row flexMob-col justify-space-evenly px-4">
+            <div class="flex-col footer-col">
+                <h3>Sobre nosotros</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Contáctanos</a>
+                    <a class="btn-lista">Sobre nosotros</a>
+                    <a class="btn-lista">Equipo</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Ayuda</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">FAQ</a>
+                    <a class="btn-lista">Soporte</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Únete</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Regístrate</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Más</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Apps similares</a>
+                    <a class="btn-lista">Chart images</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Categorías</h3>
+                <nav class="flex-col">
+                    <a class="btn-lista">Acción</a>
+                    <a class="btn-lista">Aventuras</a>
+                    <a class="btn-lista">Terror</a>
+                    <a class="btn-lista">Estrategia</a>
+                </nav>
+            </div>
+            <div class="flex-col footer-col">
+                <h3>Redes sociales</h3>
+                <nav class="flex-row items-center footer-row">
+                    <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
+                    <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
+                    <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
+                </nav>
+            </div>
+        </div>
+        <div class="flex-row justify-center items-end">
+            <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
+        </div>
+    </footer>
+
+    <script type="module" src="loading-home.js"></script>
+    <!-- <script type="module" src="home.js"></script> -->
+    <script type="text/javascript" src="menu-desplegable.js"></script>
+    <script src="addToCart.js"></script>
+</body>
+
+</html>
