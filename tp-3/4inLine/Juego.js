@@ -22,6 +22,10 @@ class Juego {
         this.pilaDos = null;
     }
 
+    barridolDeContextoCanvasTemporal() {
+        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
+    }
+
     comenzarPartida() {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
@@ -89,35 +93,32 @@ class Juego {
         this.jugadorEnTurno.consumeDisk(); //reduce el numero de discos de la pila en 1 --> totalDisks = totalDisks - 1
         this.jugadorEnTurno.updateDiskPile(); //actualiza el renderizado de los discos
         this.jugadorEnTurno.getDisk().move(0, 0); //resetea la posicion del Objeto Disco que posee el Objeto Jugador como atributo
-        //From now on the temporary canvas takes over the mouse events until it closes
+        
+        //de ahora en mas el canvas temporal se encarga de los eventos hasta que termine
         this.ctx.canvas.parentElement.appendChild(this.tempCanvas);
     }
 
     moveDisk(e) {
-        console.log('mousemove')
         let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
         let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
-        let disk = this.jugadorEnTurno.getDisk();
 
-        //if (disk.getPosition().x !== x || disk.getPosition().y !== y) { //esto en teoria es para que no trabaje demas, porque si el disco no cambia de posicion no deberia entrar al if
-        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
-        disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
-        disk.draw(this.tempCtx); //debemos volver a dibujarlo
-        //}
+        this.barridolDeContextoCanvasTemporal()
+        this.jugadorEnTurno.getDisk().move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
+        this.jugadorEnTurno.getDisk().draw(this.tempCtx); //debemos volver a dibujarlo
     }
 
-    async dropDisk(e, moveDiskFunction) { //se activa cuando soltamos el boton primario del click
-        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height);
-        this.tempCanvas.removeEventListener('mousemove', moveDiskFunction);
+    async dropDisk(e, moverDiscoCallback) { //se activa cuando soltamos el boton primario del click
+        this.barridolDeContextoCanvasTemporal()
+        this.tempCanvas.removeEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.add('dying');
 
-        let col = this.getColumn();
-        console.log('drop disk')
-        let [success, row, column] = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(),
-            this.configuracion.boardSize / this.configuracion.speed, col);
+        const columna = this.getColumn();
+        
+        const resultadosPonerDisco = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(),
+            this.configuracion.boardSize / this.configuracion.speed, columna);
 
-        if (success) {
-            this.checkWin(row, column);
+        if (resultadosPonerDisco.exito) {
+            this.checkWin(resultadosPonerDisco.fila, resultadosPonerDisco.colum);
             this.switchTurns();
         }
         else {
@@ -126,12 +127,12 @@ class Juego {
         }
 
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
-        this.tempCanvas.addEventListener('mousemove', moveDiskFunction);
+        this.tempCanvas.addEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.remove('dying');
     }
 
     cancelMove() {
-        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height);
+        this.barridolDeContextoCanvasTemporal()
         this.jugadorEnTurno.restoreDisk();
         this.jugadorEnTurno.updateDiskPile();
         this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
