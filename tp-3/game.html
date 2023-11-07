@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cuatro en línea</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="4inLine.css">
+    <!-- <link rel="stylesheet" type="text/css" href="4inLine.css"> -->
 </head>
 
 <body class="game">
@@ -19,11 +19,13 @@
         <div class="header-utils flex-row items-center justify-space-between">
             <a id="cart"><img src="css/images/utils/Cart.png" alt="Cart"></a>
             <div class="flex-row items-center justify-end">
-                <svg id="arrow" class="display-none no-rotate" height="30" viewBox="0 0 48 48" width="30" xmlns="http://www.w3.org/2000/svg">
+                <svg id="arrow" class="display-none no-rotate" height="30" viewBox="0 0 48 48" width="30"
+                    xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.83 16.42l9.17 9.17 9.17-9.17 2.83 2.83-12 12-12-12z" />
                     <path d="M0-.75h48v48h-48z" fill="none" />
                 </svg>
-                <a id="profile-pic"><img src="css/images/profile-pics/profile-pic.svg" width="42px" alt="Profile pic"></a>
+                <a id="profile-pic"><img src="css/images/profile-pics/profile-pic.svg" width="42px"
+                        alt="Profile pic"></a>
             </div>
         </div>
     </header>
@@ -55,54 +57,54 @@
                 <!-- <section class="game-container">
                     <img src="css/images/games/strategy-samurai-senso.svg" alt="Samurai Senso">
                 </section> -->
-                <div class="config">
-                    <div class="d-flex justify-center align-center">
-                        <form>
-                            <label for="board-size">Select your board size:</label><br>
+                <section class="game-container">
+                    <div class="config flex-col justify-center items-center gap-3">
+                        <form class="flex-col items-center">
+                            <label for="board-size"><p>Select your board size:</p></label><br>
                             <select id="board-size" name="board-size">
                                 <option value="4x5">4x5</option>
                                 <option value="5x6">5x6</option>
                                 <option value="6x7" selected>6x7</option>
                             </select>
                         </form>
-                    </div>
-                    <div class="d-flex justify-around player-config">
-                        <div class="d-flex-col justify-center align-center">
-                            <span>Player 1 name:</span>
-                            <input type="text" id="player1-name" value="Hideyoshi no Soga">
-                            <form>
-                                <label for="player1-color">P1 select your color:</label><br>
-                                <select id="player1-color" name="player1-color">
-                                    <option value="#ff0000">Red</option>
-                                    <option value="#0000ff" selected>Blue</option>
-                                    <option value="#00ff00">Green</option>
-                                    <option value="#000000">Black</option>
-                                </select>
-                            </form>
+                        <div class="players flex-row justify-space-between gap-3">
+                            <div class="player flex-col justify-center items-center">
+                                <p>Player 1 name:</p>
+                                <input type="text" id="player1-name" value="Hideyoshi no Soga">
+                                <form class="flex-col justify-center items-center">
+                                    <label for="player1-color"><p>Select your color:</p></label><br>
+                                    <select id="player1-color" name="player1-color">
+                                        <option value="#ff0000">Red</option>
+                                        <option value="#0000ff" selected>Blue</option>
+                                        <option value="#00ff00">Green</option>
+                                        <option value="#000000">Black</option>
+                                    </select>
+                                </form>
+                            </div>
+                            <div class="player flex-col justify-center items-center">
+                                <p>Player 2 name:</p>
+                                <input type="text" id="player2-name" value="Shogun Shimura">
+                                <form class="flex-col justify-center items-center">
+                                    <label for="player2-color"><p>Select your color:</p></label><br>
+                                    <select id="player2-color" name="player2-color">
+                                        <option value="#ff0000" selected>Red</option>
+                                        <option value="#0000ff">Blue</option>
+                                        <option value="#00ff00">Green</option>
+                                        <option value="#000000">Black</option>
+                                    </select>
+                                </form>
+                            </div>
                         </div>
-                        <div class="d-flex-col justify-center align-center">
-                            <span>Player 2 name:</span>
-                            <input type="text" id="player2-name" value="Shogun Shimura">
-                            <form>
-                                <label for="player2-color">P2 select your color:</label><br>
-                                <select id="player2-color" name="player2-color">
-                                    <option value="#ff0000" selected>Red</option>
-                                    <option value="#0000ff">Blue</option>
-                                    <option value="#00ff00">Green</option>
-                                    <option value="#000000">Black</option>
-                                </select>
-                            </form>
-                        </div>
+                        <div id="alert-msg"></div>
+                        <button id="start" class="main-color primary">Start!</button>
                     </div>
-                    <div id="alert-msg"></div>
-                    <button id="start" class="main-color primary-btn">Start!</button>
-                </div>
-            
-                <div class="game-canvas mb-5">
-                    <canvas width="750" height="500">
-            
-                    </canvas>
-                </div>
+
+                    <div class="game-canvas mb-5">
+                        <canvas width="750" height="500">
+
+                        </canvas>
+                    </div>
+                </section>
                 <section class="flex-col container description">
                     <h3>Samurai Senso</h3>
                     <p>Disfruta de la encarnizada enemistad entre los clanes Minamoto y Taira durante las históricas
@@ -288,7 +290,7 @@
                 <section class="flex-col container recommended">
                     <h3>Juegos similares</h3>
                     <div id="similar-games" class="flex-col items-center gap-5 cards-container">
-                
+
                     </div>
                 </section>
             </div>
@@ -297,51 +299,51 @@
 
     <footer>
         <!-- <div id="footer-navs-mobile" class="flex-row flexMob-col justify-space-evenly px-4"> -->
-            <div class="flex-col footer-col nav-1">
-                <h3>Sobre nosotros</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Contáctanos</a>
-                    <a class="btn-lista">Sobre nosotros</a>
-                    <a class="btn-lista">Equipo</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col nav-2">
-                <h3>Ayuda</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">FAQ</a>
-                    <a class="btn-lista">Soporte</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col nav-3">
-                <h3>Únete</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Regístrate</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col nav-4">
-                <h3>Más</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Apps similares</a>
-                    <a class="btn-lista">Chart images</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col nav-5">
-                <h3>Categorías</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Acción</a>
-                    <a class="btn-lista">Aventuras</a>
-                    <a class="btn-lista">Terror</a>
-                    <a class="btn-lista">Estrategia</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col nav-6">
-                <h3>Redes sociales</h3>
-                <nav class="flex-row items-center footer-row">
-                    <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
-                    <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
-                    <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
-                </nav>
-            </div>
+        <div class="flex-col footer-col nav-1">
+            <h3>Sobre nosotros</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Contáctanos</a>
+                <a class="btn-lista">Sobre nosotros</a>
+                <a class="btn-lista">Equipo</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-2">
+            <h3>Ayuda</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">FAQ</a>
+                <a class="btn-lista">Soporte</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-3">
+            <h3>Únete</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Regístrate</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-4">
+            <h3>Más</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Apps similares</a>
+                <a class="btn-lista">Chart images</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-5">
+            <h3>Categorías</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Acción</a>
+                <a class="btn-lista">Aventuras</a>
+                <a class="btn-lista">Terror</a>
+                <a class="btn-lista">Estrategia</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-6">
+            <h3>Redes sociales</h3>
+            <nav class="flex-row items-center footer-row">
+                <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
+                <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
+                <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
+            </nav>
+        </div>
         <!-- </div> -->
         <div class="flex-row justify-center items-end nav-7">
             <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
