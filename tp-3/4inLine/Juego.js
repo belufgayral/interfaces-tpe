@@ -32,8 +32,8 @@ class Juego {
             this.configuracion.rows, //filas del input radio ckeckeado
             this.configuracion.cols); //columnas del input radio checkeado
 
-        this.initScreen();
-        this.initSecondaryCanvas(); //inicia el canvas secundario para los eventos de drag y drop de los discos
+        this.renderizadoDePantalla();
+        this.iniciarCanvasTemporal(); //inicia el canvas secundario para los eventos de drag y drop de los discos
 
 
 
@@ -46,9 +46,9 @@ class Juego {
 
     }
 
-    initScreen() {
+    renderizadoDePantalla() {
         //Limpio el tablero preexistente en caso de haber uno
-        console.log('ctx: ', this.ctx)
+
         this.ctx.clearRect(0, 0, this.configuracion.width, this.configuracion.height);
         this.ctx.canvas.parentElement.querySelector('.player-info.p1')?.remove();
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
@@ -56,31 +56,33 @@ class Juego {
         //Draws new board
         this.tableroJuego.draw(this.ctx, this.configuracion.width, this.configuracion.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
 
-        this.players.player1.fillDisks(this.configuracion.totalDisks); //setea el n de discos para el jugador 1
-        this.players.player1.displayPlayerInfo(this.ctx, 1); //muestra la info del jugador 1
-        this.players.player2.fillDisks(this.configuracion.totalDisks);
-        this.players.player2.displayPlayerInfo(this.ctx, 2);
+        for (const player in this.players) {
+            this.players[player].fillDisks(this.configuracion.totalDisks); //setea el n de discos para el jugador 1
+            const playerNumber = this.players[player].getPlayerNumber();
+            this.players[player].displayPlayerInfo(this.ctx, playerNumber); //muestra la info del jugador 1
+        }
     }
 
-    initSecondaryCanvas() {
+    listenersParaEventos() {
+        const moveDisk = (e) => this.moveDisk(e);
+        
+        this.tempCanvas.addEventListener('mousemove', moveDisk);  //se activa cuando muevo el disco de la pila a lo largo del canvas
+        this.tempCanvas.addEventListener('mouseup', async (e) => { //se activa cuando suelto el disco en la columna elegida
+            await this.dropDisk(e, moveDisk)
+        });
+        this.tempCanvas.addEventListener('mouseleave', () => { //se activa si me salgo de los limites del canvas y cancela la accion
+            this.cancelMove()
+        });
+    }
+
+    iniciarCanvasTemporal() {
         //canvas temporal creado para mover el disco
         this.tempCanvas = document.createElement('canvas');
         this.tempCanvas.width = this.configuracion.width;
         this.tempCanvas.height = this.configuracion.height;
         this.tempCanvas.classList.add('temporal-canvas');
         this.tempCtx = this.tempCanvas.getContext('2d');
-
-        const moveDisk = (e) => this.moveDisk(e);
-
-        this.tempCanvas.addEventListener('mousemove', moveDisk); //se activa cuando muevo el disco de la pila a lo largo del canvas
-        this.tempCanvas.addEventListener('mouseup', async (e) => { //se activa cuando suelto el disco en la columna elegida
-            console.log('mouseup')
-            await this.dropDisk(e, moveDisk)
-        });
-        this.tempCanvas.addEventListener('mouseleave', () => { //se activa si me salgo de los limites del canvas y cancela la accion
-            console.log('mouseleave')
-            this.cancelMove()
-        });
+        this.listenersParaEventos()
     }
 
     playTurn() {

@@ -15,6 +15,10 @@ class Jugador {
         return this.name;
     }
 
+    getPlayerNumber() {
+        return this.playerNumber
+    }
+
     getColor() {
         return this.color;
     }
