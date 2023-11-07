@@ -46,7 +46,8 @@ const setConfig = (e) => {
         ],
         totalDisks: 8, //seteo los discos que tendra cada uno en su pila
         winNumber: 4, //condicion de victoria
-        speed: 10
+        speed: 10,
+        maxJugadores: 2,
     };
 };
 

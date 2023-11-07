@@ -20,6 +20,7 @@ class Juego {
         this.velocidad = config.speed;
         this.pilaUno = null;
         this.pilaDos = null;
+        this.maxJugadores = config.maxJugadores;
     }
 
     barridolDeContextoCanvasTemporal() {
@@ -101,6 +102,22 @@ class Juego {
         //de ahora en mas el canvas temporal se encarga de los eventos hasta que termine
         this.ctx.canvas.parentElement.appendChild(this.tempCanvas);
     }
+    
+    switchTurns() {
+        for (const player in this.players) {
+            if (this.jugadorEnTurno.getPlayerNumber() === this.players[player].getPlayerNumber()) {
+                let numeroJugadorActual = this.jugadorEnTurno.getPlayerNumber() //1 por ejemplo
+                if (numeroJugadorActual !== this.maxJugadores) {
+                    numeroJugadorActual++;
+                    const nextPlayer = `player${numeroJugadorActual.toString()}`;
+                    this.jugadorEnTurno = this.players[nextPlayer];
+                    break; // cortamos la iteracion cuando cambiamos el turno
+                }
+                this.jugadorEnTurno = this.players['player1'];
+                break; // cortamos la iteracion cuando cambiamos el turno
+            }
+        }
+    }
 
     situacionDeExito(resultado) {
         this.checkWin(resultado.fila, resultado.colum);
@@ -145,17 +162,17 @@ class Juego {
     }
 
     getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
-        let x = this.jugadorEnTurno.getDisk().getPosition().x;
-        let col = Math.floor((x - this.tableroJuego.x) / this.configuracion.boardSize);
-        if (col >= 0 && col < this.configuracion.cols) {
-            return col;
+        let xPos = this.jugadorEnTurno.getDisk().getPosition().x;
+        let columna = Math.floor((xPos - this.tableroJuego.x) / this.configuracion.boardSize);
+        if (columna >= 0 && columna < this.configuracion.cols) {
+            return columna;
         }
         return null;
     }
 
-    switchTurns() {
+    /* switchTurns() {
         this.jugadorEnTurno = this.jugadorEnTurno === this.players.player1 ? this.players.player2 : this.players.player1;
-    }
+    } */
 
     //chequeos de condiciones de resultados posibles
 

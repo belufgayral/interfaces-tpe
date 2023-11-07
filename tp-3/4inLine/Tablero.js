@@ -59,7 +59,6 @@ class Tablero {
             colum: null
         } //si la columna no tiene ninguna fila vacia no retornamos nada
         for (let i = 0; i < tiles.length - 1; i++) { //si tiles tiene hoyos vacios...
-            console.log('board put disk for')
             await tiles[i].animateFall(ctx, disk, speed, true); //animamos la caida del disco en cada hoyo vacio
         }
         await tiles[tiles.length - 1].putDisk(ctx, disk, speed, false);
