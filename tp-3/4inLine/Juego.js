@@ -89,6 +89,10 @@ class Juego {
         this.listenersParaEventos()
     }
 
+    quitarCanvasTemporal() {
+        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
+    }
+
     playTurn() {
         this.jugadorEnTurno.consumeDisk(); //reduce el numero de discos de la pila en 1 --> totalDisks = totalDisks - 1
         this.jugadorEnTurno.updateDiskPile(); //actualiza el renderizado de los discos
@@ -129,16 +133,15 @@ class Juego {
 
         resultadosPonerDisco.exito ? this.situacionDeExito(resultadosPonerDisco) : this.situacionDeFallo()
 
-        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
+        this.quitarCanvasTemporal()
         this.tempCanvas.addEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.remove('dying');
     }
 
     cancelMove() {
         this.barridolDeContextoCanvasTemporal()
-        this.jugadorEnTurno.restoreDisk();
-        this.jugadorEnTurno.updateDiskPile();
-        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
+        this.situacionDeFallo()
+        this.quitarCanvasTemporal()
     }
 
     getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
