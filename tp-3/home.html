@@ -58,14 +58,13 @@
     </nav>
 
     <main id="main-home" class="flex-col w-full display-none">
-        <figure class="w-full">
-            <!-- <img class="w-full" src="css/images/background/background-weekly-top.png" alt="Weekly top game"> -->
+        <figure class="w-full flex-col items-end justify-end">
             <div class="flex-col items-end">
                 <h1>The Elder Scrolls V</h1>
                 <div class="flex-row">
                     <button class="primary play-weekly">Jugar</button>
                     <button class="secondary">Más información</button>
-                    <button class="secondaryMobile">Más</button>
+                    <!-- <button class="secondaryMobile">Más</button> -->
                 </div>
             </div>
         </figure>
@@ -95,7 +94,7 @@
                 </div>
                 <div class="flex-row">
 
-                    <div id="aventura" class="flex-row items-start gap-5 cards-container"> <!-- cards carousel -->
+                    <div id="aventura" class="flex-row items-start cards-container"> <!-- cards carousel -->
 
                     </div>
                 </div>
@@ -103,74 +102,72 @@
             </div>
             <div>
                 <h2 class="">Acción</h2>
-                <div id="accion" class="flex-row items-start gap-5 cards-container"> <!-- cards carousel -->
+                <div id="accion" class="flex-row items-start cards-container"> <!-- cards carousel -->
 
                 </div>
             </div>
             <div>
                 <h2 class="">Terror</h2>
-                <div id="terror" class="flex-row items-start gap-5 cards-container "> <!-- cards carousel -->
+                <div id="terror" class="flex-row items-start cards-container "> <!-- cards carousel -->
 
                 </div>
             </div>
             <div>
                 <h2 class="">Estrategia</h2>
-                <div id="estrategia" class="flex-row items-start gap-5 cards-container "> <!-- cards carousel -->
+                <div id="estrategia" class="flex-row items-start cards-container "> <!-- cards carousel -->
 
                 </div>
             </div>
         </div>
     </main>
 
-    <footer id="footer-home" class="flex-col justify-space-between display-none">
-        <div class="flex-row flexMob-col justify-space-evenly px-4">
-            <div class="flex-col footer-col">
-                <h3>Sobre nosotros</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Contáctanos</a>
-                    <a class="btn-lista">Sobre nosotros</a>
-                    <a class="btn-lista">Equipo</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col">
-                <h3>Ayuda</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">FAQ</a>
-                    <a class="btn-lista">Soporte</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col">
-                <h3>Únete</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Regístrate</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col">
-                <h3>Más</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Apps similares</a>
-                    <a class="btn-lista">Chart images</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col">
-                <h3>Categorías</h3>
-                <nav class="flex-col">
-                    <a class="btn-lista">Acción</a>
-                    <a class="btn-lista">Aventuras</a>
-                    <a class="btn-lista">Terror</a>
-                    <a class="btn-lista">Estrategia</a>
-                </nav>
-            </div>
-            <div class="flex-col footer-col">
-                <h3>Redes sociales</h3>
-                <nav class="flex-row items-center footer-row">
-                    <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
-                    <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
-                    <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
-                </nav>
-            </div>
+    <footer id="footer-home" class="display-none">
+        <div class="flex-col footer-col nav-1">
+            <h3>Sobre nosotros</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Contáctanos</a>
+                <a class="btn-lista">Sobre nosotros</a>
+                <a class="btn-lista">Equipo</a>
+            </nav>
         </div>
-        <div class="flex-row justify-center items-end">
+        <div class="flex-col footer-col nav-2">
+            <h3>Ayuda</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">FAQ</a>
+                <a class="btn-lista">Soporte</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-3">
+            <h3>Únete</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Regístrate</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-4">
+            <h3>Más</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Apps similares</a>
+                <a class="btn-lista">Chart images</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-5">
+            <h3>Categorías</h3>
+            <nav class="flex-col">
+                <a class="btn-lista">Acción</a>
+                <a class="btn-lista">Aventuras</a>
+                <a class="btn-lista">Terror</a>
+                <a class="btn-lista">Estrategia</a>
+            </nav>
+        </div>
+        <div class="flex-col footer-col nav-6">
+            <h3>Redes sociales</h3>
+            <nav class="flex-row items-center footer-row">
+                <img src="css/images/social-networks/Instagram.png" alt="Logo Instagram">
+                <img src="css/images/social-networks/Twitter.png" alt="Logo Twitter">
+                <img src="css/images/social-networks/Facebook.png" alt="Logo Facebook">
+            </nav>
+        </div>
+        <div class="flex-row justify-center items-end nav-7">
             <p>2023, August | All rights reserved | Terms, conditions and Privacy Policy | Updated September, 2023</p>
         </div>
     </footer>

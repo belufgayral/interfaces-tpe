@@ -307,6 +307,17 @@ const gamesCardData = [
         img: '',
         inCart: false
     },
+    {
+        id: 29,
+        title: 'The Last of Us',
+        titleForImg: 'tlou',
+        forYou: true,
+        genre: 'Aventura',
+        paid: true,
+        price: '389',
+        img: '',
+        inCart: false
+    }
 ]
 
 
@@ -343,12 +354,12 @@ function renderGameCards(genre) {
             }
             game.inCart = !(game.inCart)
             event.target.classList.add("shake-animation");
-    
+
             setTimeout(() => {
                 event.target.classList.remove("shake-animation");
             }, 350);
         }
-            
+
     }
 
     // iteramos los juegos filtrados por genero para generar el layout de la card y su contenido de manera dinamica
@@ -452,47 +463,69 @@ function renderGameCards(genre) {
 
 
 
-// llamamos la funcion para renderizar segun el parametro pasado, esto se puede convertir en un loop mas adelante
-// renderGameCards('Aventura');
-// renderGameCards('Accion');
-// renderGameCards('Terror');
-// renderGameCards('Estrategia');
-// renderGameCards('parati');
+const genreCategories = [{ genre: 'aventura', currentIndex: 0 },
+{ genre: 'accion', currentIndex: 0 },
+{ genre: 'terror', currentIndex: 0 },
+{ genre: 'estrategia', currentIndex: 0 },
+{ genre: 'parati', currentIndex: 0 }]
 
-
-let currentIndex = 0;
-
-function navigateCarousel(direction) {
-    const container = document.getElementById('aventura');
+function navigateCarousel(direction, genre) {
+    const prevBtn = document.getElementById('button-left');
+    const nextBtn = document.getElementById('button-right');
+    const container = document.getElementById(genre);
     const images = container.querySelectorAll('.cardGame');
     const slideWidth = images[0].clientWidth;
+    const carrouselWidth = images.clientWidth
+    /* console.log(images)
+    console.log('carrouselWidth: ', carrouselWidth) */
 
-    if (direction === 'prev') {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-    } else if (direction === 'next') {
-        currentIndex = (currentIndex + 1) % images.length;
+    let categoryObject = genreCategories.find((obj) => obj.genre === genre)
+
+    switch (direction) {
+        case 'prev':
+            categoryObject.currentIndex = ((categoryObject.currentIndex - 1 + images.length) % images.length);
+            console.log(categoryObject.currentIndex);
+            break;
+        case 'next':
+            categoryObject.currentIndex = ((categoryObject.currentIndex + 1) % images.length);
+            console.log(categoryObject.currentIndex);
+            break;
+        default:
+            break;
     }
 
-    const offset = -currentIndex * slideWidth;
+    const offset = (-categoryObject.currentIndex * slideWidth) - (categoryObject.currentIndex * 30);
+    console.log('offset: ', offset)
 
     // Apply a CSS transition for smooth animation
-    container.style.transition = 'transform 0.5s ease-in-out';
+    container.style.transition = 'transform 0.2s ease-in-out';
     container.style.transform = `translateX(${offset}px)`;
+
+    if (offset === ((slideWidth * (images.length - 6)) * (-1)) - (categoryObject.currentIndex * 30)) { //cuando nos desplazamos hasta la ultima card
+        nextBtn.disabled = true
+    } else if (offset === 0) { //cuando estamos en la primera card
+        prevBtn.disabled = true
+    } else {
+        if (direction === 'prev') nextBtn.disabled = false
+        if (direction === 'next') prevBtn.disabled = false
+    }
 
     // Remove the transition after the animation completes
     setTimeout(() => {
         container.style.transition = 'none';
-    }, 500); // 500ms matches the transition duration
+    }, 200); // 500ms matches the transition duration
 }
 
 const prevButton = document.getElementById('button-left');
 prevButton.addEventListener('click', () => {
-    navigateCarousel('prev');
+    navigateCarousel('prev', 'aventura');
 });
 
 const nextButton = document.getElementById('button-right');
 nextButton.addEventListener('click', () => {
-    navigateCarousel('next');
+    navigateCarousel('next', 'aventura');
 });
+
+
 
 export { renderGameCards };

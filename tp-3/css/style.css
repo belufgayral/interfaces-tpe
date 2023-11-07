@@ -107,6 +107,8 @@ hr {
 body.home {
     width: 100%;
     min-height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
     background-color: var(--color-primary);
 }
 
@@ -211,74 +213,6 @@ header {
     margin-top: auto;
 }
 
-/* FOOTER */
-
-footer {
-    background-color: var(--color-primary-s1);
-    height: 12.8125rem;
-    margin-top: 3rem;
-}
-
-.footer-col {
-    padding-top: 1.75rem;
-    gap: 0.75rem;
-}
-
-.footer-row {
-    gap: 0.9375rem;
-}
-
-/* FORM REGISTRO & LOGIN
-
-form {
-    width: 28.75rem;
-    height: 45rem;
-    background-color: var(--color-primary-s2);
-    border-radius: 0.88rem;
-    padding: 1.5em 0em;
-    margin: 4em 0em;
-}
-
-form>div {
-    margin: 1em 0em;
-}
-
-form>.divider {
-    width: 22rem;
-    gap: 1rem;
-}
-
-.divider>hr {
-    width: 9.6875rem;
-    height: 0rem;
-    border-color: var(--color-secondary-l3);
-}
-
-div.form>input {
-    background-color: var(--color-primary-s1);
-    border: 1px solid var(--color-secondary-l3);
-    border-radius: 0.75em;
-    height: 3em;
-    margin: 0.5em;
-    padding: 0em 0.7em;
-}
-
-div.form>input:focus {
-    outline: 1px solid var(--color-secondary-l3);
-}
-
-.form-row>.row-a {
-    width: 70%;
-}
-
-.form-row>.row-b {
-    width: 30%;
-}
-
-form .option-login {
-    gap: 0.5em;
-} */
-
 /* HOME */
 
 .home .popup-background {
@@ -354,7 +288,6 @@ form .option-login {
     left: 10px;
     right: 10px;
     bottom: 10px;
-    /* background: rgba(0, 0, 0, 0.5); */
     border: solid white 5px;
     border-radius: 50%;
 }
@@ -392,21 +325,14 @@ main>figure {
     height: 30rem;
     position: relative;
     background: linear-gradient(to bottom, rgba(245, 245, 245, 0) 0%, rgba(159, 150, 184, 0) 48%, rgba(65, 48, 117, 1) 100%), url(images/background/background-weekly-top.png);
-    /* background-image: ; */
     background-size: cover;
     background-position: top;
-    /* box-shadow: inset 0px -37px 34px 14px rgba(65, 48, 117, 0.9); */
 }
 
-/* figure > img {
-    box-shadow: inset 0px -52px 45px 3px rgba(65, 48, 117, 0.9);
-} */
-
 figure>div {
-    position: absolute;
     gap: 0.6rem;
-    top: 65%;
-    left: 72%;
+    margin-bottom: 4rem;
+    margin-right: 3rem;
 }
 
 figure div div {
@@ -447,6 +373,7 @@ figure div div {
 
 .cards-container {
     padding: 1rem 1rem 1rem 0rem;
+    gap: 25px;
     transition: transform 0.5s ease-in-out;
     /* Add a transition for smooth animation */
 }
@@ -560,7 +487,6 @@ button.carrito {
 
 #button-left,
 #button-right {
-    /* Reset all default styles for the button */
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -568,9 +494,6 @@ button.carrito {
     border: none;
     color: inherit;
     font: inherit;
-    /* padding: 0.2rem;
-    padding-top: 0.15rem;
-    padding-bottom: 0.15rem; */
     margin: 0;
     cursor: pointer;
 }
@@ -579,17 +502,56 @@ button.carrito {
     transform: rotate(180deg);
 }
 
-#button-right {
-    /* padding-top: 0.60rem; */
-}
-
 .arrow-img {
     width: 1.7rem;
     height: 1.7rem;
 }
 
+/* FOOTER */
 
+footer {
+    display: grid;
+    grid-template-areas: "nav-1 nav-2 nav-3 nav-4 nav-5 nav-6"
+                        "nav-7 nav-7 nav-7 nav-7 nav-7 nav-7";
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 2fr 1fr;
+    justify-items: center;
+    justify-content: space-around;
+    background-color: var(--color-primary-s1);
+    height: 12.8125rem;
+    margin-top: 3rem;
+    padding: 1.75rem 2.5rem 0rem 2.5rem;
+}
 
+.nav-1 {
+    grid-area: nav-1;
+}
+.nav-2 {
+    grid-area: nav-2;
+}
+.nav-3 {
+    grid-area: nav-3;
+}
+.nav-4 {
+    grid-area: nav-4;
+}
+.nav-5 {
+    grid-area: nav-5;
+}
+.nav-6 {
+    grid-area: nav-6;
+}
+.nav-7 {
+    grid-area: nav-7;
+}
+
+.nav-1, .nav-2, .nav-3, .nav-4, .nav-5, .nav-6 {
+    gap: 0.75rem;
+}
+
+.footer-row {
+    gap: 0.9375rem;
+}
 
 
 
@@ -604,9 +566,6 @@ button.carrito {
 @media (max-width: 768px) {
     header {
         max-width: 100%;
-        /* background-color: var(--color-primary-s1); */
-        /* height: auto; */
-        /* z-index: 2; */
     }
 
     .logo {
@@ -631,7 +590,6 @@ button.carrito {
         justify-content: flex-end;
         height: 80%;
         gap: 2rem;
-        /* align-items: baseline; */
         margin-right: 1rem;
     }
 
@@ -650,16 +608,14 @@ button.carrito {
         height: 2rem;
     }
 
-    /* .profileMob-container {
-        display: flex;
-        justify-content: flex-start;
-    } */
+    main>figure {
+        height: 15rem;
+        background-position: center;
+    }
 
-    footer {
-        /* background-color: var(--color-primary-s1); */
-        height: 100%;
-        gap: 2rem;
-        padding: 0rem 1rem 1rem 1rem;
+    figure>div {
+        margin-bottom: 2rem;
+        margin-right: 1.5rem;
     }
 
     .cards-container {
@@ -668,76 +624,50 @@ button.carrito {
     }
 
     .cardBgImg {
-        width: 7.1rem;
+        width: 10rem;
         height: auto;
     }
 
     .cardForYouBgImg {
-        width: 7.7rem;
+        width: 13rem;
         height: auto;
     }
 
-    main>figure {
-        /* width: 100%; */
-        height: 15rem;
-        /* position: relative;
-        background-image: url(images/background/background-weekly-top.png);
-        background-size: cover; */
-        background-position: center;
-        /* box-shadow: inset 0px -52px 45px 3px rgba(65, 48, 117, 0.9); */
+    figure div h1 {
+        font-size: 2rem;
     }
 
-    figure>div {
-        position: absolute;
-        top: 60%;
-        left: 60%;
+    .for-you-container .cards-container .cardGame .cardGameTitle h3 {
+        font-size: 1.6rem;
+    }
+
+    button.carrito {
+        font-size: 0.9rem;
+        padding: 0.6rem;
+    }
+
+    .for-you-container .cards-container .cardGame .carrito-div button {
+        font-size: 1.1rem;
+    }
+
+    .cardGameTitle h3 {
+        font-size: 1.3rem;
     }
 
     h1 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        text-transform: uppercase;
+        font-size: 1.7rem;
     }
-
-    h2 {
-        font-size: 1.3rem;
-        font-weight: 400;
-        font-variant: all-small-caps;
-    }
-
-    h3 {
-        font-size: 1rem;
-        font-weight: 400;
-        font-variant: all-small-caps;
-    }
-
-    p {
-        text-align: justify;
-        font-size: 0.35rem;
-        font-weight: 300;
-    }
-
 
     button.primary {
-        /* display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        width: fit-content;
-        gap: 0.5rem; */
-        padding: 0.7rem 1rem;
-        /* background: var(--color-secondary-l1);
-        outline: none;
-        border: none;
-        border-radius: 0.8125rem;
-        color: var(--color-white); */
+        padding: 0.5rem 1rem;
         text-transform: uppercase;
     }
 
-    #main-home figure div div .secondary {
+    /* #main-home figure div div .secondary {
         display: none;
-    }
+    } */
 
-    button.secondaryMobile {
+    /* button.secondaryMobile {
         display: inline-flex;
         justify-content: center;
         align-items: center;
@@ -748,38 +678,11 @@ button.carrito {
         border: 2px solid var(--color-secondary-l2);
         outline: none;
         color: var(--color-secondary-l2);
-    }
+    } */
 
     div.carrito-div {
         width: 100%;
     }
-
-    button.carrito {
-        font-size: 0.8rem;
-        padding: 0.5rem;
-    }
-
-    /* div.carrito-div {
-        width: 80%;
-        margin: auto;
-        border-radius: 0rem 0rem 0rem 0.8125rem;
-        display: inline-flex;
-        justify-items: center;
-        transition: all 0.5s ease-in-out;
-    }
-
-    div.carrito-div:hover {
-        width: 100%;
-        background-color: var(--color-secondary-s3);
-    }
-
-    button.carrito {
-        width: 100%;
-        font-size: 16px;
-        border-width: 2px 0px 0px 0px;
-        border-radius: 0px;
-        transition: all 0.5s ease-in-out;
-    } */
 
     .shake-animation {
         animation: shake-deg 0.3s 1;
@@ -809,40 +712,29 @@ button.carrito {
     }
 
     .priceText {
-        /* color: var(--Blanco, #F2F1F8);
-        font-family: Roboto; */
         font-size: 0.9rem;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
         position: absolute;
-        bottom: 38px;
+        bottom: 45px;
         left: 5px;
         background-color: var(--color-secondary-s2);
         text-align: center;
         width: 2.5rem;
     }
 
+    .for-you-container .cards-container .cardGame .priceText {
+        bottom: 50px;
+    }
+
     #button-left,
     #button-right {
-        /* Reset all default styles for the button */
-        /* background: none;
-        border: none;
-        color: inherit;
-        font: inherit; */
         padding: 0.2rem;
-        /* padding-top: 0.15rem;
-        padding-bottom: 0.15rem; */
-        /* margin: 0; */
-        /* cursor: pointer; */
     }
 
     #button-left {
         transform: rotate(180deg);
-    }
-
-    #button-right {
-        /* padding-top: 0.60rem; */
     }
 
     .arrow-img {
@@ -850,8 +742,25 @@ button.carrito {
         height: 1.1rem;
     }
 
+    #footer-home {
+        display: grid;
+        grid-template-areas: "nav-1 nav-2"
+                            "nav-3 nav-4"
+                            "nav-5 nav-6"
+                            "nav-7 nav-7";
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 0.5fr;
+        justify-items: start;
+        height: 100%;
+        gap: 2rem;
+    }
+
+    .nav-7 p {
+        text-align: center;
+    }
+
     footer h3 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     footer p {

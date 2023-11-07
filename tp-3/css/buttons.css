@@ -1,5 +1,16 @@
-button.primary, button.secondary, a, .btn-lista, button.social-network, .footer-col .footer-row > img, .description .share-container .share-options > img {
+button.primary,
+button.secondary,
+a,
+.btn-lista,
+button.social-network,
+.footer-col .footer-row>img,
+.description .share-container .share-options>img {
     cursor: pointer;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 button.primary {
@@ -78,10 +89,12 @@ button.social-network:hover {
     background-color: rgb(214, 213, 222);
 }
 
-.footer-col .footer-row > img, .description .share-container .share-options > img {
+.footer-col .footer-row>img,
+.description .share-container .share-options>img {
     transition: transform 0.3s ease-in;
 }
 
-.footer-col .footer-row > img:hover, .description .share-container .share-options > img:hover {
+.footer-col .footer-row>img:hover,
+.description .share-container .share-options>img:hover {
     transform: scale(1.1);
 }
