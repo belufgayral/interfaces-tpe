@@ -22,7 +22,7 @@ class Juego {
         this.pilaDos = null;
     }
 
-    initGame() {
+    comenzarPartida() {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
 
@@ -30,20 +30,20 @@ class Juego {
             this.configuracion.height / 2 - this.configuracion.rows / 2 * this.configuracion.boardSize, //Y
             this.configuracion.boardSize, //tamanio del tablero ingresado en el input range
             this.configuracion.rows, //filas del input radio ckeckeado
-        this.configuracion.cols); //columnas del input radio checkeado
+            this.configuracion.cols); //columnas del input radio checkeado
 
         this.initScreen();
         this.initSecondaryCanvas(); //inicia el canvas secundario para los eventos de drag y drop de los discos
 
-        this.players.player1.getSubCtxCanvas().addEventListener('mousedown', async (e) => {
-            if (this.jugadorEnTurno !== this.players.player1) return; //chequea por si no es el turno del jugador
-            this.playTurn();
-        });
 
-        this.players.player2.getSubCtxCanvas().addEventListener('mousedown', (e) => {
-            if (this.jugadorEnTurno !== this.players.player2) return;
-            this.playTurn();
-        });
+
+        for (const player in this.players) {
+            this.players[player].getSubCtxCanvas().addEventListener('mousedown', (e) => {
+                if (this.jugadorEnTurno !== this.players[player]) return;
+                this.playTurn();
+            });
+        }
+
     }
 
     initScreen() {
@@ -75,10 +75,12 @@ class Juego {
         this.tempCanvas.addEventListener('mousemove', moveDisk); //se activa cuando muevo el disco de la pila a lo largo del canvas
         this.tempCanvas.addEventListener('mouseup', async (e) => { //se activa cuando suelto el disco en la columna elegida
             console.log('mouseup')
-            await this.dropDisk(e, moveDisk) });
+            await this.dropDisk(e, moveDisk)
+        });
         this.tempCanvas.addEventListener('mouseleave', () => { //se activa si me salgo de los limites del canvas y cancela la accion
             console.log('mouseleave')
-            this.cancelMove() });
+            this.cancelMove()
+        });
     }
 
     playTurn() {
@@ -94,11 +96,11 @@ class Juego {
         let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
         let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
         let disk = this.jugadorEnTurno.getDisk();
-       
+
         //if (disk.getPosition().x !== x || disk.getPosition().y !== y) { //esto en teoria es para que no trabaje demas, porque si el disco no cambia de posicion no deberia entrar al if
-            this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
-            disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
-            disk.draw(this.tempCtx); //debemos volver a dibujarlo
+        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
+        disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
+        disk.draw(this.tempCtx); //debemos volver a dibujarlo
         //}
     }
 
@@ -109,8 +111,8 @@ class Juego {
 
         let col = this.getColumn();
         console.log('drop disk')
-        let [success, row, column] = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(), 
-        this.configuracion.boardSize / this.configuracion.speed, col);
+        let [success, row, column] = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(),
+            this.configuracion.boardSize / this.configuracion.speed, col);
 
         if (success) {
             this.checkWin(row, column);
@@ -168,7 +170,7 @@ class Juego {
         winner.height = this.configuracion.height;
         winner.width = this.configuracion.width;
         winner.querySelector('button').addEventListener('click', () => {
-            this.initGame();
+            this.comenzarPartida();
             this.jugadorEnTurno = this.players.player1;
         });
         this.ctx.canvas.parentElement.appendChild(winner);

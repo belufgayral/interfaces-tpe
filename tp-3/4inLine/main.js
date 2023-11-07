@@ -55,7 +55,7 @@ const start = () => {
     game = new Juego(ctx, config);
     
     configWindow.classList.add("display-none");
-    game.initGame(); 
+    game.comenzarPartida(); 
 }
 
 document.querySelector('#start').addEventListener('click', start);
