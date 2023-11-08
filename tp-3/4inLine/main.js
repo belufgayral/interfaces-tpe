@@ -18,16 +18,18 @@ let canvasWidth = canvas.width
 let canvasHeight = canvas.height
 
 const maxGamePlayers = 2;
+const initialSpeed = 4;
 
-const setConfig = (e) => {
+const start = () => {
     let alert = document.querySelector('#alert-msg');
     let select = document.querySelector('#board-size');
     if (p1Color.value === p2Color.value) {
-        alert.innerHTML = 'Players must pick different colors!'
+        alert.innerHTML = 'Players must pick different teams!'
         return
     }
     alert.innerHTML = ''
-    config = {
+
+    game = new Juego(ctx, config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
         boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 50 : (parseInt(select.value.slice(0, 1)) === 5 ? 55 : 65), //recibe el valor ingresado en el input de board size
@@ -49,18 +51,15 @@ const setConfig = (e) => {
                 img: "./4inLine/imgs/ghostOfTsushima.jpg"
             }
         ],
-        totalDisks: 8, //seteo los discos que tendra cada uno en su pila
-        winNumber: 4, //condicion de victoria
-        speed: 10,
+        totalDisks:  parseInt(select.value.slice(0, 1)) === 4 ? 10 : (parseInt(select.value.slice(0, 1)) === 5 ? 15 : 21), //seteo los discos que tendra cada uno en su pila
+        winNumber: parseInt(select.value.slice(0, 1)) === 4 ? 3 : (parseInt(select.value.slice(0, 1)) === 5 ? 4 : 5), //condicion de victoria
+        speed: initialSpeed,
         maxJugadores: maxGamePlayers,
-    };
-};
+    });
 
-const start = () => {
-    setConfig();
     game = new Juego(ctx, config);
     let timer = new Timer(60);
-
+    
     configWindow.classList.add("display-none");
     game.comenzarPartida(); 
     timer.renderTimer(750, 100);
