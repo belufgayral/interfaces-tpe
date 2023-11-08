@@ -120,7 +120,7 @@ class Juego {
     }
 
     situacionDeExito(resultado) {
-        this.checkWin(resultado.fila, resultado.colum);
+        this.checkPossibleEndGame(resultado.fila, resultado.colum);
         this.switchTurns();
     }
 
@@ -172,12 +172,41 @@ class Juego {
 
     //chequeos de condiciones de win conditions
 
-    checkWin(row, col) {
+    checkPossibleEndGame(row, col) { //hace el chequeo de todas las condiciones posibles
+       
         let disk = this.tableroJuego[row][col].getDisk();
         if (this.checkHorizontal(row, col, disk) || this.checkVertical(row, col, disk) || this.checkDiagonal(row, col, disk)) {
             this.jugadorEnTurno.incrementScore();
             this.showWinnerScreen();
+        } else {
+            let noMoreDisksInGame = false;
+            for (const player in this.players) {
+                if (this.players[player].getDisksRemaining() === 0) {
+                    noMoreDisksInGame = true;
+                } else {
+                    noMoreDisksInGame = false;
+                }
+            }
+            if (noMoreDisksInGame) {
+                this.showDrawScreen()
+            }
         }
+    }
+
+    showDrawScreen() {
+        let draw = document.createElement('div');
+        draw.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
+        draw.innerHTML = `
+                <h1>No one wins!</h1>
+                <button class="primary">It's been a draw, play again!</button>
+        `;
+        draw.height = this.configuracion.height;
+        draw.width = this.configuracion.width;
+        draw.querySelector('button').addEventListener('click', () => {
+            this.comenzarPartida();
+            this.jugadorEnTurno = this.players.player1;
+        });
+        this.ctx.canvas.parentElement.appendChild(draw);
     }
 
     showWinnerScreen() {

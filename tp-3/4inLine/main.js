@@ -19,7 +19,7 @@ let canvasHeight = canvas.height
 const maxGamePlayers = 2;
 const initialSpeed = 4;
 
-const setConfig = (e) => {
+const start = () => {
     let alert = document.querySelector('#alert-msg');
     let select = document.querySelector('#board-size');
     if (p1Color.value === p2Color.value) {
@@ -27,7 +27,8 @@ const setConfig = (e) => {
         return
     }
     alert.innerHTML = ''
-    config = {
+
+    game = new Juego(ctx, config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
         boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 50 : (parseInt(select.value.slice(0, 1)) === 5 ? 55 : 65), //recibe el valor ingresado en el input de board size
@@ -53,12 +54,7 @@ const setConfig = (e) => {
         winNumber: parseInt(select.value.slice(0, 1)) === 4 ? 4 : (parseInt(select.value.slice(0, 1)) === 5 ? 5 : 6), //condicion de victoria
         speed: initialSpeed,
         maxJugadores: maxGamePlayers,
-    };
-};
-
-const start = () => {
-    setConfig();
-    game = new Juego(ctx, config);
+    });
     
     configWindow.classList.add("display-none");
     game.comenzarPartida(); 
