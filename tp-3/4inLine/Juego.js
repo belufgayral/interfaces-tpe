@@ -132,22 +132,10 @@ class Juego {
     moveDisk(e) {
         let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
         let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
-<<<<<<< HEAD
-        let disk = this.currentPlayer.getDisk();
-        console.log(disk.getImage());
-        console.log(this.tempCtx);
-       
-        //if (disk.getPosition().x !== x || disk.getPosition().y !== y) { //esto en teoria es para que no trabaje demas, porque si el disco no cambia de posicion no deberia entrar al if
-            this.tempCtx.clearRect(0, 0, this.config.width, this.config.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
-            disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
-            disk.draw(this.tempCtx); //debemos volver a dibujarlo
-        //}
-=======
 
         this.barridolDeContextoCanvasTemporal()
         this.jugadorEnTurno.getDisk().move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
         this.jugadorEnTurno.getDisk().draw(this.tempCtx); //debemos volver a dibujarlo
->>>>>>> e5be7e581b98aac7adb068bebc462db8574f0c7e
     }
 
     async dropDisk(moverDiscoCallback) { //se activa cuando soltamos el boton primario del click
@@ -196,15 +184,8 @@ class Juego {
         let winner = document.createElement('div');
         winner.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
         winner.innerHTML = `
-<<<<<<< HEAD
-                <h1>${this.currentPlayer.getName()} wins!</h1>
-                <button class="primary">Play again</button>
-=======
-            <div>
                 <h1>${this.jugadorEnTurno.getName()} wins!</h1>
-                <button class="primary-btn">Play again</button>
-            </div>
->>>>>>> e5be7e581b98aac7adb068bebc462db8574f0c7e
+                <button class="primary">Play again</button>
         `;
         winner.height = this.configuracion.height;
         winner.width = this.configuracion.width;
