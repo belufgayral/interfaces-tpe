@@ -1,4 +1,5 @@
 import Juego from '../4inLine/Juego.js'
+import Timer from "./Timer.js";
 
 const canvas = document.querySelector('canvas');
 /**@type {CanvasRenderingContext2D} */
@@ -58,9 +59,11 @@ const setConfig = (e) => {
 const start = () => {
     setConfig();
     game = new Juego(ctx, config);
-    
+    let timer = new Timer(60);
+
     configWindow.classList.add("display-none");
     game.comenzarPartida(); 
+    timer.renderTimer(750, 100);
 }
 
 document.querySelector('#start').addEventListener('click', start);

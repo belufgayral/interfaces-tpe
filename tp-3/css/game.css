@@ -93,6 +93,12 @@ select:focus-visible {
     background-color: rgb(127, 95, 61);
 }
 
+#timer {
+    text-align: center;
+    /* position: absolute;
+    z-index: 2; */
+}
+
 .main-container .col-1 .game-container>img {
     width: 100%;
     height: 100%;

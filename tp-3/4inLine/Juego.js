@@ -30,7 +30,6 @@ class Juego {
     comenzarPartida() {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
-
         this.tableroJuego = new Tablero(this.configuracion.width / 2 - this.configuracion.cols / 2 * this.configuracion.boardSize, //X
             this.configuracion.height / 2 - this.configuracion.rows / 2 * this.configuracion.boardSize, //Y
             this.configuracion.boardSize, //tamanio del tablero ingresado en el input range
