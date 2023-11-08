@@ -162,12 +162,10 @@ class Juego {
 
     showWinnerScreen() {
         let winner = document.createElement('div');
-        winner.classList.add('winner');
+        winner.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
         winner.innerHTML = `
-            <div>
                 <h1>${this.currentPlayer.getName()} wins!</h1>
-                <button class="primary-btn">Play again</button>
-            </div>
+                <button class="primary">Play again</button>
         `;
         winner.height = this.config.height;
         winner.width = this.config.width;

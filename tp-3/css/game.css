@@ -84,12 +84,12 @@ select:focus-visible {
     outline: none;
 }
 
-.game-container .config button.primary {
+.game-container .config button.primary, .game-container .game-canvas button.primary {
     background-color: rgb(104, 77, 49);
     font-size: larger;
 }
 
-.game-container .config button.primary:hover {
+.game-container .config button.primary:hover, .game-container .game-canvas button.primary:hover {
     background-color: rgb(127, 95, 61);
 }
 

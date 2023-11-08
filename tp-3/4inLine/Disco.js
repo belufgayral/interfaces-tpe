@@ -41,12 +41,14 @@ class Disco {
 
         //console.log("Posiciones de la ficha: " + this.x, this.y);
 
-        const self = this;
+        //const self = this;
 
-        this.imagen.onload = async function () {
-            //console.log("Posiciones de la ficha async: " + self.getPosition().x, self.getPosition().y);
-            self.drawImage(ctx, this);
-        }
+        this.drawImage(ctx, this.imagen);
+
+        // this.imagen.onload = async function () {
+        //     //console.log("Posiciones de la ficha async: " + self.getPosition().x, self.getPosition().y);
+        //     self.drawImage(ctx, this);
+        // }
 
         //ctx.drawImage(imagen, 0, 0);
         //ctx.fillStyle = this.color;
