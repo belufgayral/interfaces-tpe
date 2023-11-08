@@ -16,6 +16,8 @@ const p2Color = document.querySelector('#player2-color');
 let canvasWidth = canvas.width
 let canvasHeight = canvas.height
 
+const maxGamePlayers = 2;
+
 const setConfig = (e) => {
     let alert = document.querySelector('#alert-msg');
     let select = document.querySelector('#board-size');
@@ -27,7 +29,7 @@ const setConfig = (e) => {
     config = {
         width: parseInt(canvasWidth),
         height: parseInt(canvasHeight),
-        boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 60 : (parseInt(select.value.slice(0, 1)) === 5 ? 75 : 90), //recibe el valor ingresado en el input de board size
+        boardSize: parseInt(select.value.slice(0, 1)) === 4 ? 50 : (parseInt(select.value.slice(0, 1)) === 5 ? 55 : 65), //recibe el valor ingresado en el input de board size
         rows: parseInt(select.value.slice(0, 1)), //guarda las fila haciendo un slice del primer valor del 5x6 p ejem
         cols: parseInt(select.value.slice(-1)), //lo mismo que arriba pero con las columnas
         players: [
@@ -48,7 +50,8 @@ const setConfig = (e) => {
         ],
         totalDisks: 8, //seteo los discos que tendra cada uno en su pila
         winNumber: 4, //condicion de victoria
-        speed: 10
+        speed: 10,
+        maxJugadores: maxGamePlayers,
     };
 };
 
@@ -57,7 +60,7 @@ const start = () => {
     game = new Juego(ctx, config);
     
     configWindow.classList.add("display-none");
-    game.initGame(); 
+    game.comenzarPartida(); 
 }
 
 document.querySelector('#start').addEventListener('click', start);

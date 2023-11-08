@@ -23,7 +23,7 @@ class Tablero {
 
     draw(ctx, w, h) {
         const backgroundImage = new Image();
-        backgroundImage.src = './4inLine/imgs/strategy-samurai-senso.svg';
+        backgroundImage.src = './4inLine/imgs/bg-board.jpg';
 
         function myDrawImageMethod(img) {
             ctx.drawImage(img, 0, 0, w, h) //uso el ancho y alto pasado por params para setear el tamanio del bg image y que se ajuste al canvas
@@ -46,16 +46,27 @@ class Tablero {
         }, 190)
     }
 
-    async putDisk(ctx, disk, speed, col) { //esto retorna [success, fila, columna]
-        if(col == null) return [false, null, null]; //si la columna no existe, no retornamos nada
+    async putDisk(ctx, disk, speed, col) { //esto retorna {success, fila, columna}
+        if(col == null) return {
+            exito: false,
+            fila: null,
+            colum: null
+        }; //si la columna no existe, no retornamos nada
         let tiles = this.getEmptyTiles(col);
-        if (tiles == null) return [false, null, null]; //si la columna no tiene ninguna fila vacia no retornamos nada
+        if (tiles == null) return {
+            exito: false,
+            fila: null,
+            colum: null
+        } //si la columna no tiene ninguna fila vacia no retornamos nada
         for (let i = 0; i < tiles.length - 1; i++) { //si tiles tiene hoyos vacios...
-            console.log('board put disk for')
             await tiles[i].animateFall(ctx, disk, speed, true); //animamos la caida del disco en cada hoyo vacio
         }
         await tiles[tiles.length - 1].putDisk(ctx, disk, speed, false);
-        return [true, tiles.length - 1, col];
+        return {
+            exito: true,
+            fila: tiles.length - 1,
+            colum: col
+        }
     }
 
     getEmptyTiles(col) {

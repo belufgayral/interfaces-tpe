@@ -5,96 +5,134 @@ import Disco from "./Disco.js";
 class Juego {
     constructor(ctx, config) {
         this.ctx = ctx
-        this.auxCanvas = null;
-        this.auxCtx = null;
-        this.config = config;
+        /* this.auxiliarCanvas = null;
+        this.auxiliarContext = null; */
+        this.configuracion = config;
 
         this.players = {
             player1: new Jugador(1, config.players[0].name, config.players[0].color, config.players[0].character, config.players[0].img, config.totalDisks, new Disco(0, 0, config.boardSize / 3, config.players[0].color, config.players[0].faction)),
             player2: new Jugador(2, config.players[1].name, config.players[1].color, config.players[1].character, config.players[1].img, config.totalDisks, new Disco(0, 0, config.boardSize / 3, config.players[1].color, config.players[1].faction))
         };
 
-        this.board = null;
-        this.currentPlayer = this.players.player1;
-        this.winNumber = config.winNumber;
-        this.speed = config.speed;
-        this.pile1 = null;
-        this.pile2 = null;
-
-        
+        this.tableroJuego = null;
+        this.jugadorEnTurno = this.players.player1;
+        this.condVictoria = config.winNumber;
+        this.velocidad = config.speed;
+        this.pilaUno = null;
+        this.pilaDos = null;
+        this.maxJugadores = config.maxJugadores;
     }
 
-    initGame() {
+    barridolDeContextoCanvasTemporal() {
+        this.tempCtx.clearRect(0, 0, this.configuracion.width, this.configuracion.height); //esto se hace porque de lo contrario queda como un "gusano" de discos, como si estuvieras pintando
+    }
+
+    comenzarPartida() {
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
 
-        this.board = new Tablero(this.config.width / 2 - this.config.cols / 2 * this.config.boardSize, //X
-            this.config.height / 2 - this.config.rows / 2 * this.config.boardSize, //Y
-            this.config.boardSize, //tamanio del tablero ingresado en el input range
-            this.config.rows, //filas del input radio ckeckeado
-        this.config.cols); //columnas del input radio checkeado
+        this.tableroJuego = new Tablero(this.configuracion.width / 2 - this.configuracion.cols / 2 * this.configuracion.boardSize, //X
+            this.configuracion.height / 2 - this.configuracion.rows / 2 * this.configuracion.boardSize, //Y
+            this.configuracion.boardSize, //tamanio del tablero ingresado en el input range
+            this.configuracion.rows, //filas del input radio ckeckeado
+            this.configuracion.cols); //columnas del input radio checkeado
 
-        this.initScreen();
-        this.initSecondaryCanvas(); //inicia el canvas secundario para los eventos de drag y drop de los discos
+        this.renderizadoDePantalla();
+        this.iniciarCanvasTemporal(); //inicia el canvas secundario para los eventos de drag y drop de los discos
 
-        this.players.player1.getSubCtxCanvas().addEventListener('mousedown', async (e) => {
-            if (this.currentPlayer !== this.players.player1) return; //chequea por si no es el turno del jugador
-            this.playTurn();
-        });
 
-        this.players.player2.getSubCtxCanvas().addEventListener('mousedown', (e) => {
-            if (this.currentPlayer !== this.players.player2) return;
-            this.playTurn();
-        });
+
+        for (const player in this.players) {
+            this.players[player].getSubCtxCanvas().addEventListener('mousedown', (e) => {
+                if (this.jugadorEnTurno !== this.players[player]) return;
+                this.playTurn();
+            });
+        }
+
     }
 
-    initScreen() {
+    renderizadoDePantalla() {
         //Limpio el tablero preexistente en caso de haber uno
-        console.log('ctx: ', this.ctx)
-        this.ctx.clearRect(0, 0, this.config.width, this.config.height);
+
+        this.ctx.clearRect(0, 0, this.configuracion.width, this.configuracion.height);
         this.ctx.canvas.parentElement.querySelector('.player-info.p1')?.remove();
         this.ctx.canvas.parentElement.querySelector('.player-info.p2')?.remove();
         this.ctx.canvas.parentElement.querySelector('.winner')?.remove();
         //Draws new board
-        this.board.draw(this.ctx, this.config.width, this.config.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
+        this.tableroJuego.draw(this.ctx, this.configuracion.width, this.configuracion.height); //llamo al metodo de la clase Tablero y le paso el ctx del Canvas por param, asi como el ancho y alto configurado
 
-        this.players.player1.fillDisks(this.config.totalDisks); //setea el n de discos para el jugador 1
-        this.players.player1.displayPlayerInfo(this.ctx, 1); //muestra la info del jugador 1
-        this.players.player2.fillDisks(this.config.totalDisks);
-        this.players.player2.displayPlayerInfo(this.ctx, 2);
+        for (const player in this.players) {
+            this.players[player].fillDisks(this.configuracion.totalDisks); //setea el n de discos para el jugador 1
+            const playerNumber = this.players[player].getPlayerNumber();
+            this.players[player].displayPlayerInfo(this.ctx, playerNumber); //muestra la info del jugador 1
+        }
     }
 
-    initSecondaryCanvas() {
-        //canvas temporal creado para mover el disco
-        this.tempCanvas = document.createElement('canvas');
-        this.tempCanvas.width = this.config.width;
-        this.tempCanvas.height = this.config.height;
-        this.tempCanvas.classList.add('temporal-canvas');
-        this.tempCtx = this.tempCanvas.getContext('2d');
-
+    listenersParaEventos() {
         const moveDisk = (e) => this.moveDisk(e);
 
-        this.tempCanvas.addEventListener('mousemove', moveDisk); //se activa cuando muevo el disco de la pila a lo largo del canvas
+        this.tempCanvas.addEventListener('mousemove', moveDisk);  //se activa cuando muevo el disco de la pila a lo largo del canvas
         this.tempCanvas.addEventListener('mouseup', async (e) => { //se activa cuando suelto el disco en la columna elegida
-            console.log('mouseup')
-            await this.dropDisk(e, moveDisk) });
+            await this.dropDisk(moveDisk)
+        });
         this.tempCanvas.addEventListener('mouseleave', () => { //se activa si me salgo de los limites del canvas y cancela la accion
-            console.log('mouseleave')
-            this.cancelMove() });
+            this.cancelMove()
+        });
+    }
+
+    iniciarCanvasTemporal() {
+        //canvas temporal creado para mover el disco
+        this.tempCanvas = document.createElement('canvas');
+        this.tempCanvas.width = this.configuracion.width;
+        this.tempCanvas.height = this.configuracion.height;
+        this.tempCanvas.classList.add('temporal-canvas');
+        this.tempCtx = this.tempCanvas.getContext('2d');
+        this.listenersParaEventos()
+    }
+
+    quitarCanvasTemporal() {
+        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
     }
 
     playTurn() {
-        this.currentPlayer.consumeDisk(); //reduce el numero de discos de la pila en 1 --> totalDisks = totalDisks - 1
-        this.currentPlayer.updateDiskPile(); //actualiza el renderizado de los discos
-        this.currentPlayer.getDisk().move(0, 0); //resetea la posicion del Objeto Disco que posee el Objeto Jugador como atributo
-        //From now on the temporary canvas takes over the mouse events until it closes
+        this.jugadorEnTurno.consumeDisk(); //reduce el numero de discos de la pila en 1 --> totalDisks = totalDisks - 1
+        this.jugadorEnTurno.updateDiskPile(); //actualiza el renderizado de los discos
+        this.jugadorEnTurno.getDisk().move(0, 0); //resetea la posicion del Objeto Disco que posee el Objeto Jugador como atributo
+
+        //de ahora en mas el canvas temporal se encarga de los eventos hasta que termine
         this.ctx.canvas.parentElement.appendChild(this.tempCanvas);
+    }
+    
+    switchTurns() {
+        for (const player in this.players) {
+            if (this.jugadorEnTurno.getPlayerNumber() === this.players[player].getPlayerNumber()) {
+                let numeroJugadorActual = this.jugadorEnTurno.getPlayerNumber() //1 por ejemplo
+                if (numeroJugadorActual !== this.maxJugadores) {
+                    numeroJugadorActual++;
+                    const nextPlayer = `player${numeroJugadorActual.toString()}`;
+                    this.jugadorEnTurno = this.players[nextPlayer];
+                    break; // cortamos la iteracion cuando cambiamos el turno
+                }
+                this.jugadorEnTurno = this.players['player1'];
+                break; // cortamos la iteracion cuando cambiamos el turno
+            }
+        }
+    }
+
+    situacionDeExito(resultado) {
+        this.checkWin(resultado.fila, resultado.colum);
+        this.switchTurns();
+    }
+
+    situacionDeFallo() {
+        this.jugadorEnTurno.restoreDisk();
+        this.jugadorEnTurno.updateDiskPile();
     }
 
     moveDisk(e) {
-        console.log('mousemove')
         let x = e.clientX - this.ctx.canvas.getBoundingClientRect().left; //obtiene la posicion en x empezando desde la izq
         let y = e.clientY - this.ctx.canvas.getBoundingClientRect().top; //obtiene la posicion en y empezando desde arriba
+<<<<<<< HEAD
         let disk = this.currentPlayer.getDisk();
         console.log(disk.getImage());
         console.log(this.tempCtx);
@@ -104,58 +142,52 @@ class Juego {
             disk.move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
             disk.draw(this.tempCtx); //debemos volver a dibujarlo
         //}
+=======
+
+        this.barridolDeContextoCanvasTemporal()
+        this.jugadorEnTurno.getDisk().move(x, y); //vamos pasando la posicion de nuestro cursor en el canvas como nuevas posiciones al disco para arrastrarlo con el mousemove
+        this.jugadorEnTurno.getDisk().draw(this.tempCtx); //debemos volver a dibujarlo
+>>>>>>> e5be7e581b98aac7adb068bebc462db8574f0c7e
     }
 
-    async dropDisk(e, moveDiskFunction) { //se activa cuando soltamos el boton primario del click
-        this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
-        this.tempCanvas.removeEventListener('mousemove', moveDiskFunction);
+    async dropDisk(moverDiscoCallback) { //se activa cuando soltamos el boton primario del click
+        this.barridolDeContextoCanvasTemporal()
+        this.tempCanvas.removeEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.add('dying');
 
-        let col = this.getColumn();
-        console.log('drop disk')
-        let [success, row, column] = await this.board.putDisk(this.ctx, this.currentPlayer.disk.makeCopy(), 
-        this.config.boardSize / this.config.speed, col);
+        const columna = this.getColumn();
 
-        if (success) {
-            this.checkWin(row, column);
-            this.switchTurns();
-        }
-        else {
-            this.currentPlayer.restoreDisk();
-            this.currentPlayer.updateDiskPile();
-        }
+        const resultadosPonerDisco = await this.tableroJuego.putDisk(this.ctx, this.jugadorEnTurno.disk.makeCopy(),
+            this.configuracion.boardSize / this.configuracion.speed, columna);
 
-        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
-        this.tempCanvas.addEventListener('mousemove', moveDiskFunction);
+        resultadosPonerDisco.exito ? this.situacionDeExito(resultadosPonerDisco) : this.situacionDeFallo()
+
+        this.quitarCanvasTemporal()
+        this.tempCanvas.addEventListener('mousemove', moverDiscoCallback);
         this.tempCanvas.classList.remove('dying');
     }
 
     cancelMove() {
-        this.tempCtx.clearRect(0, 0, this.config.width, this.config.height);
-        this.currentPlayer.restoreDisk();
-        this.currentPlayer.updateDiskPile();
-        this.ctx.canvas.parentElement.removeChild(this.tempCanvas);
+        this.barridolDeContextoCanvasTemporal()
+        this.situacionDeFallo()
+        this.quitarCanvasTemporal()
     }
 
     getColumn() { //esto supongo que devuelve de alguna forma la col en la que estamos parados teniendo en cuenta la posicion en x del disco
-        let x = this.currentPlayer.getDisk().getPosition().x;
-        let col = Math.floor((x - this.board.x) / this.config.boardSize);
-        if (col >= 0 && col < this.config.cols) {
-            return col;
+        let xPos = this.jugadorEnTurno.getDisk().getPosition().x;
+        let columna = Math.floor((xPos - this.tableroJuego.x) / this.configuracion.boardSize);
+        if (columna >= 0 && columna < this.configuracion.cols) {
+            return columna;
         }
         return null;
     }
 
-    switchTurns() {
-        this.currentPlayer = this.currentPlayer === this.players.player1 ? this.players.player2 : this.players.player1;
-    }
-
-    //chequeos de condiciones de resultados posibles
+    //chequeos de condiciones de win conditions
 
     checkWin(row, col) {
-        let disk = this.board[row][col].getDisk();
+        let disk = this.tableroJuego[row][col].getDisk();
         if (this.checkHorizontal(row, col, disk) || this.checkVertical(row, col, disk) || this.checkDiagonal(row, col, disk)) {
-            this.currentPlayer.incrementScore();
+            this.jugadorEnTurno.incrementScore();
             this.showWinnerScreen();
         }
     }
@@ -164,14 +196,21 @@ class Juego {
         let winner = document.createElement('div');
         winner.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
         winner.innerHTML = `
+<<<<<<< HEAD
                 <h1>${this.currentPlayer.getName()} wins!</h1>
                 <button class="primary">Play again</button>
+=======
+            <div>
+                <h1>${this.jugadorEnTurno.getName()} wins!</h1>
+                <button class="primary-btn">Play again</button>
+            </div>
+>>>>>>> e5be7e581b98aac7adb068bebc462db8574f0c7e
         `;
-        winner.height = this.config.height;
-        winner.width = this.config.width;
+        winner.height = this.configuracion.height;
+        winner.width = this.configuracion.width;
         winner.querySelector('button').addEventListener('click', () => {
-            this.initGame();
-            this.currentPlayer = this.players.player1;
+            this.comenzarPartida();
+            this.jugadorEnTurno = this.players.player1;
         });
         this.ctx.canvas.parentElement.appendChild(winner);
     }
@@ -179,32 +218,32 @@ class Juego {
     checkHorizontal(row, col, disk) {
         let count = 1;
         let i = col - 1;
-        while (i >= 0 && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
+        while (i >= 0 && this.tableroJuego[row][i].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i--;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
         i = col + 1;
-        while (i < this.config.cols && this.board[row][i].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuracion.cols && this.tableroJuego[row][i].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
     }
 
     checkVertical(row, col, disk) {
         let count = 1;
         let i = row - 1;
-        while (i >= 0 && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
+        while (i >= 0 && this.tableroJuego[i][col].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i--;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
         i = row + 1;
-        while (i < this.config.rows && this.board[i][col].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuracion.rows && this.tableroJuego[i][col].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
     }
 
@@ -212,36 +251,36 @@ class Juego {
         let count = 1;
         let i = row - 1;
         let j = col - 1;
-        while (i >= 0 && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i >= 0 && j >= 0 && this.tableroJuego[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i--;
             j--;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
         i = row + 1;
         j = col + 1;
-        while (i < this.config.rows && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuracion.rows && j < this.configuracion.cols && this.tableroJuego[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             j++;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
         count = 1;
         i = row - 1;
         j = col + 1;
-        while (i >= 0 && j < this.config.cols && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i >= 0 && j < this.configuracion.cols && this.tableroJuego[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i--;
             j++;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
         i = row + 1;
         j = col - 1;
-        while (i < this.config.rows && j >= 0 && this.board[i][j].getDisk()?.getColor() === disk.getColor()) {
+        while (i < this.configuracion.rows && j >= 0 && this.tableroJuego[i][j].getDisk()?.getColor() === disk.getColor()) {
             count++;
             i++;
             j--;
-            if (count >= this.winNumber) return true;
+            if (count >= this.condVictoria) return true;
         }
     }
 }
