@@ -16,7 +16,6 @@ function showMenu() {
     arrow.classList.toggle("no-rotate");
     menuDesplegable.classList.toggle("display-none");
     background.classList.toggle("display-none");
-    console.log(contadorClicks);
 }
 
 function showArrow() {

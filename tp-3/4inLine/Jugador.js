@@ -11,6 +11,10 @@ class Jugador {
         this.subctx = null;
     }
 
+    getDisksRemaining() {
+        return this.totalDisks;
+    }
+
     getName() {
         return this.name;
     }

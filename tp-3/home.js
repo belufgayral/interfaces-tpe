@@ -484,18 +484,15 @@ function navigateCarousel(direction, genre) {
     switch (direction) {
         case 'prev':
             categoryObject.currentIndex = ((categoryObject.currentIndex - 1 + images.length) % images.length);
-            console.log(categoryObject.currentIndex);
             break;
         case 'next':
             categoryObject.currentIndex = ((categoryObject.currentIndex + 1) % images.length);
-            console.log(categoryObject.currentIndex);
             break;
         default:
             break;
     }
 
     const offset = (-categoryObject.currentIndex * slideWidth) - (categoryObject.currentIndex * 30);
-    console.log('offset: ', offset)
 
     // Apply a CSS transition for smooth animation
     container.style.transition = 'transform 0.2s ease-in-out';
