@@ -1,9 +1,10 @@
 import Tablero from "./Tablero.js";
 import Jugador from "./Jugador.js";
 import Disco from "./Disco.js";
+import Timer from "./Timer.js";
 
 class Juego {
-    constructor(ctx, config) {
+    constructor(ctx, config, timer) {
         this.ctx = ctx
         /* this.auxiliarCanvas = null;
         this.auxiliarContext = null; */
@@ -21,6 +22,11 @@ class Juego {
         this.pilaUno = null;
         this.pilaDos = null;
         this.maxJugadores = config.maxJugadores;
+        this.timer = timer;
+    }
+
+    setTimer(timer) {
+        this.timer = timer;
     }
 
     barridolDeContextoCanvasTemporal() {
@@ -28,6 +34,9 @@ class Juego {
     }
 
     comenzarPartida() {
+
+        this.timer.renderTimer(this.configuracion.width, 100);
+
         //instancio Tablero y le paso los parametros necesarios para que sepa dibujarse, y seteo mi atributo board en esta clase
         //al instanciar Tablero se llamara al metodo initBoard() de esta clase en el constructor
         this.tableroJuego = new Tablero(this.configuracion.width / 2 - this.configuracion.cols / 2 * this.configuracion.boardSize, //X
@@ -82,6 +91,7 @@ class Juego {
     iniciarCanvasTemporal() {
         //canvas temporal creado para mover el disco
         this.tempCanvas = document.createElement('canvas');
+        this.tempCanvas.id = "canvas";
         this.tempCanvas.width = this.configuracion.width;
         this.tempCanvas.height = this.configuracion.height;
         this.tempCanvas.classList.add('temporal-canvas');
@@ -193,6 +203,7 @@ class Juego {
     }
 
     showDrawScreen() {
+        this.timer.clearTimer();
         let draw = document.createElement('div');
         draw.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
         draw.innerHTML = `
@@ -209,6 +220,7 @@ class Juego {
     }
 
     showWinnerScreen() {
+        this.timer.clearTimer();
         let winner = document.createElement('div');
         winner.classList.add('winner', 'flex-col', 'justify-center', 'items-center', 'gap-4');
         winner.innerHTML = `
@@ -291,6 +303,10 @@ class Juego {
             j--;
             if (count >= this.condVictoria) return true;
         }
+    }
+
+    stopGame() {
+        this.showDrawScreen();
     }
 }
 

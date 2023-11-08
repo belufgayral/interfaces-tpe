@@ -1,34 +1,34 @@
 class Timer {
-    constructor(tiempoLimite) {
+    constructor(tiempoLimite, game) {
         this.tiempoLimite = tiempoLimite;
+        this.timerDiv = document.querySelector("#timer");
+        this.timer = null;
+        this.game = game;
     }
 
     renderTimer(width, height) {
-        let timerDiv = document.querySelector("#timer");
-        timerDiv.width = width;
-        timerDiv.height = height;
-        let contador = this.tiempoLimite;
+        this.timerDiv.width = width;
+        this.timerDiv.height = height;
+        let contador = this.tiempoLimite + 1;
         console.log("Contador original: " + contador);
 
-        // function reducirContador() {
-        //     if (contador > 0) {
-        //         contador--;
-        //         timerDiv.innerHTML = "<h1>" + contador + "</h1>";
-        //         console.log("Contador dentro del if: " + contador);
-        //         setTimeout(reducirContador(), 1000);
-        //       }
-        // }
-
-        // reducirContador();
-
-        const timer = setInterval(() => {
+        this.timer = setInterval(() => {
             contador = contador - 1;
-            console.log("Contador dentro del if: " + contador);
-            timerDiv.innerHTML = "<h1>" + contador + "</h1>";
+            //console.log("Contador dentro del if: " + contador);
+            this.timerDiv.innerHTML = "<h1>" + contador + "</h1>";
             if (contador < 1) {
-                clearInterval(timer);
+                this.stopGame();
+                clearInterval(this.timer);
             }
         },1000)
+    }
+
+    clearTimer() {
+        clearInterval(this.timer);
+    }
+
+    stopGame() {
+        this.game.stopGame();
     }
 
     // bajarSegundo(tiempoLimite) {

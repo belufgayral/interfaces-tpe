@@ -60,12 +60,12 @@ class Jugador {
         let div = document.createElement('div');
         div.classList.add('player-info', `p${playerNumber}`, 'flex-col', 'items-center', 'justify-center', 'gap-5');
         div.innerHTML = `
-            <div>
-                <h2>${this.score}</h2>
+            <div class="flex-col justify-center items-center">
+                <h1>${this.score}</h1>
                 <div class="user-picture">
                     <img src="${this.image}" alt="${this.name}">
                 </div>
-                <span>${this.name} (${this.character})</span>
+                <span class="playerName">${this.name}</span>
             </div>
             <canvas></canvas>
         `;

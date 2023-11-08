@@ -55,14 +55,12 @@ const start = () => {
         winNumber: parseInt(select.value.slice(0, 1)) === 4 ? 3 : (parseInt(select.value.slice(0, 1)) === 5 ? 4 : 5), //condicion de victoria
         speed: initialSpeed,
         maxJugadores: maxGamePlayers,
-    });
+    }, null);
 
-    game = new Juego(ctx, config);
-    let timer = new Timer(60);
-    
+    game.setTimer(new Timer(60, game));
+
     configWindow.classList.add("display-none");
     game.comenzarPartida(); 
-    timer.renderTimer(750, 100);
 }
 
 document.querySelector('#start').addEventListener('click', start);

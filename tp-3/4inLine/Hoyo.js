@@ -44,6 +44,9 @@ class Hoyo {
 
     async animateFall(ctx, disk, speed, full) { //esto ejecuta la secuencia asincrona de caida del disco en la columna
         ctx.save();
+        // document.documentElement.style.pointerEvents = 'none'; // Equivalent to 'html'
+        // document.body.style.pointerEvents = 'none';
+        //ctx.removeEventListener('click');
         let dy = 0;
         let i = 0;
         let limit = full ? this.size + disk.getRadius() : this.size / 2;
@@ -62,6 +65,8 @@ class Hoyo {
             disk.draw(ctx);
         }
         ctx.restore();
+        // document.documentElement.style.pointerEvents = 'auto'; // Equivalent to 'html'
+        // document.body.style.pointerEvents = 'auto';
     }
 }
 

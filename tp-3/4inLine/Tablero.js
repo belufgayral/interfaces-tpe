@@ -47,6 +47,8 @@ class Tablero {
     }
 
     async putDisk(ctx, disk, speed, col) { //esto retorna {success, fila, columna}
+        let canvas = document.querySelector("#canvas");
+
         if(col == null) return {
             exito: false,
             fila: null,
@@ -58,9 +60,11 @@ class Tablero {
             fila: null,
             colum: null
         } //si la columna no tiene ninguna fila vacia no retornamos nada
+        //canvas.classList.add('pointer-none');
         for (let i = 0; i < tiles.length - 1; i++) { //si tiles tiene hoyos vacios...
             await tiles[i].animateFall(ctx, disk, speed, true); //animamos la caida del disco en cada hoyo vacio
         }
+        //canvas.classList.remove('pointer-none');
         await tiles[tiles.length - 1].putDisk(ctx, disk, speed, false);
         return {
             exito: true,
