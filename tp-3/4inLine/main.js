@@ -51,7 +51,7 @@ const start = () => {
             }
         ],
         totalDisks:  parseInt(select.value.slice(0, 1)) === 4 ? 10 : (parseInt(select.value.slice(0, 1)) === 5 ? 15 : 21), //seteo los discos que tendra cada uno en su pila
-        winNumber: parseInt(select.value.slice(0, 1)) === 4 ? 4 : (parseInt(select.value.slice(0, 1)) === 5 ? 5 : 6), //condicion de victoria
+        winNumber: parseInt(select.value.slice(0, 1)) === 4 ? 3 : (parseInt(select.value.slice(0, 1)) === 5 ? 4 : 5), //condicion de victoria
         speed: initialSpeed,
         maxJugadores: maxGamePlayers,
     });
