@@ -33,13 +33,15 @@ const setConfig = (e) => {
         players: [
             {
                 name: p1Name.value,
-                color: p1Color.value,
+                color: "#f2f1f8",
+                faction: p1Color.value,
                 character: "H",
                 img: "./4inLine/imgs/Hideyoshi.jpg"	
             },
             {
                 name: p2Name.value,
-                color: p2Color.value,
+                color: "#18171b",
+                faction: p2Color.value,
                 character: "T",
                 img: "./4inLine/imgs/ghostOfTsushima.jpg"
             }

@@ -1,14 +1,15 @@
 class Disco {
-    constructor(x, y, radius, color) {
+    constructor(x, y, radius, color, imgSource) {
         this.x = x;
         this.y = y;
         this.radius = radius;
         this.color = color;
+        this.imgSource = imgSource;
         this.imagen = new Image();
     }
 
     makeCopy(){
-        return new Disco(0, 0, this.radius, this.color); //copia la instancia creada
+        return new Disco(0, 0, this.radius, this.color, this.imgSource); //copia la instancia creada
     }
 
     move(x, y) {
@@ -33,7 +34,7 @@ class Disco {
     }
 
     draw(ctx) {
-        this.imagen.src = "./4inLine/imgs/ficha-minamoto.png";
+        this.imagen.src = this.imgSource;
 
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI); //construye el circulo con su radio
