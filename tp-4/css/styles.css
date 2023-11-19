@@ -3,6 +3,7 @@
 
 body {
     width: 1280px;
+    height: 8968px;
     /* padding: 0px 100px 0px 100px; */
     margin-left: 128px;
     background-color: black;
@@ -48,7 +49,7 @@ header a {
 
 section.sec1 {
     width: inherit;
-    height: 720px;
+    height: 856px;
     background: url(../resources/section-1/background.png) no-repeat;
     overflow: hidden;
 }
@@ -60,6 +61,21 @@ section.sec1 {
 .sec1 .main-figures .main-title {
     top: -32px;
     left: 330px;
+}
+
+.sec1 .main-figures .spider-webs img:nth-child(1) {
+    left: -1px;
+    top: 249px;
+}
+
+.sec1 .main-figures .spider-webs img:nth-child(2) {
+    right: 0px;
+    top: 262px;
+}
+
+.sec1 .main-figures .main-characters img:nth-child(1) {
+    left: 0px;
+    top: 53px;
 }
 
 .sec1 .main-figures .main-characters {
@@ -113,4 +129,12 @@ section.sec1 {
 .sec1 .bg-items div img:nth-child(3) {
     right: 0px;
     bottom: -7.5px;
+}
+
+.sec2 {
+    height: 820px;
+}
+
+.sec2 img {
+    top: -205.61px;
 }
