@@ -1,0 +1,43 @@
+.sec2 {
+    height: 820px;
+    background-color: white;
+}
+
+.sec2 .game-image {
+    left: 80.28px;
+    top: 310.59px;
+}
+
+.sec2 .texts {
+    width: 646px;
+    height: 290px;
+    left: 100px;
+    top: 9px;
+    gap: 22px;
+}
+
+.sec2 .texts h2,
+.sec2 .texts p {
+    color: white;
+    font-family: Lato;
+    font-size: 60px;
+    font-weight: 500;
+    margin: 0px;
+    line-height: 56px;
+}
+
+.sec2 .texts p {
+    width: 586px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.sec2 .character-image {
+    top: -75px;
+    right: 15px;
+}
+
+.sec2 .bg-image {
+    top: -207.05px;
+}
