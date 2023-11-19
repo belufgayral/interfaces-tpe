@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100&display=swap');
 @import url(layout-classes.css);
+@import url(header.css);
+@import url(section-1.css);
 
 body {
     width: 1280px;
@@ -7,128 +9,6 @@ body {
     /* padding: 0px 100px 0px 100px; */
     margin-left: 128px;
     background-color: black;
-}
-
-header {
-    width: inherit;
-    height: 118px;
-    /* background-color: blueviolet; */
-    background-color: #5499F8;
-}
-
-header .menu {
-    width: 42px;
-    height: 34px;
-    top: 16px;
-    left: 94px;
-    filter: drop-shadow(4px 5px 0px #02187E);
-}
-
-header .menu hr {
-    height: 4px;
-    border-radius: 111px;
-    border: 4px solid #2981FF;
-    background: #FFE901;
-    margin: 0px;
-}
-
-header a {
-    width: 200px;
-    height: 50px;
-    background-color: #FFE901;
-    border-radius: 111px;
-    border: 8px solid #2982FF;
-    box-shadow: 4px 5px 0px 0px #02187E;
-    color: #02187E;
-    font-family: 'Lato';
-    font-size: 20px;
-    text-decoration: none;
-    top: 12px;
-    right: 92px;
-}
-
-section.sec1 {
-    width: inherit;
-    height: 856px;
-    background: url(../resources/section-1/background.png) no-repeat;
-    overflow: hidden;
-}
-
-.sec1 .main-figures {
-    width: inherit;
-}
-
-.sec1 .main-figures .main-title {
-    top: -32px;
-    left: 330px;
-}
-
-.sec1 .main-figures .spider-webs img:nth-child(1) {
-    left: -1px;
-    top: 249px;
-}
-
-.sec1 .main-figures .spider-webs img:nth-child(2) {
-    right: 0px;
-    top: 262px;
-}
-
-.sec1 .main-figures .main-characters img:nth-child(1) {
-    left: 0px;
-    top: 53px;
-}
-
-.sec1 .main-figures .main-characters {
-    width: 998px;
-    height: 533px;
-    margin: 209px 192px 0px 90px;
-}
-
-.sec1 .main-figures .main-characters img:nth-child(1) {
-    left: 0px;
-    top: 53px;
-}
-
-.sec1 .main-figures .main-characters img:nth-child(2) {
-    left: 314px;
-    top: 68px;
-}
-
-.sec1 .main-figures .main-characters img:nth-child(3) {
-    top: 0px;
-    right: 0px;
-}
-
-.sec1 .bg-items {
-    width: inherit;
-    height: 720px;
-    top: 0px;
-}
-
-.sec1 .bg-items div {
-    width: inherit;
-    height: inherit;
-}
-
-.sec1 .bg-items div img {
-    /* object-fit: none; */
-    filter: blur(3px);
-}
-
-.sec1 .bg-items div img:nth-child(1) {
-    left: 0px;
-    bottom: -18px;
-}
-
-.sec1 .bg-items div img:nth-child(2) {
-    left: 392px;
-    bottom: -1.5px;
-    width: 543.5px;
-}
-
-.sec1 .bg-items div img:nth-child(3) {
-    right: 0px;
-    bottom: -7.5px;
 }
 
 .sec2 {
