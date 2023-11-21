@@ -1,0 +1,39 @@
+.sec5 {
+    width: 1080px;
+    height: 839px;
+    padding: 0px 100px 0px 100px;
+}
+
+.sec5 p {
+    top: 19px;
+    left: 104px;
+    width: 500px;
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 56.7px;
+    margin: 0px;
+}
+
+.sec5 .characters img:nth-child(1) {
+    top: 150px;
+    left: 28px;
+}
+
+.sec5 .characters img:nth-child(2) {
+    top: 0px;
+    left: 452px;
+}
+
+.sec5 .characters img:nth-child(3) {
+    top: 351px;
+    left: 672px;
+}
+
+.sec5 .background-image {
+    top: 245px;
+}
+
+.sec5 .background-image:last-child {
+    box-shadow: 26px 29px 41px 14px rgba(0, 0, 0, 0.15);
+}
