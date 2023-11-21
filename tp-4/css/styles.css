@@ -3,6 +3,7 @@
 @import url(header.css);
 @import url(section-1.css);
 @import url(section-2.css);
+@import url(section-3.css);
 
 body {
     width: 1280px;
@@ -10,15 +11,35 @@ body {
     /* padding: 0px 100px 0px 100px; */
     margin-left: 128px;
     background-color: black;
+    font-family: Lato;
 }
 
-.sec3 {
-    height: 582px;
-    background-color: white;
+/* TODO */
+
+.sec4 {
+    height: 823px;
 }
 
-.sec3 div {
-    top: 38px;
-    left: 100px;
-    gap: 40px;
+.sec5 {
+    height: 839px;
+}
+
+.sec6 {
+    height: 1981px;
+}
+
+.sec7 {
+    height: 967px;
+}
+
+.sec8 {
+    height: 1296px;
+}
+
+.sec9 {
+    height: 80px;
+}
+
+.sec10 {
+    height: 598px;
 }

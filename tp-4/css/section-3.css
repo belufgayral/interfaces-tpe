@@ -1,0 +1,26 @@
+.sec3 {
+    height: 582px;
+    background-color: white;
+}
+
+.sec3 div {
+    top: 38px;
+    left: 100px;
+    gap: 36px;
+}
+
+.sec3 div p {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    width: 333px;
+    margin: 16.31px 0px 0px 0px;
+}
+
+/* .sec3 div p:nth-child(2) {
+    width: 332px;
+} */
+
+.sec3 div p:nth-child(3) {
+    margin: 0px;
+}
