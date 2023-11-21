@@ -1,0 +1,24 @@
+.sec4 {
+    height: 823px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 51%, rgba(255, 255, 255, 1) 51%);
+}
+
+.sec4 img {
+    top: 113px;
+}
+
+.sec4 div img:nth-child(1) {
+    top: 0px;
+    left: 50.9px;
+}
+
+.sec4 div img:nth-child(2) {
+    top: 93.4px;
+    left: 35px;
+}
+
+.sec4 div img:nth-child(3) {
+    top: 282px;
+    left: 66.18px;
+
+}

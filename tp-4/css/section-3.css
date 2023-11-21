@@ -1,11 +1,13 @@
 .sec3 {
+    width: 1080px;
     height: 582px;
+    padding: 0px 100px 0px 100px;
     background-color: white;
 }
 
 .sec3 div {
     top: 38px;
-    left: 100px;
+    /* left: 100px; */
     gap: 36px;
 }
 
