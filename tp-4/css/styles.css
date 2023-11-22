@@ -9,6 +9,7 @@
 @import url(section-6.css);
 @import url(section-7.css);
 @import url(section-8.css);
+@import url(section-9.css);
 
 body {
     width: 1280px;
@@ -19,11 +20,11 @@ body {
     font-family: Lato;
 }
 
+
+
 /* TODO */
 
-.sec9 {
-    height: 80px;
-}
+
 
 .sec10 {
     height: 598px;
