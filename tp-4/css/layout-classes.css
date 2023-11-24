@@ -81,3 +81,14 @@
 .relative {
     position: relative;
 }
+
+
+/* DISPLAY AND VISIBILITY */
+
+.display-none {
+    display: none;
+}
+
+.no-visible {
+    opacity: 0;
+}

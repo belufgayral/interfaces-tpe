@@ -1,50 +1,61 @@
 .sec6 {
     width: 1080px;
-    height: 1981px;
+    height: 787px;
     padding: 0px 100px 0px 100px;
 }
 
-.sec6 .background {
+.sec6 .background-up {
     top: -213px;
     left: 0px;
 }
 
-.sec6 div:nth-child(1) {
-    top: 35px;
-    left: 104px;
+.sec6 .background-down {
+    top: 287px;
+    left: 0px;
 }
 
-.sec6 div:nth-child(1) h1 {
+.sec6 h1 {
+    top: 35px;
+    left: 104px;
     color: black;
     font-weight: 600;
     line-height: normal;
 }
 
-.sec6 div:nth-child(2) {
+.sec6 .container {
+    width: inherit;
+    height: 300px;
+    overflow-x: hidden;
+    background-color: white;
     top: 167px;
-    left: 104px;
+    padding: 50px 0px 50px 0px;
 }
 
-.sec6 div:nth-child(3) {
-    top: 570px;
-    left: 108px;
+.sec6 .container::-webkit-scrollbar {
+    display: none;
+  }
+
+.sec6 .cards-container {
+    gap: 100px;
+    position: sticky;
+    top: 0px;
 }
 
-.sec6 div:nth-child(4) {
-    top: 996px;
-    left: 100px;
+.sec6 .cards-container img {
+    position: absolute;
+    transition: all 0.5s ease-in-out;
 }
 
-.sec6 div:nth-child(5) {
-    top: 1509px;
-    left: 104px;
+.sec6 .texts-container div {
+    padding: 50px 0px 50px 0px;
+    transition: all 0.5s ease-in-out;
 }
 
-.sec6 .card-container {
-    gap: 57px;
+.sec6 .texts-container div:first-child {
+    padding: 0px 0px 50px 0px;
 }
 
-.sec6 .card-container div h2 {
+.sec6 h2 {
     width: 467px;
     color: black;
     font-size: 40px;
@@ -53,7 +64,7 @@
     margin: 0px;
 }
 
-.sec6 .card-container div p {
+.sec6 p {
     width: 467px;
     line-height: 18.9px;
     margin: 25px 0px 0px 0px;
