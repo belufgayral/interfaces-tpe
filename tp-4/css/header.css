@@ -4,7 +4,7 @@ header {
     top: 0px;
     /* background-color: blueviolet; */
     /* background-color: #5499F8; */
-    background: linear-gradient(180deg, rgba(84, 152, 247, 0.7) 0%, rgba(84, 152, 247, 0.7) 87.91%, rgba(84, 153, 248, 0.00) 100%);
+    background: linear-gradient(180deg, rgba(84, 152, 247, 1) 0%, rgba(84, 152, 247, 0.6) 87.91%, rgba(84, 153, 248, 0.00) 100%);
     transition: all 0.3s ease-in-out;
 }
 

@@ -17,8 +17,8 @@
 
 .logo-sticky {
     /* position: sticky !important; */
-    top: -144px !important;
-    left: 341px !important;
+    top: -110px !important;
+    left: 350px !important;
     transform: scale(0.25);
     transform-origin: center;
     opacity: 0;
