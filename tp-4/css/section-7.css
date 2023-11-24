@@ -2,14 +2,11 @@
     height: 967px;
 }
 
-.sec7 h2 {
+.sec7 h1 {
     top: 25px;
     left: 104px;
     width: 816px;
-    color: white;
-    font-size: 60px;
     font-weight: 400;
-    margin: 0px;
 }
 
 .sec7 a {
@@ -17,17 +14,6 @@
     left: 102px;
     width: 292px;
     height: 50px;
-    border-radius: 111px;
-    border: 8px solid #2982FF;
-    background: #FFE901;
-    box-shadow: 4px 5px 0px 0px #02187E;
-    color: #02187E;
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 18.9px;
-    text-decoration: none;
-    margin: 0px;
-    /* letter-spacing: 2.2px; */
 }
 
 .sec7 .background {
