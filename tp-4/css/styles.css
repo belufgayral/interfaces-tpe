@@ -15,9 +15,10 @@
 
 body {
     width: 1280px;
-    height: 8968px;
+    /* height: 8968px; */
     /* padding: 0px 100px 0px 100px; */
     margin-left: 128px;
     background-color: black;
     font-family: Lato;
+    overflow-x:scroll;
 }
