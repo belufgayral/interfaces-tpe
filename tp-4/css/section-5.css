@@ -4,15 +4,10 @@
     padding: 0px 100px 0px 100px;
 }
 
-.sec5 p {
+.sec5 h1 {
     top: 19px;
     left: 104px;
     width: 500px;
-    color: white;
-    font-size: 60px;
-    font-weight: 500;
-    line-height: 56.7px;
-    margin: 0px;
 }
 
 .sec5 .characters img:nth-child(1) {

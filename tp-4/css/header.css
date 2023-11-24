@@ -1,8 +1,28 @@
 header {
     width: inherit;
     height: 118px;
+    top: 0px;
     /* background-color: blueviolet; */
-    background-color: #5499F8;
+    /* background-color: #5499F8; */
+    background: linear-gradient(180deg, rgba(84, 152, 247, 1) 0%, rgba(84, 152, 247, 0.6) 87.91%, rgba(84, 153, 248, 0.00) 100%);
+    transition: all 0.3s ease-in-out;
+}
+
+header div {
+    width: inherit;
+    height: inherit;
+}
+header .logo {
+    top: 17px;
+    left: 574px;
+    transition: all 0.5s ease-in-out;
+}
+
+.bg {
+    top: 0px;
+    width: inherit;
+    height: 227px;
+    background: linear-gradient(180deg, #5499F8 0%, #5499F8 87.91%, rgba(84, 153, 248, 0.00) 100%);
 }
 
 header .menu {
@@ -24,14 +44,6 @@ header .menu hr {
 header a {
     width: 200px;
     height: 50px;
-    background-color: #FFE901;
-    border-radius: 111px;
-    border: 8px solid #2982FF;
-    box-shadow: 4px 5px 0px 0px #02187E;
-    color: #02187E;
-    font-family: 'Lato';
-    font-size: 20px;
-    text-decoration: none;
     top: 12px;
     right: 92px;
 }

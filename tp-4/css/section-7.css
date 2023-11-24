@@ -1,0 +1,36 @@
+.sec7 {
+    height: 967px;
+}
+
+.sec7 h1 {
+    top: 25px;
+    left: 104px;
+    width: 816px;
+    font-weight: 400;
+}
+
+.sec7 a {
+    top: 203px;
+    left: 102px;
+    width: 292px;
+    height: 50px;
+}
+
+.sec7 .background {
+    top: 248px;
+}
+
+.sec7 .characters img:nth-child(1) {
+    top: 419.14px;
+    left: 190px;
+}
+
+.sec7 .characters img:nth-child(2) {
+    top: 428px;
+    left: 394px;
+}
+
+.sec7 .characters img:nth-child(3) {
+    top: 428px;
+    left: 777px;
+}

@@ -1,39 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100&display=swap');
 @import url(layout-classes.css);
+@import url(global-properties.css);
 @import url(header.css);
 @import url(section-1.css);
 @import url(section-2.css);
 @import url(section-3.css);
 @import url(section-4.css);
 @import url(section-5.css);
+@import url(section-6.css);
+@import url(section-7.css);
+@import url(section-8.css);
+@import url(section-9.css);
+@import url(section-10.css);
 
 body {
     width: 1280px;
-    height: 8968px;
+    /* height: 8968px; */
     /* padding: 0px 100px 0px 100px; */
     margin-left: 128px;
     background-color: black;
     font-family: Lato;
-}
-
-/* TODO */
-
-.sec6 {
-    height: 1981px;
-}
-
-.sec7 {
-    height: 967px;
-}
-
-.sec8 {
-    height: 1296px;
-}
-
-.sec9 {
-    height: 80px;
-}
-
-.sec10 {
-    height: 598px;
+    overflow-x:scroll;
 }

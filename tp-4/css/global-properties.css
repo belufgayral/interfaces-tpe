@@ -1,0 +1,27 @@
+a {
+    background-color: #FFE901;
+    border-radius: 111px;
+    border: 8px solid #2982FF;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    color: #02187E;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 18.9px;
+    margin: 0px;
+    text-decoration: none;
+}
+
+p {
+    color: black;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+h1 {
+    color: white;
+    font-size: 60px;
+    font-weight: 500;
+    line-height: 56.7px;
+    margin: 0px;
+}

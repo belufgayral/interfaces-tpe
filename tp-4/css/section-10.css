@@ -1,0 +1,25 @@
+.sec10 {
+    height: 598px;
+    background: #5E5E5D;
+}
+
+.sec10 p {
+    left: 100px;
+    color: white;
+    line-height: 18.9px;
+    letter-spacing: 2.2px;
+}
+
+.sec10 .terms {
+    top: 38px;
+    width: 820px;
+}
+
+.sec10 .cookies {
+    bottom: 199px;
+}
+
+.sec10 .social-networks {
+    top: 437px;
+    left: 100px;
+}
