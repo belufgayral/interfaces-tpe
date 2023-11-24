@@ -2,6 +2,7 @@
     width: 1080px;
     height: 787px;
     padding: 0px 100px 0px 100px;
+    /* overflow-y: hidden; */
 }
 
 .sec6 .background-up {
