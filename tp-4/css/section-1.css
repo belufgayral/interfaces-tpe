@@ -2,7 +2,7 @@
     width: inherit;
     height: 856px;
     background: url(../resources/section-1/background.png) no-repeat;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .sec1 .main-figures {
@@ -12,6 +12,16 @@
 .sec1 .main-figures .main-title {
     top: -32px;
     left: 330px;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo-sticky {
+    /* position: sticky !important; */
+    top: -144px !important;
+    left: 341px !important;
+    transform: scale(0.25);
+    transform-origin: center;
+    opacity: 0;
 }
 
 .sec1 .main-figures .spider-webs img:nth-child(1) {
