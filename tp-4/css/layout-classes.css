@@ -71,6 +71,10 @@
     z-index: 3;
 }
 
+.z-index-4 {
+    z-index: 4;
+}
+
 .z-index-10 {
     z-index: 10;
 }
@@ -87,6 +91,10 @@
 
 .sticky {
     position: sticky;
+}
+
+.fixed {
+    position: fixed;
 }
 
 
