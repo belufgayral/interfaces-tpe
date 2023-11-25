@@ -9,6 +9,14 @@ a {
     line-height: 18.9px;
     margin: 0px;
     text-decoration: none;
+    transition: all 0.5s ease-in-out;
+}
+
+a:hover {
+    transform: scale(1.05);
+    background-color: #336dbd;
+    border-color: #fff15c;
+    color: #f6ed90; 
 }
 
 p {

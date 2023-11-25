@@ -2,7 +2,6 @@
     width: inherit;
     height: 856px;
     background: url(../resources/section-1/background.png) no-repeat;
-    /* overflow: hidden; */
 }
 
 .sec1 .main-figures {
@@ -13,6 +12,7 @@
     top: -32px;
     left: 330px;
     transition: all 0.5s ease-in-out;
+    animation: appears 0.8s 1;
 }
 
 .logo-sticky {
@@ -34,10 +34,14 @@
     top: 262px;
 }
 
-.sec1 .main-figures .main-characters img:nth-child(1) {
+.sec1 .main-figures .spider-webs img {
+    animation: appears 0.6s 1;
+}
+
+/* .sec1 .main-figures .main-characters img:nth-child(1) {
     left: 0px;
     top: 53px;
-}
+} */
 
 .sec1 .main-figures .main-characters {
     width: 998px;
@@ -60,10 +64,19 @@
     right: 0px;
 }
 
+.sec1 .main-figures .main-characters img {
+    animation: appears 0.8s 1;
+}
+
 .sec1 .bg-items {
     width: inherit;
     height: 720px;
     top: 0px;
+    overflow-x: hidden;
+}
+
+.sec1 .bg-items::-webkit-scrollbar {
+    display: none;
 }
 
 .sec1 .bg-items div {
@@ -72,7 +85,6 @@
 }
 
 .sec1 .bg-items div img {
-    /* object-fit: none; */
     filter: blur(3px);
 }
 
@@ -90,4 +102,8 @@
 .sec1 .bg-items div img:nth-child(3) {
     right: 0px;
     bottom: -7.5px;
+}
+
+.sec1 .bg-items div img {
+    animation: appears 1.2s 1;
 }
