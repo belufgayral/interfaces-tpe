@@ -2,12 +2,9 @@ const logo = document.querySelector("#logo");
 const small_logo = document.querySelector("#small-logo");
 const header = document.querySelector("#header");
 
-window.onscroll = function () {
-    let y = window.scrollY;
-    console.log(y);
-
-    //manipulamos el logo.
-    if (y < 100) {
+function stickyHeader(y) {
+     //manipulamos el logo.
+     if (y < 100) {
         logo.classList.remove("logo-sticky");
         small_logo.classList.add("no-visible");
         
@@ -30,3 +27,5 @@ window.onscroll = function () {
         header.style.height = "103px";
     }
 }
+
+export { stickyHeader };

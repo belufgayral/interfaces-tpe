@@ -1,0 +1,13 @@
+import { stickyHeader } from "./parallax-header.js";
+import { scrollGoblin } from "./parallax-section2.js";
+
+window.onscroll = function () {
+    let y = window.scrollY;
+    console.log(y);
+
+    //función importada que manipula el comportamiento del header.
+    stickyHeader(y);
+
+    //función importada que desplaza el duende de la section-2.
+    scrollGoblin(y);
+}
