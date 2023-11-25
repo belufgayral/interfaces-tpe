@@ -31,6 +31,8 @@ header .menu {
     top: 16px;
     left: 94px;
     filter: drop-shadow(4px 5px 0px #02187E);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 header .menu hr {
@@ -39,6 +41,11 @@ header .menu hr {
     border: 4px solid #2981FF;
     background: #FFE901;
     margin: 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+header .menu:hover {
+    transform: scale(1.05);
 }
 
 header a {

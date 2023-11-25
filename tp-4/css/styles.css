@@ -36,3 +36,31 @@ body {
       opacity: 1
     }
   }
+
+  @keyframes disappears {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(0);
+      opacity: 0
+    }
+  }
+
+
+  /* CLASES ANIMATION */
+
+  .animation-disappears {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  .animation-rotate-positive {
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  .animation-rotate-negative {
+    transform: translateY(-12px) rotate(-45deg);
+  }
