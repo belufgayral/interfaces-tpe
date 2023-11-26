@@ -55,9 +55,31 @@
     left: 302px;
 }
 
-.sec8 .characters img:nth-child(1) {
+#character-1 {
     top: 1136px;
     left: 219px;
+    height: 80px;
+    width: 70px;
+    background: url('../resources/section-8/character-1.png') left center no-repeat;
+}
+
+#character-1:hover {
+    background-image: none;
+    background-position: 0px;
+    background: url("../resources/section-8/spiderman-ssheet-x.png");
+
+    animation: movementOfSpiderAnimation 4s steps(2) infinite;
+}
+
+@keyframes movementOfSpiderAnimation {
+    0% {
+        background-position: 0px 0px;
+    }
+
+    100% {
+        /* Adjust the background position to fit each frame properly */
+        background-position: -140px 0px; /* Adjust based on sprite frame width */
+    }
 }
 
 .sec8 .characters img:nth-child(2) {
