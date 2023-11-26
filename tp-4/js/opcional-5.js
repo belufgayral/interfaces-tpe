@@ -8,33 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let peter = document.querySelector('#peter-seccion-about');
     let miles = document.querySelector('#miles-seccion-about');
 
-    function reset() {
-        gwen.style.top = '171px';
-        gwen.style.left = '90px';
-        gwen.style.width = '268px';
-        gwen.style.height = '417px';
-        gwen.style.filter = '';
+    const todosLosHeroes = document.querySelectorAll('.heroes');
 
-        peter.style.top = '180px';
-        peter.style.left = '293px';
-        peter.style.width = '417px';
-        peter.style.height = '458px';
-        peter.style.filter = '';
-
-        miles.style.top = '180px';
-        miles.style.right = '88px';
-        miles.style.width = '314px';
-        miles.style.height = '399px';
-        miles.style.filter = '';
-
-        fondoColor.src = '';
-        fondoColor.style.opacity = '0';
-        fondo.src = 'images/seccion-about-spiders.png';
-        fondo.style.zIndex = '-1';
-        //popup.style.opacity = 0;
-        popup.style.height= "0px";
-    }
-    
     gwen.addEventListener('mouseenter', function () {
         gwen.style.top = '114px';
         gwen.style.left = '80px';
@@ -107,10 +82,32 @@ document.addEventListener("DOMContentLoaded", function () {
         fondo.style.zIndex = 1;
     })
 
-    gwen.addEventListener('mouseleave', () => {
-        reset();    })
-    peter.addEventListener('mouseleave', () => {
-        reset();    })
-    miles.addEventListener('mouseleave', () => {
-        reset();    })
+    for (const heroe of todosLosHeroes) {
+        heroe.addEventListener('mouseleave', () => {
+            gwen.style.top = '171px';
+            gwen.style.left = '90px';
+            gwen.style.width = '268px';
+            gwen.style.height = '417px';
+            gwen.style.filter = '';
+
+            peter.style.top = '180px';
+            peter.style.left = '293px';
+            peter.style.width = '417px';
+            peter.style.height = '458px';
+            peter.style.filter = '';
+
+            miles.style.top = '180px';
+            miles.style.right = '88px';
+            miles.style.width = '314px';
+            miles.style.height = '399px';
+            miles.style.filter = '';
+
+            fondoColor.src = '';
+            fondoColor.style.opacity = '0';
+            fondo.src = 'images/seccion-about-spiders.png';
+            fondo.style.zIndex = '-1';
+            //popup.style.opacity = 0;
+            popup.style.height = "0px";
+        })
+    }
 })
