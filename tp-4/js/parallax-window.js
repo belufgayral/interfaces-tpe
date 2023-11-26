@@ -2,10 +2,11 @@ import { stickyHeader } from "./parallax-header.js";
 import { parallaxMain } from "./parallax-section1.js";
 import { scrollGoblin } from "./parallax-section2.js";
 import { fadeInCards } from "./fade-in-section3.js";
+import { scrollCards } from "./parallax-section4.js";
 
 window.onscroll = function () {
     let y = window.scrollY;
-    console.log(y);
+    // console.log(y);
 
     //función importada que manipula el comportamiento del header.
     stickyHeader(y);
@@ -18,4 +19,7 @@ window.onscroll = function () {
 
     //función importada que desplaza las cards de la section-3 desde abajo al ser visibles.
     fadeInCards(y);
+
+    //función importada que desplaza las cards de la section-4 a destiempo.
+    scrollCards(y);
 }
