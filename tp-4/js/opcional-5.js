@@ -107,17 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
         fondo.style.zIndex = 1;
     })
 
-    function leaveHero() {
-        reset();
-    }
-
     gwen.addEventListener('mouseleave', () => {
-        leaveHero();
-    })
+        reset();    })
     peter.addEventListener('mouseleave', () => {
-        leaveHero();
-    })
+        reset();    })
     miles.addEventListener('mouseleave', () => {
-        leaveHero();
-    })
+        reset();    })
 })
