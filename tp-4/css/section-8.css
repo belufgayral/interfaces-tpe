@@ -68,7 +68,7 @@
 
 #character-1:hover {
     background: url("../resources/section-8/spiderman-ssheet-x.png") left center;
-    animation: movementOfSpiderAnimation 2.2s steps(2) infinite;
+    animation: movementOfSpiderAnimation 1.7s steps(4) infinite;
 }
 
 @keyframes movementOfSpiderAnimation {
@@ -77,7 +77,7 @@
     }
 
     100% {
-        background-position: 23% 0px;
+        background-position: 41% 0px;
     }
 }
 
