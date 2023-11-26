@@ -1,5 +1,5 @@
 .sec7 {
-    height: 967px;
+    height: 287px;
 }
 
 .sec7 h1 {
@@ -33,4 +33,69 @@
 .sec7 .characters img:nth-child(3) {
     top: 428px;
     left: 777px;
+}
+
+/* opt5 */
+
+#seccion-about-spiders {
+	position: relative;
+	width: 100%;
+	height: 720px;
+}
+
+#seccion-about-spiders-fondo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+
+#seccion-about-spiders-fondo-color {
+	position: absolute;
+	width: 100%;
+	height: 842px;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0;
+}
+
+#seccion-about-spiders-personajes {
+	position: relative;
+	width: 1080px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#gwen-seccion-about,
+#peter-seccion-about,
+#miles-seccion-about {
+	position: absolute;
+	z-index: 10;
+	cursor: pointer;
+	transition: top 800ms, left 800ms, right 800ms,
+    width 800ms, height 800ms, filter 800ms;
+}
+
+#gwen-seccion-about {
+	top: 171px;
+	left: 90px;
+	width: 268px;
+	height: 417px;
+}
+
+#peter-seccion-about {
+	top: 180px;
+	left: 293px;
+	width: 417px;
+	height: 458px;
+}
+
+#miles-seccion-about {
+	top: 180px;
+	right: 88px;
+	width: 314px;
+	height: 399px;
 }
