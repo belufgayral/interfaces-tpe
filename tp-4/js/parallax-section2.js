@@ -8,7 +8,7 @@ function scrollGoblin(y) {
     
     //mientras el duende está visible, modifica su position:top a menor velocidad que el scrolleo.
     if (y > 450 && y < 1600) {
-        let top = (y - 1200) * 0.1;
+        let top = (y - 1500) * 0.1;
         goblin.style.top = top + "px";
     }
 }
