@@ -11,6 +11,11 @@
     gap: 36px;
 }
 
+.sec3 div div img {
+    margin-top: 20px;
+    /* transition: all 0.5s ease-in-out; */
+}
+
 .sec3 div p {
     width: 333px;
     margin: 16.31px 0px 0px 0px;

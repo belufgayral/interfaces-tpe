@@ -11,5 +11,5 @@ function changeCross() {
     hr2.classList.toggle('animation-disappears');
     hr3.classList.toggle('animation-rotate-negative');
     menuDesplegable.classList.toggle('no-visible');
-    blackBg.classList.toggle('no-visible');
+    blackBg.classList.toggle('display-none');
 }
