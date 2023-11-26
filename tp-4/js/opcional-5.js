@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             bgColor.src = '';
             bgColor.style.opacity = '0';
-            fondo.src = 'resources/section-7/spiders.png';
+            fondo.src = 'resources/section-7/background-solid.png';
             fondo.style.zIndex = '-1';
         })
     }
