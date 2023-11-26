@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log('entering document')
-    let fondo = document.querySelector('#seccion-about-spiders-fondo');
-    let fondoColor = document.querySelector('#seccion-about-spiders-fondo-color');
+    let fondo = document.querySelector('.hero-spiders-bg');
+    let bgColor = document.querySelector('.hero-spiders-bgC');
 
-    let gwen = document.querySelector('#gwen-seccion-about');
-    let peter = document.querySelector('#peter-seccion-about');
-    let miles = document.querySelector('#miles-seccion-about');
+    let gwen = document.querySelector('.gwen');
+    let peter = document.querySelector('.peter');
+    let miles = document.querySelector('.miles');
 
-    const heroesContainer = document.querySelector('#heroes')
     const todosLosHeroes = document.querySelectorAll('.heroes');
 
     gwen.addEventListener('mouseenter', function () {
-        console.log('entering gwen')
         gwen.style.top = '114px';
         gwen.style.left = '80px';
         gwen.style.width = '395px';
@@ -29,14 +27,13 @@ document.addEventListener("DOMContentLoaded", function () {
         miles.style.height = '309px';
         miles.style.filter = 'blur(5px)';
 
-        fondoColor.src = 'resources/section-7/fondo-gwen-about.png';
-        fondoColor.style.opacity = 1;
-        fondoColor.style.zIndex = 2;
+        bgColor.src = 'resources/section-7/gwenBg.png';
+        bgColor.style.opacity = 1;
+        bgColor.style.zIndex = 2;
         fondo.style.zIndex = 1;
     })
 
     peter.addEventListener('mouseenter', function () {
-        console.log('entering peter')
         peter.style.top = '116px';
         peter.style.left = '184px';
         peter.style.width = '616px';
@@ -54,14 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
         miles.style.height = '327px';
         miles.style.filter = 'blur(5px)';
 
-        fondoColor.src = 'resources/section-7/fondo-peter-about.png';
-        fondoColor.style.opacity = 1;
-        fondoColor.style.zIndex = 2;
+        bgColor.src = 'resources/section-7/peterBg.png';
+        bgColor.style.opacity = 1;
+        bgColor.style.zIndex = 2;
         fondo.style.zIndex = 1;
     })
 
     miles.addEventListener('mouseenter', function () {
-        console.log('entering miles')
         miles.style.top = '63px';
         miles.style.right = '-11px';
         miles.style.width = '497px';
@@ -79,9 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
         peter.style.height = '387px';
         peter.style.filter = 'blur(5px)';
 
-        fondoColor.src = 'resources/section-7/fondo-miles-about.png';
-        fondoColor.style.opacity = 1;
-        fondoColor.style.zIndex = 2;
+        bgColor.src = 'resources/section-7/milesBg.png';
+        bgColor.style.opacity = 1;
+        bgColor.style.zIndex = 2;
         fondo.style.zIndex = 1;
     })
 
@@ -105,9 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
             miles.style.height = '399px';
             miles.style.filter = '';
 
-            fondoColor.src = '';
-            fondoColor.style.opacity = '0';
-            fondo.src = 'resources/section-7/seccion-about-spiders.png';
+            bgColor.src = '';
+            bgColor.style.opacity = '0';
+            fondo.src = 'resources/section-7/spiders.png';
             fondo.style.zIndex = '-1';
         })
     }

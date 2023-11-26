@@ -37,14 +37,12 @@
 
 /* opt5 */
 
-#seccion-about-spiders {
-	position: relative;
+.sec7-2 {
 	width: 100%;
 	height: 720px;
 }
 
-#seccion-about-spiders-fondo {
-	position: absolute;
+.hero-spiders-bg {
 	width: 100%;
 	height: 100%;
 	top: 0;
@@ -52,8 +50,7 @@
 	z-index: -1;
 }
 
-#seccion-about-spiders-fondo-color {
-	position: absolute;
+.hero-spiders-bgC {
 	width: 100%;
 	height: 842px;
 	top: 0;
@@ -62,38 +59,36 @@
 	opacity: 0;
 }
 
-#seccion-about-spiders-personajes {
-	position: relative;
+.spiders-pjs {
 	width: 1080px;
 	height: 100%;
 	margin: 0 auto;
 }
 
-#gwen-seccion-about,
-#peter-seccion-about,
-#miles-seccion-about {
-	position: absolute;
+.gwen,
+.peter,
+.miles {
 	z-index: 10;
 	cursor: pointer;
 	transition: top 800ms, left 800ms, right 800ms,
     width 800ms, height 800ms, filter 800ms;
 }
 
-#gwen-seccion-about {
+.gwen {
 	top: 171px;
 	left: 90px;
 	width: 268px;
 	height: 417px;
 }
 
-#peter-seccion-about {
+.peter {
 	top: 180px;
 	left: 293px;
 	width: 417px;
 	height: 458px;
 }
 
-#miles-seccion-about {
+.miles {
 	top: 180px;
 	right: 88px;
 	width: 314px;
