@@ -23,6 +23,15 @@ body {
     overflow-x:scroll;
 }
 
+.black-bg {
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+
 /* ANIMATIONS */
 
 @keyframes appears {
@@ -35,4 +44,32 @@ body {
       transform: scale(1);
       opacity: 1
     }
+  }
+
+  @keyframes disappears {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(0);
+      opacity: 0
+    }
+  }
+
+
+  /* CLASES ANIMATION */
+
+  .animation-disappears {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  .animation-rotate-positive {
+    transform: translateY(12px) rotate(45deg);
+  }
+
+  .animation-rotate-negative {
+    transform: translateY(-12px) rotate(-45deg);
   }

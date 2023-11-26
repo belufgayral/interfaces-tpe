@@ -3,8 +3,8 @@ header {
     height: 118px;
     top: 0px;
     /* background-color: blueviolet; */
-    /* background-color: #5499F8; */
-    background: linear-gradient(180deg, rgba(84, 152, 247, 1) 0%, rgba(84, 152, 247, 0.6) 87.91%, rgba(84, 153, 248, 0.00) 100%);
+    background-color: rgba(84, 152, 247, 0.8);
+    /* background: linear-gradient(180deg, rgba(84, 152, 247, 1) 0%, rgba(84, 152, 247, 0.6) 95%, rgba(84, 153, 248, 0.00) 100%); */
     transition: all 0.3s ease-in-out;
 }
 
@@ -12,6 +12,7 @@ header div {
     width: inherit;
     height: inherit;
 }
+
 header .logo {
     top: 17px;
     left: 574px;
@@ -25,20 +26,27 @@ header .logo {
     background: linear-gradient(180deg, #5499F8 0%, #5499F8 87.91%, rgba(84, 153, 248, 0.00) 100%);
 }
 
-header .menu {
+header .menu-hamburguesa {
     width: 42px;
     height: 34px;
     top: 16px;
     left: 94px;
     filter: drop-shadow(4px 5px 0px #02187E);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
-header .menu hr {
+header .menu-hamburguesa hr {
     height: 4px;
     border-radius: 111px;
     border: 4px solid #2981FF;
     background: #FFE901;
     margin: 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+header .menu-hamburguesa:hover {
+    transform: scale(1.05);
 }
 
 header a {
@@ -47,3 +55,28 @@ header a {
     top: 12px;
     right: 92px;
 }
+
+header menu {
+    width: 200px;
+    height: 250px;
+    top: 95px;
+    border-radius: 0px 0px 50px 0px;
+    background: rgba(84, 152, 247, 0.8);
+    opacity: 1;
+    margin: 0px;
+    padding-top: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+header menu p {
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+header menu p:hover {
+    color: #fdf9cb;
+    transform: scale(1.1);
+    transform-origin: center;
+}
+
