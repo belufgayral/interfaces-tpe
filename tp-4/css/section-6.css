@@ -75,3 +75,19 @@
 #text-4 {
     padding-bottom: 125px;
 }
+
+.sec6 .scroll-sign {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    font-size: 40px;
+    height: 200px;
+    top: 446px;
+    left: 1032px;
+    background: rgba(255, 0, 0, 1);
+    margin: 0px;
+    border-radius: 200px;
+    transform: rotate(-20deg);
+    transition: all 0.3s ease-in-out;
+}

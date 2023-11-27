@@ -9,6 +9,8 @@ const text2 = document.querySelector("#text-2");
 const text3 = document.querySelector("#text-3");
 const text4 = document.querySelector("#text-4");
 
+const scrollSign = document.querySelector("#scroll-sign");
+
 container.onscroll = function () {
     let y = container.scrollTop;
     // console.log(y);
@@ -65,3 +67,11 @@ container.onscroll = function () {
         text4.classList.remove("no-visible");
     }
 };
+
+container.addEventListener("mouseenter", () => {
+    scrollSign.style.background = "rgba(255, 0, 0, 0.4)";
+});
+
+container.addEventListener("mouseleave", () => {
+    scrollSign.style.background = "rgba(255, 0, 0, 1)";
+});
