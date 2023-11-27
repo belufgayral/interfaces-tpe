@@ -25,11 +25,12 @@
 
 .sec6 .container {
     width: inherit;
-    height: 300px;
+    height: 350px;
     overflow-x: hidden;
     background-color: white;
     top: 167px;
     padding: 50px 0px 50px 0px;
+    scroll-behavior: smooth;
 }
 
 .sec6 .container::-webkit-scrollbar {
@@ -69,4 +70,8 @@
     width: 467px;
     line-height: 18.9px;
     margin: 25px 0px 0px 0px;
+}
+
+#text-4 {
+    padding-bottom: 125px;
 }

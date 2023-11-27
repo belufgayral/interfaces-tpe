@@ -6,7 +6,7 @@ import { scrollCards } from "./parallax-section4.js";
 
 window.onscroll = function () {
     let y = window.scrollY;
-    // console.log(y);
+    console.log(y);
 
     //función importada que manipula el comportamiento del header.
     stickyHeader(y);

@@ -11,28 +11,28 @@ const text4 = document.querySelector("#text-4");
 
 container.onscroll = function () {
     let y = container.scrollTop;
-    console.log(y);
+    // console.log(y);
 
     //Movimiento scrolling de las imágenes
-    if (y < 320) {
+    if (y < 240) {
         card1.classList.remove("no-visible");
         card2.classList.add("no-visible");
         card3.classList.add("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 320) {
+    if (y > 240) {
         card1.classList.add("no-visible");
         card2.classList.remove("no-visible");
         card3.classList.add("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 700) {
+    if (y > 540) {
         card1.classList.add("no-visible");
         card2.classList.add("no-visible");
         card3.classList.remove("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 1100) {
+    if (y > 1000) {
         card1.classList.add("no-visible");
         card2.classList.add("no-visible");
         card3.classList.add("no-visible");
