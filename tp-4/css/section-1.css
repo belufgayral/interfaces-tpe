@@ -16,7 +16,6 @@
 }
 
 .logo-sticky {
-    /* position: sticky !important; */
     top: -110px !important;
     left: 350px !important;
     transform: scale(0.25);
@@ -37,11 +36,6 @@
 .sec1 .main-figures .spider-webs img {
     animation: appears 0.6s 1;
 }
-
-/* .sec1 .main-figures .main-characters img:nth-child(1) {
-    left: 0px;
-    top: 53px;
-} */
 
 .sec1 .main-figures .main-characters {
     width: 998px;

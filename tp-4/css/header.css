@@ -2,9 +2,7 @@ header {
     width: inherit;
     height: 118px;
     top: 0px;
-    /* background-color: blueviolet; */
     background-color: rgba(84, 152, 247, 0.8);
-    /* background: linear-gradient(180deg, rgba(84, 152, 247, 1) 0%, rgba(84, 152, 247, 0.6) 95%, rgba(84, 153, 248, 0.00) 100%); */
     transition: all 0.3s ease-in-out;
 }
 
@@ -72,12 +70,9 @@ header menu .menu-item {
     color: white;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    /* animation: appears-left 1s 0.0s 1 forwards; */
 }
 
 header menu .menu-item:hover {
     color: #f8f2b1;
-    /* transform: scale(1.1);
-    transform-origin: center; */
 }
 

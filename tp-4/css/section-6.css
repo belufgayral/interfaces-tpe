@@ -2,7 +2,6 @@
     width: 1080px;
     height: 787px;
     padding: 0px 100px 0px 100px;
-    /* overflow-y: hidden; */
 }
 
 .sec6 .background-up {
@@ -77,8 +76,6 @@
 }
 
 .sec6 .scroll-sign {
-    /* justify-content: center;
-    align-items: center; */
     width: 200px;
     height: 200px;
     top: 460px;

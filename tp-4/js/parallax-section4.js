@@ -5,7 +5,6 @@ function scrollCards(y) {
     if (y < 1700) {
         for (let card of cards) {
             card.style.transform = "translateY(85px) rotate(0deg)";
-
         }
     }
 
