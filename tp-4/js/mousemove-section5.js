@@ -18,7 +18,7 @@ function avengersAnimation(e) {
         y: ((e.pageY - (divVeng.getBoundingClientRect().y + window.scrollY)) - divVeng.clientHeight / 2) / (divVeng.clientHeight / 6)
     };
 
-    char1.style.transform = `rotate(16deg) translate(${-offset1.x}px, ${-offset1.y}px)`;
+    char1.style.transform = `translate(${-offset1.x}px, ${-offset1.y}px)`;
     char2.style.transform = `translate( ${-offset2.x}px, ${-offset2.y}px)`;
     char3.style.transform = `translate( ${-offset3.x}px, ${-offset3.y}px)`;
 }
