@@ -10,6 +10,7 @@ const text3 = document.querySelector("#text-3");
 const text4 = document.querySelector("#text-4");
 
 const scrollSign = document.querySelector("#scroll-sign");
+const arrow = document.querySelector("#arrow-div");
 
 container.onscroll = function () {
     let y = container.scrollTop;
@@ -69,9 +70,13 @@ container.onscroll = function () {
 };
 
 container.addEventListener("mouseenter", () => {
-    scrollSign.style.background = "rgba(255, 0, 0, 0.4)";
+    scrollSign.style.background = "rgba(50, 108, 189, 0.4)";
+    arrow.style.animation = "pointing-at 0.7s infinite paused";
+    arrow.style.opacity = 0.2;
 });
 
 container.addEventListener("mouseleave", () => {
-    scrollSign.style.background = "rgba(255, 0, 0, 1)";
+    scrollSign.style.background = "rgba(50, 108, 189, 1)";
+    arrow.style.animation = "pointing-at 0.7s infinite";
+    arrow.style.opacity = 1;
 });

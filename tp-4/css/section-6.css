@@ -77,17 +77,30 @@
 }
 
 .sec6 .scroll-sign {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     width: 200px;
-    font-size: 40px;
     height: 200px;
-    top: 446px;
-    left: 1032px;
-    background: rgba(255, 0, 0, 1);
-    margin: 0px;
+    top: 460px;
+    left: 50px;
+    background: rgba(50, 108, 189);
     border-radius: 200px;
-    transform: rotate(-20deg);
     transition: all 0.3s ease-in-out;
+    box-shadow: -12px 10px 18px -5px rgba(0,0,0,0.75);
+}
+
+.sec6 .scroll-sign #arrow-div {
+    width: fit-content;
+    height: fit-content;
+    margin: 0px 0px 0px 35px;
+    transition: all 0.3s ease-in-out;
+    animation: pointing-at 0.7s infinite;
+}
+
+.sec6 .scroll-sign h1 {
+    justify-self: center;
+    align-self: center;
+    font-size: 40px;
+    transform: rotate(10deg);
+    margin: 0px 0px 60px 0px;
 }
