@@ -60,9 +60,6 @@
 }
 
 #character-1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     top: 866px;
     left: 192px;
     height: 60px;
@@ -72,10 +69,10 @@
     /* background: url('../resources/section-8/character-1.png') left center no-repeat; */
 }
 
-/* #character-1:hover {
+#character-1:hover {
     background: url("../resources/section-8/spiderman-ssheet-x.png") left center;
-    animation: movementOfSpiderAnimation 1.7s steps(4) infinite;
-} */
+    animation: movementOfSpiderAnimationOnHover 1.7s steps(2) infinite;
+}
 
 .sec8 .characters img:nth-child(2) {
     top: 1072px;

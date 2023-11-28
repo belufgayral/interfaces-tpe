@@ -100,6 +100,16 @@ main {
   }
 }
 
+@keyframes movementOfSpiderAnimationOnHover {
+  0% {
+    background-position: 48% 0px;
+  }
+
+  100% {
+    background-position: 70% 0px;
+  }
+}
+
 @keyframes progress {
   0% {
     width: 0%;
