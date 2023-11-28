@@ -9,30 +9,33 @@ const text2 = document.querySelector("#text-2");
 const text3 = document.querySelector("#text-3");
 const text4 = document.querySelector("#text-4");
 
+const scrollSign = document.querySelector("#scroll-sign");
+const arrow = document.querySelector("#arrow-div");
+
 container.onscroll = function () {
     let y = container.scrollTop;
-    console.log(y);
+    // console.log(y);
 
     //Movimiento scrolling de las imágenes
-    if (y < 320) {
+    if (y < 240) {
         card1.classList.remove("no-visible");
         card2.classList.add("no-visible");
         card3.classList.add("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 320) {
+    if (y > 240) {
         card1.classList.add("no-visible");
         card2.classList.remove("no-visible");
         card3.classList.add("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 700) {
+    if (y > 540) {
         card1.classList.add("no-visible");
         card2.classList.add("no-visible");
         card3.classList.remove("no-visible");
         card4.classList.add("no-visible");
     }
-    if (y > 1100) {
+    if (y > 1000) {
         card1.classList.add("no-visible");
         card2.classList.add("no-visible");
         card3.classList.add("no-visible");
@@ -65,3 +68,15 @@ container.onscroll = function () {
         text4.classList.remove("no-visible");
     }
 };
+
+container.addEventListener("mouseenter", () => {
+    scrollSign.style.background = "rgba(50, 108, 189, 0.4)";
+    arrow.style.animation = "pointing-at 0.7s infinite paused";
+    arrow.style.opacity = 0.2;
+});
+
+container.addEventListener("mouseleave", () => {
+    scrollSign.style.background = "rgba(50, 108, 189, 1)";
+    arrow.style.animation = "pointing-at 0.7s infinite";
+    arrow.style.opacity = 1;
+});
